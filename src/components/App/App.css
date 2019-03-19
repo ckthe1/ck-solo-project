@@ -9,9 +9,9 @@ body {
 }
 
 form {
-    background-color:rgb(69, 69, 236); 
+    /* background-color:rgb(69, 69, 236);  */
     width: 90%;
-    height: 200px;
+    height: 70px;
     margin: 20px auto;
     padding: 25px;
     border-radius: 2px;
@@ -23,7 +23,7 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: rgb(69, 69, 236);
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;

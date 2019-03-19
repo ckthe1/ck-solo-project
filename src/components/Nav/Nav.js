@@ -23,12 +23,15 @@ const Nav = (props) => (
             Student Reading Log
           </Link>
           <LogOutButton className="nav-link"/>
+       
+          <Link className="nav-link" to="/about">
+            Teacher Page
+          </Link>
         </>
       )}
+
       {/* Always show this link since the about page is not protected */}
-      <Link className="nav-link" to="/about">
-        Teacher Page
-      </Link>
+
     </div>
   </div>
 );

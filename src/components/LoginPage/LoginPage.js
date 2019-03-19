@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import Checkbox from '@material-ui/core/Checkbox';
 
 class LoginPage extends Component {
   state = {
     username: '',
     password: '',
+    checked: '',
   };
 
   login = (event) => {
@@ -24,12 +26,17 @@ class LoginPage extends Component {
   } // end login
 
   handleInputChangeFor = propertyName => (event) => {
+    console.log('event:',event.target.value);
+    
     this.setState({
       [propertyName]: event.target.value,
+
     });
   }
 
   render() {
+    console.log('cheked:',this.state);
+    
     return (
       <div>
         {this.props.errors.loginMessage && (
@@ -73,16 +80,31 @@ class LoginPage extends Component {
             />
           </div>
         </form>
-        <center>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
-          >
-            Register
+      
+          <div>
+            <center>
+              
+            <button
+              type="button"
+              className="link-button"
+              onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
+            >
+              Register as Teacher
           </button>
-        </center>
+            </center>
+          <center>
+
+            <button
+              type="button"
+              className="link-button"
+              onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_STUDENT' }) }}
+            >
+              Register as Student
+          </button>
+          </center>
+          </div>
       </div>
+      
     );
   }
 }
