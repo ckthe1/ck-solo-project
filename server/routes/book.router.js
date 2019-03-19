@@ -38,4 +38,19 @@ router.post('/',(req,res)=>{
             res.sendStatus(500);
         });
 });// end post router
+
+router.get('/', (req, res) => {
+    const queryText = (`SELECT  "title", "date_completed","initial"  FROM "date"
+                        JOIN "relationship" ON "date"."id" = "relationship"."date_id"
+                        JOIN "user" ON "user"."id" = "relationship"."student_id"
+                        JOIN "books" ON "books"."id" = "relationship"."book_id";`)
+    pool.query(queryText).then((result) => {
+        res.send(result.rows)
+        console.log('books get:', result.rows);
+    }).catch((error) => {
+        console.log('GET book request error');
+        res.sendStatus(500);
+    })
+});
+
 module.exports = router;

@@ -61,14 +61,14 @@ class StudentInfoPage extends Component {
     })
   }// end handleSubmit, add student to DB onSubmit
 
-  // componentDidMount() {
-  //   this.fetchBook();
-  // }
-  // fetchBook = () => {
-  //   //make call to server using sagas
-  //   console.log('going to get student');
-  //   this.props.dispatch({ type: 'FETCH_BOOK' });
-  // }
+  componentDidMount() {
+    this.fetchBook();
+  }
+  fetchBook = () => {
+    //make call to server using sagas
+    console.log('going to get, title, date, initial');
+    this.props.dispatch({ type: 'FETCH_BOOK' });
+  }
 
   render(){
     return (
@@ -87,14 +87,54 @@ class StudentInfoPage extends Component {
           <Button  type="submit" variant="contained" color="primary">Add Book</Button>        
       </form>
       </MuiThemeProvider>
+      <p>Total of book read:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Title of Book</th>
+            <th>Initial by Parents</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+              {this.props.bookReducer.map((bookItem)=> {
+                  return (
+                    <tr >
+                      <td key={bookItem.id}>
+                        {bookItem.date_completed}
+                    </td>
+                    <td>
+                      {bookItem.title}
+                    </td>
+                    <td>
+                      {bookItem.initial}
+                    </td>
+                    </tr>
+                  )
+
+              }
+                )}
+
+         
+         
+          
+        
+        </tbody>
+
+      </table>
+      <>
+      {JSON.stringify(this.props.bookReducer)}
+      </>
     </div>
  
     );
   }
 }
 
-const mapStateToProps = reduxState => ({
-  reduxState,
-});
+const mapStateToProps = reduxState => {
+  return reduxState
+};
 export default (connect(mapStateToProps)(StudentInfoPage));
 // export default StudentInfoPage;
