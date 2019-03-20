@@ -35,7 +35,7 @@ class LoginPage extends Component {
   }
 
   render() {
-    console.log('cheked:',this.state);
+    console.log('checked:',this.state);
     
     return (
       <div>

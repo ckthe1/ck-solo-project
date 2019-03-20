@@ -3,26 +3,32 @@ const router = express.Router();
 const pool = require('../modules/pool');
 
 router.post('/',(req,res)=>{
-    console.log('for Tj', req.body);
+    console.log('post route:', req.body);
     
     const newBook = req.body;
     const queryText = `INSERT INTO "books" ("title") 
-                        VALUES ($1)`;
+                        VALUES ($1) RETURNING id`;
     const queryValues = [
         newBook.title,
     ];
     pool.query(queryText, queryValues)
 
-        .then(() => {
+        .then((responseTitle) => {
+            console.log('responseTitle', responseTitle.rows);
+            const newId = responseTitle.rows; 
+
             const newBook = req.body;
             const queryText = `INSERT INTO "date" ("date_completed") 
-                                VALUES ($1)`;
+                                VALUES ($1) RETURNING id`;
             const queryValues = [
                 newBook.date_completed,
             ];
             pool.query(queryText, queryValues)})
 
-        .then(() => {
+        .then((responseDate) => {
+            console.log('responseDate', responseDate);
+           
+            
             const newBook = req.body;
             const queryText = `INSERT INTO "relationship" ("initial") 
                                 VALUES ($1)`;
@@ -32,7 +38,9 @@ router.post('/',(req,res)=>{
             pool.query(queryText, queryValues)
         })
 
-        .then(() => { res.sendStatus(201); })
+        .then((responseInitial) => { 
+            console.log('responseInitial', responseInitial);
+            res.sendStatus(201); })       
         .catch((err) => {
             console.log('Error completing SELECT book query', err);
             res.sendStatus(500);

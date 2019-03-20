@@ -24,7 +24,7 @@ function* fetchBook() {
     try {
         const bookResponse = yield axios.get('/book');
         yield dispatch({ type: 'GET_BOOK', payload: bookResponse.data })
-        console.log('TJ', bookResponse.data);
+        console.log('fetchBook:', bookResponse.data);
         
     } catch (error) {
         console.log('saga Error with your fetchBook info');
