@@ -14,7 +14,7 @@ router.post('/',(req,res)=>{
     pool.query(queryText, queryValues)
 
         .then((responseTitle) => {
-            console.log('responseTitle', responseTitle.rows);
+            console.log('responseTitle', responseTitle.rows);// id of title inserted
             const newId = responseTitle.rows; 
 
             const newBook = req.body;
