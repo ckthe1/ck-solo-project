@@ -68,7 +68,7 @@ class StudentInfoPage extends Component {
       user: this.props.user.id,
      
     })
-    // this.fetchBook();
+    this.fetchBook();
   }// end handleSubmit, add student to DB onSubmit
 
   componentDidMount() {
