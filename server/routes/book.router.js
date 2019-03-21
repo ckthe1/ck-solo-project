@@ -2,67 +2,75 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
+let dataIds = [];
 router.post('/',(req,res)=>{
-    console.log('1111post route:', req.body);
+    console.log('req.body:', req.body);
     
     const newBook = req.body;
-    const queryText = 
-    // `WITH "date" AS (
-    //     INSERT INTO "date"  ("date_completed") 
-    //     VALUES ($1))
-        `INSERT INTO "books" ("title")
-        VALUES ($1) RETURNING id; `;
-    const queryValues = [
-        // newBook.date_completed,
-        newBook.title   
-    ];
-    pool.query(queryText, queryValues)
-   
-        .then((res) => {
-            console.log('response2', res.rows[0].id);
-            const bookId = res.rows[0].id;
-            const queryText = `INSERT INTO "relationship" ("book_id") 
-                                VALUES ($1)`;
-            const queryValues = [
-                bookId,
-            ];
-            pool.query(queryText, queryValues)
-        })
-
-        .then(() => {
-            console.log('response1', res.rows);// id of title inserted
-            const newId = res.rows[0].id; 
-
-            const newBook = req.body;
-            const queryText = `INSERT INTO "date" ("date_completed") 
-                                VALUES ($1) RETURNING id`;
+            const queryText = `INSERT INTO "date" ("date_completed")
+                                VALUES ($1) RETURNING id`;                               
             const queryValues = [
                 newBook.date_completed,
             ];
-            pool.query(queryText, queryValues)
-        })
-        .then((res) => {
-            console.log('response3', res.rows[0].id);
-            const dateId = res.rows[0].id;
-            const queryText = `INSERT INTO "relationship" ("date_id") 
-                                VALUES ($1)`;
-            const queryValues = [
-                dateId,
-            ];
-            pool.query(queryText, queryValues)
-        })
-        // .then((res) => {
-        //     console.log('response2', res.rows);
-           
-            
-        //     const newBook = req.body;
-        //     const queryText = `INSERT INTO "relationship" ("initial") 
+            pool.query(queryText, queryValues) 
+        .then((res) => {           
+            console.log('responseDate', res.rows[0].id);                                  
+            dataIds.push(res.rows[0].id)      
+                   
+        //     let queryText = `INSERT INTO "relationship" ("date_id") 
         //                         VALUES ($1)`;
-        //     const queryValues = [
-        //         newBook.initial,
+        //     let queryValues = [
+        //         dataIds[0],
         //     ];
         //     pool.query(queryText, queryValues)
-        // })
+        })
+
+        .then(() => {
+            const newBook = req.body;
+            const queryText = `INSERT INTO "books" ("title")
+                                 VALUES ($1) RETURNING id`;
+            const queryValues = [
+                newBook.title,
+            ];
+            pool.query(queryText, queryValues)
+                .then((res) => {
+                
+                    console.log('responseBook', res.rows[0].id);
+                    dataIds.push(res.rows[0].id)
+
+                //     let queryText = `INSERT INTO "relationship" ("book_id") 
+                //                         VALUES ($1)`;
+                //     let queryValues = [
+                //         dataIds[1],
+                //     ];
+                //     pool.query(queryText, queryValues)
+                // })
+            })
+            .then(() => {
+                const newBook = req.body;
+                const queryText = `INSERT INTO "relationship" ("date_id","book_id","initial", "student_id")
+                                VALUES ($1,$2,$3,$4) RETURNING id`;
+                const queryValues = [
+                    dataIds[0],
+                    dataIds[1],
+                    newBook.initial,
+                    newBook.user,
+                ];
+                pool.query(queryText, queryValues)
+                    // .then((res) => {
+                    //     // let dataIds = [];
+                    //     console.log('response', res.rows[0].id);
+                    //     dataIds.push(res.rows[0].id)
+
+                    //     let queryText = `INSERT INTO "relationship" ("book_id") 
+                    //                 VALUES ($1)`;
+                    //     let queryValues = [
+                    //         dataIds[2],
+                    //     ];
+                    //     pool.query(queryText, queryValues)
+                    })
+            })
+
 
         // .then(() => { 
         //     res.sendStatus(201); })       

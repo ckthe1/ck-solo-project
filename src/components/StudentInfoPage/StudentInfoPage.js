@@ -34,6 +34,7 @@ class StudentInfoPage extends Component {
     title: '',
     date_completed: '',  
     initial:'',
+    user: this.props.user.id,
    
   };
 
@@ -64,8 +65,10 @@ class StudentInfoPage extends Component {
       title: '',
       date_completed: '',
       initial: '',
+      user: this.props.user.id,
      
     })
+    // this.fetchBook();
   }// end handleSubmit, add student to DB onSubmit
 
   componentDidMount() {
