@@ -17,8 +17,8 @@ import red from '@material-ui/core/colors/red';
 // or even care what the redux state is, so it doesn't need 'connect()'
 const theme = createMuiTheme({
   palette: {
-    primary: red,
-    secondary: cyan,
+    primary: cyan,
+    secondary: red,
     error: red,
     contrastThreshold: 3,
     tonalOffset: 0.2,
@@ -34,9 +34,13 @@ class StudentInfoPage extends Component {
     title: '',
     date_completed: '',  
     initial:'',
+   
   };
 
+//  
 
+  
+    
   handleChange = (property) => (event) => {
     console.log(event.target.value)
     event.preventDefault();
@@ -51,6 +55,8 @@ class StudentInfoPage extends Component {
     if (this.state.title === '' && this.state.date_completed ===''){
       alert('BOOK TITLE, DATE AND INITIAL CANNOT BE EMPTY')
     }else{
+
+    
       this.props.dispatch({ type: 'ADD_BOOK', payload: this.state });
 
     }
@@ -58,6 +64,7 @@ class StudentInfoPage extends Component {
       title: '',
       date_completed: '',
       initial: '',
+     
     })
   }// end handleSubmit, add student to DB onSubmit
 
@@ -71,12 +78,16 @@ class StudentInfoPage extends Component {
   }
 
   render(){
+    console.log('TJ', this.props.bookReducer);
+    console.log('STATE',this.state);
+    
+    
     return (
       <div >
         <MuiThemeProvider theme={theme}>
         <div className="studentPageBody" >
           <h1>Reading is Oh So Sweet</h1>
-      </div>
+        </div>
           <form onSubmit={this.handleSubmit}>         
             <input type="text" value={this.state.title} onChange={this.handleChange('title')} placeholder="Book title" size="40"/>
             <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} /> 
@@ -85,48 +96,49 @@ class StudentInfoPage extends Component {
           <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} placeholder="initials" size="6"/>
           </div>          
           <Button  type="submit" variant="contained" color="primary">Add Book</Button>        
-      </form>
-      </MuiThemeProvider>
-      <p>Total of book read:</p>
+          </form>
+     
+          <p>Total of book read:</p>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Title of Book</th>
-            <th>Initial by Parents</th>
-          </tr>
-        </thead>
-        <tbody>
-          
+          <table>
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Date</th>
+                <th>Book title</th>
+                <th>Initial by a Parent</th> 
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>    
+              
+
               {this.props.bookReducer.map((bookItem)=> {
                   return (
+     
                     <tr >
+                      <td>
+                        {bookItem.date_completed_id}
+                      </td>
                       <td key={bookItem.id}>
                         {bookItem.date_completed}
-                    </td>
-                    <td>
-                      {bookItem.title}
-                    </td>
-                    <td>
-                      {bookItem.initial}
-                    </td>
+                      </td>
+                      <td>
+                        {bookItem.title}
+                      </td>
+                      <td>
+                        {bookItem.initial}
+                      </td>
+                      <td>
+                        <Button variant="contained" color="secondary">Delete</Button>
+                      </td>
                     </tr>
                   )
-
-              }
-                )}
-
-         
-         
-          
-        
-        </tbody>
-
-      </table>
-      <>
-      {JSON.stringify(this.props.bookReducer)}
-      </>
+                 }
+             )}        
+          </tbody>
+        </table>
+        </MuiThemeProvider>
     </div>
  
     );
