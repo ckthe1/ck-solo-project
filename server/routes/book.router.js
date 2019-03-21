@@ -62,14 +62,16 @@ router.get('/', (req, res) => {
 
 
 router.delete('/:id', (req,res)=>{
-    const queryText = (` DELETE FROM "relationship" WHERE "id"=$1; `)
+    console.log('THESE ARE MY REQ.PARAMS', req.params);
+    
+    const queryText = ` DELETE FROM "relationship" WHERE "book_id"=$1 ; `
     const queryValues = [
         req.params.id
     ];
     console.log('req.params.id:relationship', req.params.id);
     pool.query(queryText,queryValues)
     .then(() => {
-        const queryText = (` DELETE FROM "date" WHERE "id"=$1,  `)
+        const queryText = ` DELETE FROM "books" WHERE "id"=$2,  `
         const queryValues = [
             req.params.id
         ];
@@ -77,12 +79,12 @@ router.delete('/:id', (req,res)=>{
         pool.query(queryText, queryValues)
     })
     .then(() => {
-        const queryText = (` DELETE FROM "books" WHERE "id"=$1; `)
-        const queryValues = [
-            req.params.id
-        ];
-        console.log('req.params.id:books', req.params.id);
-        pool.query(queryText, queryValues)
+    //     const queryText = (` DELETE FROM "date" WHERE "id"=$1; `)
+    //     const queryValues = [
+    //         req.params.id
+    //     ];
+    //     console.log('req.params.id:books', req.params.id);
+    //     pool.query(queryText, queryValues)
 
         res.sendStatus(200);
     }).catch((err) => {
