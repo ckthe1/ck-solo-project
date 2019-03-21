@@ -32,16 +32,16 @@ const theme = createMuiTheme({
 class StudentInfoPage extends Component {
   state = {
     title: '',
-    date_completed: '',  
-    initial:'',
+    date_completed: '',
+    initial: '',
     user: this.props.user.id,
-   
+
   };
 
-//  
+  //  
 
-  
-    
+
+
   handleChange = (property) => (event) => {
     console.log(event.target.value)
     event.preventDefault();
@@ -51,13 +51,13 @@ class StudentInfoPage extends Component {
     });
   };// get inputs infos onChange
 
-  handleSubmit= (event)=>{
+  handleSubmit = (event) => {
     event.preventDefault();
-    if (this.state.title === '' && this.state.date_completed ===''){
+    if (this.state.title === '' && this.state.date_completed === '') {
       alert('BOOK TITLE, DATE AND INITIAL CANNOT BE EMPTY')
-    }else{
+    } else {
 
-    
+
       this.props.dispatch({ type: 'ADD_BOOK', payload: this.state });
 
     }
@@ -66,7 +66,7 @@ class StudentInfoPage extends Component {
       date_completed: '',
       initial: '',
       user: this.props.user.id,
-     
+
     })
     this.fetchBook();
   }// end handleSubmit, add student to DB onSubmit
@@ -80,70 +80,66 @@ class StudentInfoPage extends Component {
     this.props.dispatch({ type: 'FETCH_BOOK' });
   }
 
-  render(){
+  render() {
     console.log('TJ', this.props.bookReducer);
-    console.log('STATE',this.state);
-    
-    
+    console.log('STATE', this.state);
+
+
     return (
       <div >
         <MuiThemeProvider theme={theme}>
-        <div className="studentPageBody" >
-          <h1>Reading is Oh So Sweet</h1>
-        </div>
-          <form onSubmit={this.handleSubmit}>         
-            <input type="text" value={this.state.title} onChange={this.handleChange('title')} placeholder="Book title" size="40"/>
-            <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} /> 
-          <div>
-          Parent initial Here:
-          <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} placeholder="initials" size="6"/>
-          </div>          
-          <Button  type="submit" variant="contained" color="primary">Add Book</Button>        
+          <div className="studentPageBody" >
+            <h1>Reading is Oh So Sweet</h1>
+          </div>
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" value={this.state.title} onChange={this.handleChange('title')} placeholder="Book title" size="40" />
+            <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} />
+            <div>
+              Parent initial Here:
+          <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} placeholder="initials" size="6" />
+            </div>
+            <Button type="submit" variant="contained" color="primary">Add Book</Button>
           </form>
-     
+
           <p>Total of book read:</p>
 
           <table>
             <thead>
-              <tr>
-                <th>id</th>
+              <tr>            
                 <th>Date</th>
                 <th>Book title</th>
-                <th>Initial by a Parent</th> 
+                <th>Initial by a Parent</th>
                 <th>Delete</th>
               </tr>
             </thead>
-            <tbody>    
-              
+            <tbody>
+              {this.props.bookReducer.map((bookItem) => {
+                return (
 
-              {this.props.bookReducer.map((bookItem)=> {
-                  return (
-     
-                    <tr >
-                      <td>
-                        {bookItem.date_completed_id}
-                      </td>
-                      <td key={bookItem.id}>
-                        {bookItem.date_completed}
-                      </td>
-                      <td>
-                        {bookItem.title}
-                      </td>
-                      <td>
-                        {bookItem.initial}
-                      </td>
-                      <td>
-                        <Button variant="contained" color="secondary">Delete</Button>
-                      </td>
-                    </tr>
+                  <tr key={bookItem.id}>
+                    <td>
+                      {new Date(bookItem.date_completed).getMonth() + 1}/
+                      {new Date(bookItem.date_completed).getDate()}/
+                      {new Date(bookItem.date_completed).getFullYear()}
+                    </td>
+                    <td>
+                      {bookItem.title}
+                    </td>
+                    <td>
+                      {bookItem.initial}
+                    </td>
+                    <td>
+                      <Button variant="contained" color="secondary">Delete</Button>
+                    </td>
+                  </tr>
                   )
                  }
-             )}        
-          </tbody>
-        </table>
+              )}
+            </tbody>
+          </table>
         </MuiThemeProvider>
-    </div>
- 
+      </div>
+
     );
   }
 }
