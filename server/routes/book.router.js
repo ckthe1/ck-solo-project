@@ -47,11 +47,16 @@ router.post('/',(req,res)=>{
 });// end post router
 
 router.get('/', (req, res) => {
+    console.log('req.user.id', req.user.id);
+    
     const queryText = (`SELECT  "title", "date_completed","initial", "date"."id" AS "date_completed_id", "books"."id" AS "book_id_id" FROM "date"
                 JOIN "relationship" ON "date"."id" = "relationship"."date_id"
                 JOIN "user" ON "user"."id" = "relationship"."student_id"
-                JOIN "books" ON "books"."id" = "relationship"."book_id";`)
-    pool.query(queryText).then((result) => {
+                JOIN "books" ON "books"."id" = "relationship"."book_id"
+                WHERE "user"."id" = $1;`
+                
+                )
+    pool.query(queryText,[req.user.id]).then((result) => {
         res.send(result.rows)
         console.log('books get result.rows:', result.rows);
     }).catch((error) => {
