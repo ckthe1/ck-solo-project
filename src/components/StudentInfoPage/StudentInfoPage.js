@@ -36,6 +36,8 @@ class StudentInfoPage extends Component {
     initial: '',
     bookId: '',
     user: this.props.user.id,
+    count: this.props.bookReducer.length,
+
 
   };
 
@@ -68,6 +70,7 @@ class StudentInfoPage extends Component {
       initial: '',
       bookId: '',
       user: this.props.user.id,
+      count: '',
 
     })
     this.fetchBook();
@@ -110,7 +113,7 @@ class StudentInfoPage extends Component {
             <Button type="submit" variant="contained" color="primary">Add Book</Button>
           </form>
 
-          <p>Total of book read:</p>
+          <h1>Total of book read: {this.props.bookReducer.length}</h1>
 
           <table>
             <thead>

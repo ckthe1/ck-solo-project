@@ -24,7 +24,12 @@ function* fetchBook() {
     try {
         const bookResponse = yield axios.get('/book');
         yield dispatch({ type: 'GET_BOOK', payload: bookResponse.data })
-        console.log('fetchBook:', bookResponse.data);
+        console.log('IS THIS WORKING', bookResponse.data);
+        
+
+        // const countBook = yield axios.get('/book');
+        // yield dispatch({ type: 'COUNT_BOOK' });
+        // console.log('countBook sagas:', countBook.data);
         
     } catch (error) {
         console.log('saga Error with your fetchBook info');

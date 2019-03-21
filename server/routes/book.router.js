@@ -59,29 +59,42 @@ router.get('/', (req, res) => {
     pool.query(queryText,[req.user.id]).then((result) => {
         res.send(result.rows)
         console.log('books get result.rows:', result.rows);
-    }).catch((error) => {
+    })
+    .catch((error) => {
         console.log('GET book request error');
         res.sendStatus(500);
     })
 });
 
+// router.get('/countBook', (req, res) => {
+
+// }).catch((error) => {
+//     console.log('GET book request error');
+//     res.sendStatus(500);
+//     })
+// });
 
 router.delete('/:id', (req,res)=>{
-    console.log('THESE ARE MY REQ.PARAMS', req.params);
+
+    console.log('THESE ARE MY REQ.PARAMS', req.params);   
+    const queryText = ` DELETE FROM "relationship" WHERE "book_id"=$1 RETURNING id; `
+        const queryValues = [
+            req.params.id
+        ];
+       
+        pool.query(queryText, queryValues)
     
-    const queryText = ` DELETE FROM "relationship" WHERE "book_id"=$1 ; `
-    const queryValues = [
-        req.params.id
-    ];
-    console.log('req.params.id:relationship', req.params.id);
-    pool.query(queryText,queryValues)
-    .then(() => {
-        const queryText = ` DELETE FROM "books" WHERE "id"=$2,  `
+    .then((result) => {
+        console.log('result:',result);
+        
+        const queryText = ` DELETE FROM "books" WHERE "id"=$1; `
         const queryValues = [
             req.params.id
         ];
         console.log('req.params.id.date', req.params.id);
         pool.query(queryText, queryValues)
+
+ 
     })
     .then(() => {
     //     const queryText = (` DELETE FROM "date" WHERE "id"=$1; `)
