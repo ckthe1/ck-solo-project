@@ -34,6 +34,7 @@ class StudentInfoPage extends Component {
     title: '',
     date_completed: '',
     initial: '',
+    bookId: '',
     user: this.props.user.id,
 
   };
@@ -65,6 +66,7 @@ class StudentInfoPage extends Component {
       title: '',
       date_completed: '',
       initial: '',
+      bookId: '',
       user: this.props.user.id,
 
     })
@@ -79,6 +81,13 @@ class StudentInfoPage extends Component {
     console.log('going to get, title, date, initial');
     this.props.dispatch({ type: 'FETCH_BOOK' });
   }
+
+  handleDelete= id =>()=>{
+    console.log('STUDENT INFO HANDLE DELETE', id);
+    this.props.dispatch({ type:'DELETE_BOOK', payload: id})
+
+  }
+
 
   render() {
     console.log('TJ', this.props.bookReducer);
@@ -129,7 +138,7 @@ class StudentInfoPage extends Component {
                       {bookItem.initial}
                     </td>
                     <td>
-                      <Button variant="contained" color="secondary">Delete</Button>
+                      <Button variant="contained" color="secondary" onClick={this.handleDelete(bookItem.book_id_id)}>Delete</Button>
                     </td>
                   </tr>
                   )

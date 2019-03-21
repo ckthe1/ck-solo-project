@@ -39,10 +39,7 @@ router.post('/',(req,res)=>{
                     res.sendStatus(201);
                 })                            
             })
-        })
-
-
-     
+        })    
         .catch((err) => {
             console.log('Error completing POST book query', err);
             res.sendStatus(500);
@@ -50,7 +47,7 @@ router.post('/',(req,res)=>{
 });// end post router
 
 router.get('/', (req, res) => {
-    const queryText = (`SELECT  "title", "date_completed","initial", "date"."id" AS "date_completed_id" FROM "date"
+    const queryText = (`SELECT  "title", "date_completed","initial", "date"."id" AS "date_completed_id", "books"."id" AS "book_id_id" FROM "date"
                 JOIN "relationship" ON "date"."id" = "relationship"."date_id"
                 JOIN "user" ON "user"."id" = "relationship"."student_id"
                 JOIN "books" ON "books"."id" = "relationship"."book_id";`)
@@ -63,4 +60,37 @@ router.get('/', (req, res) => {
     })
 });
 
+
+router.delete('/:id', (req,res)=>{
+    const queryText = (` DELETE FROM "relationship" WHERE "id"=$1; `)
+    const queryValues = [
+        req.params.id
+    ];
+    console.log('req.params.id:relationship', req.params.id);
+    pool.query(queryText,queryValues)
+    .then(() => {
+        const queryText = (` DELETE FROM "date" WHERE "id"=$1,  `)
+        const queryValues = [
+            req.params.id
+        ];
+        console.log('req.params.id.date', req.params.id);
+        pool.query(queryText, queryValues)
+    })
+    .then(() => {
+        const queryText = (` DELETE FROM "books" WHERE "id"=$1; `)
+        const queryValues = [
+            req.params.id
+        ];
+        console.log('req.params.id:books', req.params.id);
+        pool.query(queryText, queryValues)
+
+        res.sendStatus(200);
+    }).catch((err) => {
+        console.log('Error completing delete book query', err);
+        res.sendStatus(500);
+    });
+    
+
+
+});
 module.exports = router;

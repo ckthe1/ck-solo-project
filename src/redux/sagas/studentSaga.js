@@ -30,29 +30,23 @@ function* fetchBook() {
         console.log('saga Error with your fetchBook info');
     }
 }
-// function* fetchBook(action) {
-//     console.log('get action:',action);
+function* deleteBook(action) {
+    console.log('deleteBook saga hit', action.payload)
     
-//     try {
-//         yield axios.get('/book');
-//         yield dispatch({ type: 'GET_BOOK' });
-//     } catch (error) {
-//         console.log('this was an error with the FETCH_book ');
-//     }
-// } 
+    try {
+        yield axios.delete('/book/'+ action.payload);
+        yield dispatch({ type: 'FETCH_BOOK'})
 
-// function* postInitial(action) {
-//     try {
-//         yield axios.post('/main/initial', action.payload);
-//         // yield dispatch({ type: 'FETCH_BOOK' });
-//     } catch (error) {
-//         console.log('this was an error with the post-INITIAL ');
-//     }
-// } 
+    } catch (error) {
+        console.log('saga Error with deleteBook sagas');
+    }
+}
+
+
 function* studentSaga() {
     yield takeLatest('FETCH_BOOK', fetchBook)
     yield takeLatest('ADD_BOOK', postBook);
-    // yield takeLatest('ADD_DATE', postDate);
+    yield takeLatest('DELETE_BOOK', deleteBook);
     // yield takeLatest('ADD_INITIAL', postInitial);
 }
 
