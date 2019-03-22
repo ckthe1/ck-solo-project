@@ -81,6 +81,10 @@ tr:nth-child(even) {
   height: 20px;
   display:inline-block;
 }
+
+.flex-container {
+  display: flex;
+}
 /* div{
   height: 100px;
 } */

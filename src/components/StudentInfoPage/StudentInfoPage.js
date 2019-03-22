@@ -91,7 +91,15 @@ class StudentInfoPage extends Component {
     console.log('STUDENT INFO HANDLE DELETE', id);
     alert('ARE YOU SURE YOU WANT TO DELETE THIS BOOK?, PLEASE CONFIRM!')
     this.props.dispatch({ type:'DELETE_BOOK', payload: id})
-
+    this.setState({
+      title: '',
+      date_completed: '',
+      initial: '',
+      bookId: '',
+      user: this.props.user.id,
+      count: '',
+      isEnable: true,
+    })
   }
 
 
@@ -106,16 +114,19 @@ class StudentInfoPage extends Component {
           <div className="studentPageBody" >
             <h1>Reading is Oh So Sweet</h1>
           </div>
-          <form onSubmit={this.handleSubmit}>
-            Enter book title here:
-            <input type="text" value={this.state.title} onChange={this.handleChange('title')} placeholder="Book title" size="40" className="inputHeight" />
-            Select a date here:
-            <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} className="inputHeight"/>
+          <form onSubmit={this.handleSubmit} >
+            <div className="flex-container">
+            <h4>Select a date here:
+            <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} className="inputHeight" /></h4>
+            <h4>Enter book title here:
+            <input type="text" value={this.state.title} onChange={this.handleChange('title')} placeholder="Book title" size="40" className="inputHeight" /></h4>      
             <div>
-              Parent initial Here:
-          <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} placeholder="initials" size="6" className="inputHeight" />
+            <h4>Parent initial Here:
+            <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} placeholder="initials" size="6" className="inputHeight" /></h4>
             </div>
-            <Button type="submit" variant="contained" color="primary">Add Book</Button>
+            
+              <Button type="submit" variant="contained" color="primary" style={{ maxWidth: '140px', maxHeight: '60px' }}>Add Book</Button>
+            </div>
           </form>
             <div >
           <h1>Total books read: {this.props.bookReducer.length}</h1>
