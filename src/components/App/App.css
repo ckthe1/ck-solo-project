@@ -2,8 +2,22 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
  
-    background-image: url('/images/bckgroung-school.jpg');
-    background-size: cover; 
+    /* background-image: url('/images/headerPix.jpg');
+    background-repeat: no-repeat; */
+   
+
+}
+.body{
+    background-image: url('/images/headerPix.jpg');
+    background-repeat: no-repeat;
+    width: 1400px;
+    height: 370px;
+    background-size: cover;
+    /* opacity: 0.5; */
+}
+.image{
+  height: 300px;
+  width: 1400px;
 }
 
 .alert {
@@ -55,17 +69,19 @@ input {
     background-image: url("/public/images/bckgroung-school.jpg");
 }
 h1{
-    text-align: center;
+    text-align:center;
     font-family: "comic", serif;
-    color: #2248f0fd;
-    text-shadow: 2px 2px 4px #876bb4
+    color: #f8b600fd;
+    text-shadow: 2px 2px 4px #380149;
+    font-size: 50px;
+    font-family: fantasy
 }
 
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  background-color: #dddddd78
+  background-color: #dddddd57
 }
 
 td, th {
@@ -75,7 +91,7 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color:rgba(0, 255, 255, 0.424);
+  background-color:rgba(0, 62, 197, 0.322);
 }
 .inputHeight{
   height: 20px;
@@ -85,6 +101,8 @@ tr:nth-child(even) {
 .flex-container {
   display: flex;
 }
-/* div{
-  height: 100px;
-} */
+
+tr:nth-child(4n+0) {
+    background-color:rgb(173,255,0);
+
+}

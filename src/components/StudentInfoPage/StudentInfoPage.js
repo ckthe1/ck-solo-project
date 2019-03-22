@@ -109,10 +109,15 @@ class StudentInfoPage extends Component {
     
 
     return (
-      <div className="body">
+      <div >
         <MuiThemeProvider theme={theme}>
+          <div className="body">
+          
           <div className="studentPageBody" >
+           <div>
             <h1>Reading is Oh So Sweet</h1>
+              
+              </div>
           </div>
           <form onSubmit={this.handleSubmit} >
             <div className="flex-container">
@@ -125,10 +130,11 @@ class StudentInfoPage extends Component {
             <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} placeholder="initials" size="6" className="inputHeight" /></h4>
             </div>
             
-              <Button type="submit" variant="contained" color="primary" style={{ maxWidth: '140px', maxHeight: '60px' }}>Add Book</Button>
+              <Button type="submit" variant="contained" color="primary" style={{ maxWidth: '140px', maxHeight: '60px' }} >Add Book</Button>
             </div>
           </form>
             <div >
+        </div>     
           <h1>Total books read: {this.props.bookReducer.length}</h1>
             </div>
           <table>
