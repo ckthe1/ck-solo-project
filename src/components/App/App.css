@@ -1,6 +1,9 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
+ 
+    background-image: url('/images/bckgroung-school.jpg');
+    background-size: cover; 
 }
 
 .alert {
@@ -49,25 +52,35 @@ input {
 }
 .studentPageBody{
     text-align: center;
-
+    background-image: url("/public/images/bckgroung-school.jpg");
 }
 h1{
-    /* align-content: center; */
-    color: #9959cd
+    text-align: center;
+    font-family: "comic", serif;
+    color: #2248f0fd;
+    text-shadow: 2px 2px 4px #876bb4
 }
 
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  background-color: #dddddd78
 }
 
 td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
+  border:1px solid #b176d8;
+  text-align: center;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color:rgba(0, 255, 255, 0.424);
 }
+.inputHeight{
+  height: 20px;
+  display:inline-block;
+}
+/* div{
+  height: 100px;
+} */

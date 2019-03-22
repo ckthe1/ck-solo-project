@@ -10,7 +10,8 @@ import {connect} from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
 import AboutPage from '../AboutPage/AboutPage';
@@ -26,6 +27,7 @@ class App extends Component {
 
   render() {
     return (
+      <AlertProvider template={AlertTemplate}>
       <Router>
         <div>
           <Nav />
@@ -61,6 +63,7 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
+      </AlertProvider>
   )}
 }
 

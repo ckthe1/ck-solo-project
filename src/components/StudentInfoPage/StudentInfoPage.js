@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import '../App/App.css'
 import Button from '@material-ui/core/Button';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
+import { useAlert } from 'react-alert'
 import { createMuiTheme } from '@material-ui/core/styles';
-// import teal from '@material-ui/core/colors/teal';
+import teal from '@material-ui/core/colors/teal';
 import cyan from '@material-ui/core/colors/cyan';
 import red from '@material-ui/core/colors/red';
 
@@ -37,7 +39,7 @@ class StudentInfoPage extends Component {
     bookId: '',
     user: this.props.user.id,
     count: this.props.bookReducer.length,
-
+    isEnable:true,
 
   };
 
@@ -60,9 +62,9 @@ class StudentInfoPage extends Component {
       alert('BOOK TITLE, DATE AND INITIAL CANNOT BE EMPTY')
     } else {
 
-
+      
       this.props.dispatch({ type: 'ADD_BOOK', payload: this.state });
-
+      alert('GREAT SUCCESS')
     }
     this.setState({
       title: '',
@@ -71,7 +73,7 @@ class StudentInfoPage extends Component {
       bookId: '',
       user: this.props.user.id,
       count: '',
-
+      isEnable: false,
     })
     this.fetchBook();
   }// end handleSubmit, add student to DB onSubmit
@@ -87,6 +89,7 @@ class StudentInfoPage extends Component {
 
   handleDelete= id =>()=>{
     console.log('STUDENT INFO HANDLE DELETE', id);
+    alert('ARE YOU SURE YOU WANT TO DELETE THIS BOOK?, PLEASE CONFIRM!')
     this.props.dispatch({ type:'DELETE_BOOK', payload: id})
 
   }
@@ -95,26 +98,28 @@ class StudentInfoPage extends Component {
   render() {
     console.log('TJ', this.props.bookReducer);
     console.log('STATE', this.state);
-
+    
 
     return (
-      <div >
+      <div className="body">
         <MuiThemeProvider theme={theme}>
           <div className="studentPageBody" >
             <h1>Reading is Oh So Sweet</h1>
           </div>
           <form onSubmit={this.handleSubmit}>
-            <input type="text" value={this.state.title} onChange={this.handleChange('title')} placeholder="Book title" size="40" />
-            <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} />
+            Enter book title here:
+            <input type="text" value={this.state.title} onChange={this.handleChange('title')} placeholder="Book title" size="40" className="inputHeight" />
+            Select a date here:
+            <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} className="inputHeight"/>
             <div>
               Parent initial Here:
-          <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} placeholder="initials" size="6" />
+          <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} placeholder="initials" size="6" className="inputHeight" />
             </div>
             <Button type="submit" variant="contained" color="primary">Add Book</Button>
           </form>
-
-          <h1>Total of book read: {this.props.bookReducer.length}</h1>
-
+            <div >
+          <h1>Total books read: {this.props.bookReducer.length}</h1>
+            </div>
           <table>
             <thead>
               <tr>            
@@ -141,7 +146,7 @@ class StudentInfoPage extends Component {
                       {bookItem.initial}
                     </td>
                     <td>
-                      <Button variant="contained" color="secondary" onClick={this.handleDelete(bookItem.book_id_id)}>Delete</Button>
+                      <Button variant="contained" color="secondary" onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable}>Delete</Button>
                     </td>
                   </tr>
                   )
