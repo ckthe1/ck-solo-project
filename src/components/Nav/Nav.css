@@ -2,24 +2,25 @@
     font-size: 24px;
     font-weight: 700;
     display: inline-block;
-    color: #f2f2f2;
+    color: #f8b600fd;
     padding-left: 10px;
 }
 
 .nav {
   overflow: hidden;
-  background-color: rgb(69, 69, 236);
+  background-color: rgba(69, 69, 236, 0.755);
+  font-family: fantasy
 }
 
 .nav-link {
   float: left;
-  color: #f2f2f2;
-  background-color: rgb(69, 69, 236);
+  color: #f8b600fd;
+  background-color: rgba(113, 113, 231, 0.783);
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
-
+  font-family: fantasy;
   /* these last two make the logout button in
   the nav bar look like another link */
   border:none;
@@ -28,7 +29,7 @@
 }
 
 .nav-link:hover {
-  background-color: #008183;
+  background-color: #15e626c4;
 }
 
 .nav-right {

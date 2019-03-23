@@ -10,7 +10,7 @@ const UserPage = (props) => (
     <h1 id="welcome">
       Welcome, { props.user.username }!
     </h1>
-    <p>Select "Student Reading Log" When You Are Ready To Add A Book</p>
+    <h1>Use the navigation bar to go to your fun page</h1>
     <LogOutButton className="log-in" />
   </div>
 );
