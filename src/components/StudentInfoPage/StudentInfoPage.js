@@ -60,9 +60,7 @@ class StudentInfoPage extends Component {
     event.preventDefault();
     if (this.state.title === '' && this.state.date_completed === '') {
       alert('BOOK TITLE, DATE AND INITIAL CANNOT BE EMPTY')
-    } else {
-
-      
+    } else {   
       this.props.dispatch({ type: 'ADD_BOOK', payload: this.state });
       alert('GREAT SUCCESS')
     }
@@ -104,8 +102,8 @@ class StudentInfoPage extends Component {
 
 
   render() {
-    console.log('TJ', this.props.bookReducer);
-    console.log('STATE', this.state);
+    console.log('bookReducer', this.props.bookReducer);
+    console.log('this.STATE', this.state);
     
 
     return (

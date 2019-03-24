@@ -25,7 +25,7 @@ const Nav = (props) => (
           <LogOutButton className="nav-link"/>
         </>
       )}
-      {props.user.id == 1 && (
+      {props.user.id === 1 && (
         <>
           <Link className="nav-link" to="/about">
             Teacher's Fun Page

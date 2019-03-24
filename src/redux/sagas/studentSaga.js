@@ -24,17 +24,13 @@ function* fetchBook() {
     try {
         const bookResponse = yield axios.get('/book');
         yield dispatch({ type: 'GET_BOOK', payload: bookResponse.data })
-        console.log('IS THIS WORKING', bookResponse.data);
-        
-
-        // const countBook = yield axios.get('/book');
-        // yield dispatch({ type: 'COUNT_BOOK' });
-        // console.log('countBook sagas:', countBook.data);
+        console.log('FETCH BOOK SAGAS', bookResponse.data);
         
     } catch (error) {
         console.log('saga Error with your fetchBook info');
     }
 }
+
 function* deleteBook(action) {
     console.log('deleteBook saga hit', action.payload)
     
@@ -47,12 +43,22 @@ function* deleteBook(action) {
     }
 }
 
+function* fetchStudent() {
+    console.log('fetchStudent was hit');
+    try {
+        const studentResponse = yield axios.get('/teacher');
+        yield dispatch({ type: 'GET_STUDENT', payload: studentResponse.data })
+        console.log('FETCH student SAGAS', studentResponse.data);
 
+    } catch (error) {
+        console.log('saga Error with your fetchStudent infos');
+    }
+}
 function* studentSaga() {
     yield takeLatest('FETCH_BOOK', fetchBook)
     yield takeLatest('ADD_BOOK', postBook);
     yield takeLatest('DELETE_BOOK', deleteBook);
-    // yield takeLatest('ADD_INITIAL', postInitial);
+    yield takeLatest('FETCH_STUDENT', fetchStudent);
 }
 
 export default studentSaga;

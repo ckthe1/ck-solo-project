@@ -69,7 +69,7 @@ router.get('/', (req, res) => {
 // delete from relationship table, from date table and books table
 router.delete('/:id', (req,res)=>{
 
-    console.log('THESE ARE MY REQ.PARAMS', req.params);   
+    console.log('REQ.PARAMS', req.params);   
     const queryText = ` DELETE FROM "relationship" WHERE "book_id"=$1 RETURNING id; `
         const queryValues = [
             req.params.id

@@ -5,19 +5,14 @@ import { connect } from 'react-redux';
 import '../App/App.css'
 import Button from '@material-ui/core/Button';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-// import { transitions, positions, Provider as AlertProvider } from 'react-alert'
-// import AlertTemplate from 'react-alert-template-basic'
-// import { useAlert } from 'react-alert'
+
 import { createMuiTheme } from '@material-ui/core/styles';
 import teal from '@material-ui/core/colors/teal';
 import cyan from '@material-ui/core/colors/cyan';
 import red from '@material-ui/core/colors/red';
 
 // import AddButton from './AddButton';
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
+
 const theme = createMuiTheme({
   palette: {
     primary: cyan,
@@ -32,52 +27,51 @@ const theme = createMuiTheme({
   }
 });
 
-class AboutPage extends Component {
+class TeacherPage extends Component {
   state = {
+    userName:'',
     title: '',
-    date_completed: '',
-    initial: '',
     bookId: '',
     user: this.props.user.id,
     count: this.props.bookReducer.length,
     isEnable: true,
+    checked:false,
 
   };
-
-  //  
-
-
-
   
   componentDidMount() {
-    this.fetchBook();
+    this.fetchStudent();
   }
-  fetchBook = () => {
+  fetchStudent = () => {
     //make call to server using sagas
-    console.log('going to get, title, date, initial');
-    this.props.dispatch({ type: 'FETCH_BOOK' });
+    console.log('going to get students infos');
+    this.props.dispatch({ type: 'FETCH_STUDENT' });
   }
 
-  handleDelete = id => () => {
-    console.log('STUDENT INFO HANDLE DELETE', id);
-    alert('ARE YOU SURE YOU WANT TO DELETE THIS BOOK?, PLEASE CONFIRM!')
-    this.props.dispatch({ type: 'DELETE_BOOK', payload: id })
-    this.setState({
-      title: '',
-      date_completed: '',
-      initial: '',
-      bookId: '',
-      user: this.props.user.id,
-      count: '',
-      isEnable: true,
-    })
-  }
+  // handleDelete = id => () => {
+  //   console.log('STUDENT INFO HANDLE DELETE', id);
+  //   alert('ARE YOU SURE YOU WANT TO DELETE THIS BOOK?, PLEASE CONFIRM!')
+  //   this.props.dispatch({ type: 'DELETE_BOOK', payload: id })
+  //   this.setState({
+  //     title: '',
+  //     date_completed: '',
+  //     initial: '',
+  //     bookId: '',
+  //     user: this.props.user.id,
+  //     count: '',
+  //     isEnable: true,
+  //   })
+  // }
 
 
   render() {
-    console.log('TJ', this.props.bookReducer);
-    console.log('STATE', this.state);
-
+    console.log('bookSeducer', this.props.bookReducer);
+    console.log('this.STATE', this.state);
+    if(this.props.bookReducer.length==="2"){
+      this.setState({
+        checked: true,
+      })
+    }
 
     return (
       <div >
@@ -88,9 +82,10 @@ class AboutPage extends Component {
           <table>
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Book title</th>
-                <th>Initial by a Parent</th>
+                <th>Students</th>
+                <th>Total books read</th>
+                <th>Reach 10 books</th>
+                <th>Reach 20 books</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -111,7 +106,10 @@ class AboutPage extends Component {
                       {bookItem.initial}
                     </td>
                     <td>
-                      <Button variant="contained" color="secondary" onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable}>Delete</Button>
+                      <input type="checkbox" checked=""/>
+                    </td>
+                    <td>
+                      <Button variant="contained" color="secondary" onClick={this.handleDelete(bookItem.book_id_id)} >Delete</Button>
                     </td>
                   </tr>
                 )
@@ -129,16 +127,6 @@ class AboutPage extends Component {
 const mapStateToProps = reduxState => {
   return reduxState
 };
-export default (connect(mapStateToProps)(AboutPage));
+export default (connect(mapStateToProps)(TeacherPage));
 
-// const AboutPage = () => (
-//   <div>
-//     <div>
-//       <p>
-//         <h1>UNDER CONSTRUCTION</h1>
-//       </p>
-//     </div>
-//   </div>
-// );
-
-// export default AboutPage;
+//disabled={this.state.isEnable}// disable button
