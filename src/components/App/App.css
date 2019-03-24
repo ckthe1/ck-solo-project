@@ -2,22 +2,23 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
  
-    /* background-image: url('/images/headerPix.jpg');
-    background-repeat: no-repeat; */
-   
+    /* background-image: url('/images/reading99.jpg'); */
+    /* background-repeat: no-repeat; */
+    background-size:cover;
 
 }
 .body{
-    background-image: url('/images/headerPix.jpg');
+    background-image: url('/images/bckgroung-school.jpg');
     background-repeat: no-repeat;
-    width: 1400px;
-    height: 370px;
-    background-size: cover;
+    /* image-rendering: auto; */
+    /* width: 1200px;
+    height: 350px; */
+    background-size:cover;
     /* opacity: 0.5; */
 }
 .image{
   height: 300px;
-  width: 1400px;
+  width: 1200px;
 }
 
 .alert {
@@ -66,9 +67,9 @@ input {
 }
 .studentPageBody{
     text-align: center;
-    background-image: url("/public/images/bckgroung-school.jpg");
+    /* background-image: url('/images/readHeader.jpg'); */
 }
-h1{
+a{
     text-align:center;
     font-family: "comic", serif;
     color: #f8b600fd;
@@ -105,4 +106,8 @@ tr:nth-child(even) {
 tr:nth-child(5n+0) {
     background-color:rgb(173,255,0);
 
+}
+
+.fa[disabled] {
+    display: none !important;
 }

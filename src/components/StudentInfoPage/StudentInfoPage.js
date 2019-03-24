@@ -11,7 +11,9 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import teal from '@material-ui/core/colors/teal';
 import cyan from '@material-ui/core/colors/cyan';
 import red from '@material-ui/core/colors/red';
-
+import DeleteIcon from '@material-ui/icons/Delete';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 // import AddButton from './AddButton';
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -30,6 +32,17 @@ const theme = createMuiTheme({
     useNextVariants: true,
   }
 });
+
+const styles = theme => ({
+  root: {
+    color: theme.palette.text.primary,
+  },
+  icon: {
+    margin: theme.spacing.unit,
+    fontSize: 32,
+  },
+});
+
 
 class StudentInfoPage extends Component {
   state = {
@@ -113,9 +126,9 @@ class StudentInfoPage extends Component {
           
           <div className="studentPageBody" >
            <div>
-            <h1>Reading is Oh So Sweet</h1>
+            <a>Reading is Oh So Sweet</a>
               
-              </div>
+            </div>
           </div>
           <form onSubmit={this.handleSubmit} >
             <div className="flex-container">
@@ -133,7 +146,7 @@ class StudentInfoPage extends Component {
           </form>
             <div >
         </div>     
-          <h1>Total books read: {this.props.bookReducer.length}</h1>
+          <a>Total books read: {this.props.bookReducer.length}</a>
             </div>
           <table>
             <thead>
@@ -161,7 +174,7 @@ class StudentInfoPage extends Component {
                       {bookItem.initial}
                     </td>
                     <td>
-                      <Button variant="contained" color="secondary" onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable}>Delete</Button>
+                      <DeleteIcon variant="contained" color="secondary" onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable}/>
                     </td>
                   </tr>
                   )
@@ -179,5 +192,10 @@ class StudentInfoPage extends Component {
 const mapStateToProps = reduxState => {
   return reduxState
 };
-export default (connect(mapStateToProps)(StudentInfoPage));
-// export default StudentInfoPage;
+
+StudentInfoPage.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles) (connect(mapStateToProps)(StudentInfoPage));
+

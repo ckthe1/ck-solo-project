@@ -5,12 +5,14 @@ import { connect } from 'react-redux';
 import '../App/App.css'
 import Button from '@material-ui/core/Button';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-
+import Typography from '@material-ui/core/Typography';
 import { createMuiTheme } from '@material-ui/core/styles';
 import teal from '@material-ui/core/colors/teal';
 import cyan from '@material-ui/core/colors/cyan';
 import red from '@material-ui/core/colors/red';
-
+import DeleteIcon from '@material-ui/icons/Delete';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 // import AddButton from './AddButton';
 
 const theme = createMuiTheme({
@@ -27,6 +29,17 @@ const theme = createMuiTheme({
   }
 });
 
+const styles = theme => ({
+  root: {
+    color: theme.palette.text.primary,
+  },
+  icon: {
+    margin: theme.spacing.unit,
+    fontSize: 32,
+  },
+});
+
+
 class TeacherPage extends Component {
   state = {
     userName:'',
@@ -36,7 +49,7 @@ class TeacherPage extends Component {
     count: this.props.studentReducer.length,
     isEnable: true,
     checked:false,
-
+    reachTwenty:'',
   };
   
   componentDidMount() {
@@ -54,7 +67,7 @@ class TeacherPage extends Component {
     this.props.dispatch({ type: 'DELETE_BOOK', payload: id })
     this.setState({
       title: '',
-      date_completed: '',
+      
       initial: '',
       bookId: '',
       user: this.props.user.id,
@@ -63,21 +76,29 @@ class TeacherPage extends Component {
     })
   }
 
+  handleChange = (property) => (event) => {
+    
+    event.preventDefault();
+    this.setState({
+     
+    });
+  };// get inputs infos onChange
 
   render() {
-    console.log('studentSeducer', this.props.studentReducer);
+    console.log('studentSeducer', this.props.studentReducer.length);
     console.log('this.STATE', this.state);
-    if (this.props.studentReducer.length === 2 ){
-      this.setState({
-        checked: true,
+    if (this.props.studentReducer.length ==='7'){
+       this.setState({
+        reachTwenty: "Yes",
       })
     }
+    console.log('this.state TEACHER ', this.state);
     // else{
     //   this.setState({
     //     checked: false,
     //   })
     // }
-
+    // if (this.props.student_id ===[i])
     return (
       <div >
         <MuiThemeProvider theme={theme}>
@@ -95,7 +116,7 @@ class TeacherPage extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.studentReducer.map((studentItem) => {
+              {this.props.studentReducer.map((studentItem, i) => {
                 return (
 
                   <tr key={studentItem.id}>
@@ -106,23 +127,24 @@ class TeacherPage extends Component {
                       {studentItem.book_id}
                     </td>
                     <td>
-                      <input type="checkbox" value={this.state.checked} checked={this.state.checked} />
+                      <input type="checkbox" value={this.state.reachTwenty} onChange={this.handleChange('checked')} checked={this.state.checked} />
                     </td>
                     <td>
-                      <input type="checkbox" checked='' />
+                      
+                      {this.state.reachTwenty}
+
                     </td>
                     <td>
-                      <Button variant="contained" color="secondary"  onClick={this.handleDelete(studentItem.book_id_id)} >Delete</Button>
+                      <DeleteIcon variant="contained" color="secondary"  onClick={this.handleDelete(studentItem.book_id_id)} />
                     </td>
                   </tr>
-                )
-              }
-              )}
+                 )
+               }
+            )}
             </tbody>
           </table>
         </MuiThemeProvider>
       </div>
-
     );
   }
 }
@@ -130,6 +152,16 @@ class TeacherPage extends Component {
 const mapStateToProps = reduxState => {
   return reduxState
 };
-export default (connect(mapStateToProps)(TeacherPage));
 
+TeacherPage.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+
+
+export default withStyles(styles) (connect(mapStateToProps)(TeacherPage));
+
+
+
+//checked={this.state.checked}
 //disabled={this.state.isEnable}// disable button
