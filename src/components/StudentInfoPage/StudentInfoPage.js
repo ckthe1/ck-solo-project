@@ -8,7 +8,7 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 // import AlertTemplate from 'react-alert-template-basic'
 // import { useAlert } from 'react-alert'
 import { createMuiTheme } from '@material-ui/core/styles';
-import teal from '@material-ui/core/colors/teal';
+import deepPurple from '@material-ui/core/colors/deepPurple';
 import cyan from '@material-ui/core/colors/cyan';
 import red from '@material-ui/core/colors/red';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -21,7 +21,7 @@ import PropTypes from 'prop-types';
 // or even care what the redux state is, so it doesn't need 'connect()'
 const theme = createMuiTheme({
   palette: {
-    primary: cyan,
+    primary: deepPurple,
     secondary: red,
     error: red,
     contrastThreshold: 3,
@@ -126,22 +126,22 @@ class StudentInfoPage extends Component {
           
           <div className="studentPageBody" >
            <div>
-            <a>Reading is Oh So Sweet</a>
+            <a>Reading is Oh so Sweet</a>
               
             </div>
           </div>
           <form onSubmit={this.handleSubmit} >
             <div className="flex-container">
-            <h4>Select a date here:
+            <h4>Select a Date:
             <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} className="inputHeight" /></h4>
-            <h4>Enter book title here:
+            <h4>Enter Book Title:
             <input type="text" value={this.state.title} onChange={this.handleChange('title')} placeholder="Book title" size="40" className="inputHeight" /></h4>      
             <div>
-            <h4>Parent initial Here:
-            <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} placeholder="initials" size="6" className="inputHeight" /></h4>
+            <h4>Parent Initial Here:
+            <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} placeholder="initials" size="10" className="inputHeight" /></h4>
             </div>
             
-              <Button type="submit" variant="contained" color="primary" style={{ maxWidth: '140px', maxHeight: '60px' }} >Add Book</Button>
+              <Button type="submit" variant="contained" color="primary" style={{ maxWidth: '150px', maxHeight: '60px' }} >Add Book</Button>
             </div>
           </form>
             <div >

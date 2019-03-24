@@ -84,14 +84,18 @@ class TeacherPage extends Component {
     });
   };// get inputs infos onChange
 
+  reach=()=>{
+  if(this.props.studentReducer.length === '7') {
+     this.setState({
+    reachTwenty: "Yes",
+    checked: true,
+  })
+}
+
   render() {
     console.log('studentSeducer', this.props.studentReducer.length);
     console.log('this.STATE', this.state);
-    if (this.props.studentReducer.length ==='7'){
-       this.setState({
-        reachTwenty: "Yes",
-      })
-    }
+
     console.log('this.state TEACHER ', this.state);
     // else{
     //   this.setState({
@@ -104,7 +108,7 @@ class TeacherPage extends Component {
         <MuiThemeProvider theme={theme}>
           <div className="bodyTeacher">
             </div>
-            <h1>Total books read: {this.props.studentReducer.length}</h1>      
+            <a>Total books read: {this.props.studentReducer.length}</a>      
           <table>
             <thead>
               <tr>
@@ -124,7 +128,7 @@ class TeacherPage extends Component {
                       {studentItem.username}
                     </td>
                     <td>
-                      {studentItem.book_id}
+                      {studentItem.total_books_read}
                     </td>
                     <td>
                       <input type="checkbox" value={this.state.reachTwenty} onChange={this.handleChange('checked')} checked={this.state.checked} />

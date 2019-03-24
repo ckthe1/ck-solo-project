@@ -8,7 +8,7 @@ body {
 
 }
 .body{
-    background-image: url('/images/bckgroung-school.jpg');
+    background-image: url('/images/kid_photo.jpg');
     background-repeat: no-repeat;
     /* image-rendering: auto; */
     /* width: 1200px;
@@ -41,7 +41,7 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: rgb(69, 69, 236);
+  background-color: rgba(69, 69, 236, 0.755);
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;
@@ -51,7 +51,7 @@ input {
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #4f63d4;
+  background-color: rgba(69, 69, 236, 0.755);
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
@@ -71,11 +71,15 @@ input {
 }
 a{
     text-align:center;
-    font-family: "comic", serif;
-    color: #f8b600fd;
-    text-shadow: 2px 2px 4px #380149;
+    /* font-family: "comic", serif; */
+    color:  #380149;
+    text-shadow: 2px 2px 4px #f8b600fd;
     font-size: 50px;
     font-family: fantasy
+}
+
+::placeholder { 
+  color: rgb(15, 15, 119);
 }
 
 table {
@@ -89,20 +93,32 @@ td, th {
   border:1px solid #b176d8;
   text-align: center;
   padding: 8px;
+  /* color: aquamarine */
 }
 
 tr:nth-child(even) {
   background-color:rgba(0, 62, 197, 0.322);
 }
 .inputHeight{
-  height: 20px;
+  height: 25px;
   display:inline-block;
+  background-color: rgba(157, 157, 243, 0.755);
+   color: rgb(15, 15, 119);
+   font-family: fantasy;
+  
 }
 
 .flex-container {
   display: flex;
+  color:  #380149;
+  font-size:24px;
+  font-family: fantasy;
+  text-shadow: 2px 2px 4px #f8b600fd;
 }
-
+input{
+  height: 20px;
+  
+}
 tr:nth-child(5n+0) {
     background-color:rgb(173,255,0);
 
