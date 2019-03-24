@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import '../App/App.css'
 import Button from '@material-ui/core/Button';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import { transitions, positions, Provider as AlertProvider } from 'react-alert'
-import AlertTemplate from 'react-alert-template-basic'
-import { useAlert } from 'react-alert'
+// import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+// import AlertTemplate from 'react-alert-template-basic'
+// import { useAlert } from 'react-alert'
 import { createMuiTheme } from '@material-ui/core/styles';
 import teal from '@material-ui/core/colors/teal';
 import cyan from '@material-ui/core/colors/cyan';

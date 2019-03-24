@@ -33,7 +33,7 @@ class TeacherPage extends Component {
     title: '',
     bookId: '',
     user: this.props.user.id,
-    count: this.props.bookReducer.length,
+    count: this.props.studentReducer.length,
     isEnable: true,
     checked:false,
 
@@ -48,37 +48,42 @@ class TeacherPage extends Component {
     this.props.dispatch({ type: 'FETCH_STUDENT' });
   }
 
-  // handleDelete = id => () => {
-  //   console.log('STUDENT INFO HANDLE DELETE', id);
-  //   alert('ARE YOU SURE YOU WANT TO DELETE THIS BOOK?, PLEASE CONFIRM!')
-  //   this.props.dispatch({ type: 'DELETE_BOOK', payload: id })
-  //   this.setState({
-  //     title: '',
-  //     date_completed: '',
-  //     initial: '',
-  //     bookId: '',
-  //     user: this.props.user.id,
-  //     count: '',
-  //     isEnable: true,
-  //   })
-  // }
+  handleDelete = id => () => {
+    console.log('STUDENT INFO HANDLE DELETE', id);
+    alert('ARE YOU SURE YOU WANT TO DELETE THIS BOOK?, PLEASE CONFIRM!')
+    this.props.dispatch({ type: 'DELETE_BOOK', payload: id })
+    this.setState({
+      title: '',
+      date_completed: '',
+      initial: '',
+      bookId: '',
+      user: this.props.user.id,
+      count: '',
+      isEnable: true,
+    })
+  }
 
 
   render() {
-    console.log('bookSeducer', this.props.bookReducer);
+    console.log('studentSeducer', this.props.studentReducer);
     console.log('this.STATE', this.state);
-    if(this.props.bookReducer.length==="2"){
+    if (this.props.studentReducer.length === 2 ){
       this.setState({
         checked: true,
       })
     }
+    // else{
+    //   this.setState({
+    //     checked: false,
+    //   })
+    // }
 
     return (
       <div >
         <MuiThemeProvider theme={theme}>
           <div className="bodyTeacher">
             </div>
-            <h1>Total books read: {this.props.bookReducer.length}</h1>      
+            <h1>Total books read: {this.props.studentReducer.length}</h1>      
           <table>
             <thead>
               <tr>
@@ -90,26 +95,24 @@ class TeacherPage extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.bookReducer.map((bookItem) => {
+              {this.props.studentReducer.map((studentItem) => {
                 return (
 
-                  <tr key={bookItem.id}>
+                  <tr key={studentItem.id}>
                     <td>
-                      {new Date(bookItem.date_completed).getMonth() + 1}/
-                      {new Date(bookItem.date_completed).getDate()}/
-                      {new Date(bookItem.date_completed).getFullYear()}
+                      {studentItem.username}
                     </td>
                     <td>
-                      {bookItem.title}
+                      {studentItem.book_id}
                     </td>
                     <td>
-                      {bookItem.initial}
+                      <input type="checkbox" value={this.state.checked} checked={this.state.checked} />
                     </td>
                     <td>
-                      <input type="checkbox" checked=""/>
+                      <input type="checkbox" checked='' />
                     </td>
                     <td>
-                      <Button variant="contained" color="secondary" onClick={this.handleDelete(bookItem.book_id_id)} >Delete</Button>
+                      <Button variant="contained" color="secondary"  onClick={this.handleDelete(studentItem.book_id_id)} >Delete</Button>
                     </td>
                   </tr>
                 )

@@ -48,7 +48,7 @@ function* fetchStudent() {
     try {
         const studentResponse = yield axios.get('/teacher');
         yield dispatch({ type: 'GET_STUDENT', payload: studentResponse.data })
-        console.log('FETCH student SAGAS', studentResponse.data);
+        console.log('FETCH studentResponse.data', studentResponse.data);
 
     } catch (error) {
         console.log('saga Error with your fetchStudent infos');
