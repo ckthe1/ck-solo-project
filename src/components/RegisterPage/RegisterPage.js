@@ -41,25 +41,27 @@ class RegisterPage extends Component {
           </h2>
         )}
         <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
+          <h2>Register User</h2>
           <div>
-            <label htmlFor="username">
-              Username:
+            <label className="labelClass" htmlFor="username">
+              For student, use first name :
               <input
                 type="text"
                 name="username"
                 value={this.state.username}
+                placeholder="Username"
                 onChange={this.handleInputChangeFor('username')}
               />
             </label>
           </div>
           <div>
-            <label htmlFor="password">
-              Password:
+            <label className="labelClass" htmlFor="password">
+             For student, use lunch code :
               <input
                 type="password"
                 name="password"
                 value={this.state.password}
+                placeholder="Password"
                 onChange={this.handleInputChangeFor('password')}
               />
             </label>

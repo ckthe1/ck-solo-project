@@ -100,7 +100,7 @@ class StudentInfoPage extends Component {
 
   handleDelete= id =>()=>{
     console.log('STUDENT INFO HANDLE DELETE', id);
-    alert('ARE YOU SURE YOU WANT TO DELETE THIS BOOK?, PLEASE CONFIRM!')
+    alert('Delete Successful')
     this.props.dispatch({ type:'DELETE_BOOK', payload: id})
     this.setState({
       title: '',
@@ -174,7 +174,7 @@ class StudentInfoPage extends Component {
                       {bookItem.initial}
                     </td>
                     <td>
-                      <DeleteIcon variant="contained" color="secondary" onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable}/>
+                      <Button variant="contained" color="secondary" onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable} >Remove</Button>
                     </td>
                   </tr>
                   )

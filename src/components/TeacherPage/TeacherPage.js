@@ -63,7 +63,7 @@ class TeacherPage extends Component {
 
   handleDelete = id => () => {
     console.log('STUDENT INFO HANDLE DELETE', id);
-    alert('ARE YOU SURE YOU WANT TO DELETE THIS BOOK?, PLEASE CONFIRM!')
+    alert('Delete Successful')
     this.props.dispatch({ type: 'DELETE_BOOK', payload: id })
     this.setState({
       title: '',
@@ -84,13 +84,13 @@ class TeacherPage extends Component {
     });
   };// get inputs infos onChange
 
-  reach=()=>{
-  if(this.props.studentReducer.length === '7') {
-     this.setState({
-    reachTwenty: "Yes",
-    checked: true,
-  })
-}
+//   reach=()=>{
+//   if(this.props.studentReducer.length === '7') {
+//      this.setState({
+//     reachTwenty: "Yes",
+//     checked: true,
+//   })
+// }
 
   render() {
     console.log('studentSeducer', this.props.studentReducer.length);
@@ -108,7 +108,7 @@ class TeacherPage extends Component {
         <MuiThemeProvider theme={theme}>
           <div className="bodyTeacher">
             </div>
-            <a>Total books read: {this.props.studentReducer.length}</a>      
+            <a>Total students: {this.props.studentReducer.length}</a>      
           <table>
             <thead>
               <tr>

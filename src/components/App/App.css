@@ -57,13 +57,15 @@ input {
 /* This line makes the "Register" and "Login" buttons look like links */
 .link-button {
     background:none;
-    color:inherit;
+    color:#380149;
     border:none;
     padding:0;
     font: inherit;
     outline:0;
-    border-bottom:1px solid #444; 
+    border-bottom:1px solid rgb(99, 3, 163); 
     cursor: pointer;
+    font-family: fantasy;
+    text-shadow: 2px 2px 4px #f8b600fd;
 }
 .studentPageBody{
     text-align: center;
@@ -78,10 +80,32 @@ a{
     font-family: fantasy
 }
 
+h2{
+   text-align:left;
+    
+    color:  #380149;
+    text-shadow: 2px 2px 4px #f8b600fd;
+    font-size: 30px;
+    font-family: fantasy;
+
+}
+h1{
+   text-align:center;
+    
+    color:  #380149;
+    text-shadow: 2px 2px 4px #f8b600fd;
+    font-size: 40px;
+    font-family: fantasy;
+
+}
 ::placeholder { 
   color: rgb(15, 15, 119);
 }
-
+.labelClass{
+   color:  #380149;
+  text-shadow: 2px 2px 4px #f8b600fd;
+  font-family: fantasy;
+}
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -117,13 +141,15 @@ tr:nth-child(even) {
 }
 input{
   height: 20px;
-  
+  font-family: fantasy;
+  color:  #380149;
+  text-shadow: 2px 2px 4px #f8b600fd;
 }
 tr:nth-child(5n+0) {
-    background-color:rgb(173,255,0);
+  background-color:rgb(173,255,0);
 
 }
 
 .fa[disabled] {
-    display: none !important;
+  display: none !important;
 }
