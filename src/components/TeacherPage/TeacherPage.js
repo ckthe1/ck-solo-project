@@ -54,6 +54,7 @@ class TeacherPage extends Component {
   
   componentDidMount() {
     this.fetchStudent();
+    
   }
   fetchStudent = () => {
     //make call to server using sagas
@@ -84,25 +85,21 @@ class TeacherPage extends Component {
     });
   };// get inputs infos onChange
 
-//   reach=()=>{
-//   if(this.props.studentReducer.length === '7') {
+//   bookReach = () => {
+   
+//   if(this.props.studentReducer.length === 3) {
+//     console.log('this.STATE Book reach:', this.state);
 //      this.setState({
 //     reachTwenty: "Yes",
 //     checked: true,
+
 //   })
-// }
+// } }// if book read reaches 10 then says "yes in column"
 
-  render() {
-    console.log('studentSeducer', this.props.studentReducer.length);
-    console.log('this.STATE', this.state);
-
-    console.log('this.state TEACHER ', this.state);
-    // else{
-    //   this.setState({
-    //     checked: false,
-    //   })
-    // }
-    // if (this.props.student_id ===[i])
+render() { 
+  console.log('this.state TEACHER ', this.state);
+  console.log('this.props.studentSeducer', this.props.studentReducer);
+  
     return (
       <div >
         <MuiThemeProvider theme={theme}>
@@ -121,6 +118,7 @@ class TeacherPage extends Component {
             </thead>
             <tbody>
               {this.props.studentReducer.map((studentItem, i) => {
+                console.log('studentItem', studentItem);               
                 return (
 
                   <tr key={studentItem.id}>
@@ -131,21 +129,19 @@ class TeacherPage extends Component {
                       {studentItem.total_books_read}
                     </td>
                     <td>
-                      <input type="checkbox" value={this.state.reachTwenty} onChange={this.handleChange('checked')} checked={this.state.checked} />
+                      {Number(studentItem.total_books_read) >= 2 ? "yes" : "no"}
                     </td>
                     <td>
-                      
-                      {this.state.reachTwenty}
-
+                      {Number(studentItem.total_books_read) >= 4 ? "yes" : "no"}
                     </td>
                     <td>
                       <DeleteIcon variant="contained" color="secondary"  onClick={this.handleDelete(studentItem.book_id_id)} />
                     </td>
                   </tr>
                  )
-               }
-            )}
-            </tbody>
+                }
+              )}
+              </tbody>
           </table>
         </MuiThemeProvider>
       </div>
