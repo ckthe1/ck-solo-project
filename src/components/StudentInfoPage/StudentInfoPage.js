@@ -122,12 +122,10 @@ class StudentInfoPage extends Component {
     return (
       <div >
         <MuiThemeProvider theme={theme}>
-          <div className="body">
-          
+          <div className="body">         
           <div className="studentPageBody" >
            <div>
-            <a>Reading is Oh so Sweet</a>
-              
+            <b>Reading is Oh so Sweet</b>             
             </div>
           </div>
           <form onSubmit={this.handleSubmit} className="box">
@@ -146,7 +144,7 @@ class StudentInfoPage extends Component {
           </form>
             <div >
         </div>     
-          <a>Total books read: {this.props.bookReducer.length}</a>
+          <b>Total books read: {this.props.bookReducer.length}</b>
             </div>
           <table>
             <thead>

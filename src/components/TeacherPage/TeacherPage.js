@@ -108,7 +108,7 @@ class TeacherPage extends Component {
         <MuiThemeProvider theme={theme}>
           <div className="bodyTeacher">
             </div>
-            <a>Total students: {this.props.studentReducer.length}</a>      
+            <b>Total students: {this.props.studentReducer.length}</b>      
           <table>
             <thead>
               <tr>
