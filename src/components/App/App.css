@@ -127,13 +127,13 @@ tr:nth-child(even) {
   height: 25px;
   display:inline-block;
   background-color: rgba(157, 157, 243, 0.755);
-   color: rgb(15, 15, 119);
-   font-family: fantasy;
+  color: rgb(15, 15, 119);
+  font-family: fantasy;
   
 }
 
 .flex-container {
-  display: flex;
+  display: inline-flex; 
   color:  #380149;
   font-size:24px;
   font-family: fantasy;
@@ -145,6 +145,24 @@ input{
   color:  #380149;
   text-shadow: 2px 2px 4px #f8b600fd;
 }
+.box input[type="text"], .box input[type="password"], .box input[type="date"]{
+  border:2px solid #f8b600fd;
+  border-radius:24px;
+  text-align: center;
+}
+
+.box input[type="text"]:hover, .box input[type="password"]:hover, .box input[type="date"]:hover{
+
+width:  180px;
+border-color:#0bf332;
+}
+.box input[type="text"]:focus, .box input[type="password"]:focus, .box input[type="date"]:focus{
+
+width:  180px;
+border-color:#0bf332;
+}
+
+
 tr:nth-child(5n+0) {
   background-color:rgb(173,255,0);
 

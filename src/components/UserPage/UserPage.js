@@ -10,7 +10,7 @@ const UserPage = (props) => (
     <h1 id="welcome">
       Welcome, { props.user.username }!
     </h1>
-    <h1>Use the navigation bar </h1>
+    <h1>Use the navigation bar, please </h1>
     <LogOutButton className="log-in" />
   </div>
 );
