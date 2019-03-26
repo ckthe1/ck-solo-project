@@ -67,7 +67,7 @@ class TeacherPage extends Component {
   handleClick = id => () => {
     console.log('STUDENT detail click:', id);
     this.props.history.push('/studentDetail')
-    
+    this.props.dispatch({ type: 'GET_ID', payload: id })
   };
 
   // handleDelete = id => () => {
