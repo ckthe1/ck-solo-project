@@ -63,9 +63,9 @@ class StudentDetailPage extends Component {
     }
 
     render() {
-        console.log('studentDetailPage: studentDetailReducer', this.props.studentDetailReducer);
-        console.log('studentDetailPage: this.STATE', this.state);
-        console.log('studentInfoReducer', this.props.studentInfoReducer);
+        console.log('studentDetailPage: studentDetailReducer:', this.props.studentDetailReducer);
+        console.log('studentDetailPage: this.STATE:', this.state);
+        console.log('studentInfoReducer:', this.props.studentInfoReducer);
      
         return (
             <div >
@@ -76,7 +76,7 @@ class StudentDetailPage extends Component {
                                 <b>Student Name: {this.props.studentDetailReducer.username} </b>
                             </div>
                         </div>                    
-                        <b>Total books read: {this.props.studentDetailReducer}</b>
+                        <b>Total books read: {this.props.studentDetailReducer.total_books_read}</b>
                     </div>
                     <table>
                         <thead>
@@ -87,7 +87,7 @@ class StudentDetailPage extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.props.studentInfoReducer.filter(item => item.student_id === this.props.studentDetailReducer).map((bookItem) => {
+                            {this.props.studentInfoReducer.filter(item => item.student_id === this.props.studentDetailReducer.student_id).map((bookItem) => {
                                 return (
 
                                     <tr key={bookItem.id}>

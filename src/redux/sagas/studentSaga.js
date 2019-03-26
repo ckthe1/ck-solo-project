@@ -8,8 +8,7 @@ import axios from 'axios';
 
 
 function* postBook(action) {
-    console.log('action.payload:', action.payload);
-    
+    console.log('action.payload:', action.payload);   
     try {
         yield axios.post('/book', action.payload);
         yield dispatch({ type: 'FETCH_BOOK' });
@@ -32,8 +31,7 @@ function* fetchBook() {
 }
 
 function* deleteBook(action) {
-    console.log('deleteBook saga hit', action.payload)
-    
+    console.log('deleteBook saga hit', action.payload)   
     try {
         yield axios.delete('/book/'+ action.payload);
         yield dispatch({ type: 'FETCH_BOOK'})
@@ -61,7 +59,6 @@ function* deleteStudent(action) {
     try {
         yield axios.delete('/teacher/' + action.payload);
         yield dispatch({ type: 'FETCH_STUDENT' })
-
     } catch (error) {
         console.log('saga Error with deleteStudent sagas');
     }
@@ -73,8 +70,7 @@ function* fetchStudentInfo() {
     try {
         const studentInfoResponse = yield axios.get('/teacher/studentInfo');
         yield dispatch({ type: 'SET_STUDENT_INFO', payload: studentInfoResponse.data })
-        console.log('SET STUDENT INFO SAGAS', studentInfoResponse.data);
-
+        console.log('SET STUDENT_INFO SAGAS', studentInfoResponse.data);
     } catch (error) {
         console.log('saga Error with your studentInfo');
     }

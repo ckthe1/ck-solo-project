@@ -64,10 +64,10 @@ class TeacherPage extends Component {
   };
 
 
-  handleClick = id => () => {
-    console.log('STUDENT detail click:', id);
+  handleClick = studentItem => () => {
+    console.log('STUDENT detail click:', studentItem);
     this.props.history.push('/studentDetail')
-    this.props.dispatch({ type: 'GET_ID', payload: id })
+    this.props.dispatch({ type: 'GET_ID', payload: studentItem })
   };
 
   // handleDelete = id => () => {
@@ -110,7 +110,7 @@ render() {
               </tr>
             </thead>
             <tbody>
-              {this.props.studentReducer.map((studentItem, i) => {
+              {this.props.studentReducer.map((studentItem) => {
                 console.log('studentItem', studentItem);               
                 return (
 
@@ -118,7 +118,7 @@ render() {
                     <td>
                       {studentItem.username} 
                       <Typography variant="caption" gutterBottom>
-                      <Button variant="contained" color="primary" onClick={this.handleClick(studentItem.student_id)}
+                      <Button variant="contained" color="primary" onClick={this.handleClick(studentItem)}
                       style={{ maxWidth: '30px', maxHeight: '25px', minWidth: '70px', minHeight: '15px' }}>details</Button>
                       </Typography>
                     </td>
