@@ -85,11 +85,6 @@ class TeacherPage extends Component {
   //   })
   // }
 
-  // handleChange = (property) => (event) => {   
-  //   event.preventDefault();
-  //   this.setState({ 
-  //   });
-  // };// get inputs infos onChange
 
 
 

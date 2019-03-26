@@ -5,6 +5,7 @@ import user from './userReducer';
 import bookReducer from './bookReducer';
 import studentReducer from './studentReducer';
 import studentDetailReducer from './studentDetailReducer';
+import studentInfoReducer from './studentInfoReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   bookReducer,// value of title, date, initial
   studentReducer,//  student infos
   studentDetailReducer,//  student detail id stored
+  studentInfoReducer,
 });
 
 export default rootReducer;

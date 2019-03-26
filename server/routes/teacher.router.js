@@ -23,6 +23,24 @@ router.get('/', (req, res) => {
         })
 });
 
+
+router.get('/studentInfo', (req, res) => {
+    console.log('TEACHER.ROUTER/studentInfo req.user', req.user);
+
+    const queryText = (`SELECT  "title", "date_completed","initial", "student_id" FROM "date"
+                        JOIN "relationship" ON "date"."id" = "relationship"."date_id"
+                        JOIN "user" ON "user"."id" = "relationship"."student_id"
+                        JOIN "books" ON "books"."id" = "relationship"."book_id";`
+    )
+    pool.query(queryText).then((result) => {
+        res.send(result.rows)
+        console.log('student info get result.rows:', result.rows);
+    })
+        .catch((error) => {
+            console.log('in GET student info request error');
+            res.sendStatus(500);
+        })
+});
 // router.delete('/:id', (req, res) => {
 
 //     console.log('REQ.PARAMS TJ', req.params);

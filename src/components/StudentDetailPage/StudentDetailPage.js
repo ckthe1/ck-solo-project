@@ -59,23 +59,24 @@ class StudentDetailPage extends Component {
     fetchBook = () => {
         //make call to server using sagas
         console.log('studentDetailPage fetch');
-        this.props.dispatch({ type: 'FETCH_BOOK' });
+        this.props.dispatch({ type: 'FETCH_STUDENT_INFO' });
     }
 
     render() {
         console.log('studentDetailPage: studentDetailReducer', this.props.studentDetailReducer);
         console.log('studentDetailPage: this.STATE', this.state);
-
+        console.log('studentInfoReducer', this.props.studentInfoReducer);
+     
         return (
             <div >
                 <MuiThemeProvider theme={theme}>
                     <div className="bodyDetailPage">
                         <div className="studentPageBody" >
                             <div>
-                                <b>Student Name: {this.props.bookReducer.username} </b>
+                                <b>Student Name: {this.props.studentDetailReducer.username} </b>
                             </div>
                         </div>                    
-                        <b>Total books read: {this.props.bookReducer.length}</b>
+                        <b>Total books read: {this.props.studentDetailReducer}</b>
                     </div>
                     <table>
                         <thead>
@@ -86,7 +87,7 @@ class StudentDetailPage extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {this.props.bookReducer.map((bookItem) => {
+                            {this.props.studentInfoReducer.filter(item => item.student_id === this.props.studentDetailReducer).map((bookItem) => {
                                 return (
 
                                     <tr key={bookItem.id}>

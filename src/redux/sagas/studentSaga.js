@@ -67,12 +67,26 @@ function* deleteStudent(action) {
     }
 }
 
+
+function* fetchStudentInfo() {
+    console.log('fetchStudentInfo was hit');
+    try {
+        const studentInfoResponse = yield axios.get('/teacher/studentInfo');
+        yield dispatch({ type: 'SET_STUDENT_INFO', payload: studentInfoResponse.data })
+        console.log('SET STUDENT INFO SAGAS', studentInfoResponse.data);
+
+    } catch (error) {
+        console.log('saga Error with your studentInfo');
+    }
+}
+
 function* studentSaga() {
     yield takeLatest('FETCH_BOOK', fetchBook)
     yield takeLatest('ADD_BOOK', postBook);
     yield takeLatest('DELETE_BOOK', deleteBook);
     yield takeLatest('FETCH_STUDENT', fetchStudent);
     yield takeLatest('DELETE_STUDENT', deleteStudent);
+    yield takeLatest('FETCH_STUDENT_INFO', fetchStudentInfo);
 }
 
 export default studentSaga;
