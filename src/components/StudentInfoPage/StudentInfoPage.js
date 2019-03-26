@@ -118,7 +118,6 @@ class StudentInfoPage extends Component {
     console.log('bookReducer', this.props.bookReducer);
     console.log('this.STATE', this.state);
     
-
     return (
       <div >
         <MuiThemeProvider theme={theme}>
@@ -133,13 +132,16 @@ class StudentInfoPage extends Component {
             <h4>Select a Date:
             <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} className="inputHeight" /></h4>
             <h4>Enter Book Title:
-            <input type="text" value={this.state.title} onChange={this.handleChange('title')} placeholder="Book title" size="25" className="inputHeight" /></h4>      
+            <input type="text" value={this.state.title} onChange={this.handleChange('title')} 
+            placeholder="Book title" size="25" className="inputHeight" /></h4>      
             <div>
             <h4>Parent Initial Here:
-            <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} placeholder="initials" size="10" className="inputHeight" /></h4>
+            <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} 
+            placeholder="initials" size="10" className="inputHeight" /></h4>
             </div>
             
-              <Button type="submit" variant="contained" color="primary" style={{ maxWidth: '10px', maxHeight: '10px', minWidth:'120px',minHeight:'100px'}} >Add Book</Button>
+              <Button type="submit" variant="contained" color="primary" 
+              style={{ maxWidth: '10px', maxHeight: '10px', minWidth:'120px',minHeight:'100px'}} >Add Book</Button>
             </div>
           </form>
             <div >
@@ -172,7 +174,8 @@ class StudentInfoPage extends Component {
                       {bookItem.initial}
                     </td>
                     <td>
-                      <Button variant="contained" color="secondary" onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable} >Remove
+                      <Button variant="contained" color="secondary" 
+                      onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable} >Remove
                       <DeleteIcon /></Button>
                     </td>
                   </tr>

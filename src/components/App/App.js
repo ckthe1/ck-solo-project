@@ -16,7 +16,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import UserPage from '../UserPage/UserPage';
 import StudentInfoPage from '../StudentInfoPage/StudentInfoPage';
 import TeacherPage from '../TeacherPage/TeacherPage';
-
+import StudentDetailPage from '../StudentDetailPage/StudentDetailPage';
 import './App.css';
 
 class App extends Component {
@@ -35,7 +35,7 @@ class App extends Component {
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
-            <Route
+              <ProtectedRoute
               exact
               path="/about"
               component={TeacherPage}
@@ -56,6 +56,14 @@ class App extends Component {
               path="/info"
               component={StudentInfoPage}
             />
+            {/* on click of a student, this will show a detail view of the selected students' history 
+            from the teacher's page  */}
+            <ProtectedRoute
+              exact
+              path="/studentDetail"
+              component={StudentDetailPage}
+            />
+
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

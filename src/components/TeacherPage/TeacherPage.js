@@ -1,4 +1,3 @@
-// import React from 'react';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -13,7 +12,10 @@ import red from '@material-ui/core/colors/red';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-// import AddButton from './AddButton';
+import { Link } from 'react-router-dom';
+import 'typeface-roboto';
+import { withRouter } from 'react-router-dom';
+
 
 const theme = createMuiTheme({
   palette: {
@@ -22,10 +24,12 @@ const theme = createMuiTheme({
     error: red,
     contrastThreshold: 3,
     tonalOffset: 0.2,
-
   },
   typography: {
-    useNextVariants: true,
+    useNextVariants: false,
+    fontFamily: "fantasy",
+    fontSize:12,
+    // variant:"caption",
   }
 });
 
@@ -39,66 +43,59 @@ const styles = theme => ({
   },
 });
 
-
 class TeacherPage extends Component {
   state = {
-    userName:'',
+    studentId:'',
     title: '',
     bookId: '',
     user: this.props.user.id,
     count: this.props.studentReducer.length,
     isEnable: true,
-    checked:false,
-    reachTwenty:'',
   };
   
   componentDidMount() {
-    this.fetchStudent();
-    
-  }
+    this.fetchStudent();  
+  };
+
   fetchStudent = () => {
     //make call to server using sagas
     console.log('going to get students infos');
     this.props.dispatch({ type: 'FETCH_STUDENT' });
-  }
+  };
 
-  handleDelete = id => () => {
-    console.log('STUDENT INFO HANDLE DELETE', id);
-    alert('Delete Successful')
-    this.props.dispatch({ type: 'DELETE_BOOK', payload: id })
-    this.setState({
-      title: '',
-      
-      initial: '',
-      bookId: '',
-      user: this.props.user.id,
-      count: '',
-      isEnable: true,
-    })
-  }
 
-  handleChange = (property) => (event) => {
+  handleClick = id => () => {
+    console.log('STUDENT detail click:', id);
+    this.props.history.push('/studentDetail')
     
-    event.preventDefault();
-    this.setState({
-     
-    });
-  };// get inputs infos onChange
+  };
 
-//   bookReach = () => {
-   
-//   if(this.props.studentReducer.length === 3) {
-//     console.log('this.STATE Book reach:', this.state);
-//      this.setState({
-//     reachTwenty: "Yes",
-//     checked: true,
+  // handleDelete = id => () => {
+  //   console.log('STUDENT HANDLE DELETE', id);
+  //   alert('Delete Successful')
+  //   this.props.dispatch({ type: 'DELETE_STUDENT', payload: id })
+  //   this.setState({
+  //     studentId: '',
+  //     title: '',     
+  //     initial: '',
+  //     bookId: '',
+  //     user: this.props.user.id,
+  //     count: '',
+  //     isEnable: true,
+  //   })
+  // }
 
-//   })
-// } }// if book read reaches 10 then says "yes in column"
+  // handleChange = (property) => (event) => {   
+  //   event.preventDefault();
+  //   this.setState({ 
+  //   });
+  // };// get inputs infos onChange
+
+
 
 render() { 
-  console.log('this.state TEACHER ', this.state);
-  console.log('this.props.studentSeducer', this.props.studentReducer);
+  console.log('this.state:', this.state);
+  console.log('this.props.studentReducer', this.props.studentReducer);
   
     return (
       <div >
@@ -113,7 +110,7 @@ render() {
                 <th>Total books read</th>
                 <th>Reach 10 books</th>
                 <th>Reach 20 books</th>
-                <th>Delete</th>
+                <th>Reach 30 books</th>
               </tr>
             </thead>
             <tbody>
@@ -123,7 +120,11 @@ render() {
 
                   <tr key={studentItem.id}>
                     <td>
-                      {studentItem.username}
+                      {studentItem.username} 
+                      <Typography variant="caption" gutterBottom>
+                      <Button variant="contained" color="primary" onClick={this.handleClick(studentItem.student_id)}
+                      style={{ maxWidth: '30px', maxHeight: '25px', minWidth: '70px', minHeight: '15px' }}>details</Button>
+                      </Typography>
                     </td>
                     <td>
                       {studentItem.total_books_read}
@@ -132,10 +133,12 @@ render() {
                       {Number(studentItem.total_books_read) >= 2 ? "yes" : "no"}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 4 ? "yes" : "no"}
+                      {Number(studentItem.total_books_read) >= 20 ? "yes" : "no"}
                     </td>
                     <td>
-                      <DeleteIcon variant="contained" color="secondary"  onClick={this.handleDelete(studentItem.book_id_id)} />
+                      {Number(studentItem.total_books_read) >= 30 ? "yes" : "no"}
+                   
+                      {/* <DeleteIcon variant="contained" color="secondary"  onClick={this.handleDelete(studentItem.student_id)} /> */}
                     </td>
                   </tr>
                  )
@@ -159,8 +162,7 @@ TeacherPage.propTypes = {
 
 
 
-export default withStyles(styles) (connect(mapStateToProps)(TeacherPage));
-
+export default withRouter(connect(mapStateToProps)(withStyles(styles)(TeacherPage)));
 
 
 //checked={this.state.checked}

@@ -54,11 +54,25 @@ function* fetchStudent() {
         console.log('saga Error with your fetchStudent infos');
     }
 }
+
+function* deleteStudent(action) {
+    console.log('deleteStudent saga hit', action.payload)
+
+    try {
+        yield axios.delete('/teacher/' + action.payload);
+        yield dispatch({ type: 'FETCH_STUDENT' })
+
+    } catch (error) {
+        console.log('saga Error with deleteStudent sagas');
+    }
+}
+
 function* studentSaga() {
     yield takeLatest('FETCH_BOOK', fetchBook)
     yield takeLatest('ADD_BOOK', postBook);
     yield takeLatest('DELETE_BOOK', deleteBook);
     yield takeLatest('FETCH_STUDENT', fetchStudent);
+    yield takeLatest('DELETE_STUDENT', deleteStudent);
 }
 
 export default studentSaga;
