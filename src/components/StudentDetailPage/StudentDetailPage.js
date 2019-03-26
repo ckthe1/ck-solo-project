@@ -55,16 +55,15 @@ class StudentDetailPage extends Component {
     componentDidMount() {
         this.fetchBook();
     }
+
     fetchBook = () => {
         //make call to server using sagas
         console.log('studentDetailPage fetch');
         this.props.dispatch({ type: 'FETCH_BOOK' });
     }
 
-
-
     render() {
-        console.log('studentDetailPage: bookReducer', this.props.bookReducer);
+        console.log('studentDetailPage: studentDetailReducer', this.props.studentDetailReducer);
         console.log('studentDetailPage: this.STATE', this.state);
 
         return (
