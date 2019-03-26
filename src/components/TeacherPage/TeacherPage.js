@@ -28,8 +28,7 @@ const theme = createMuiTheme({
   typography: {
     useNextVariants: false,
     fontFamily: "fantasy",
-    fontSize:12,
-    // variant:"caption",
+    fontSize: 12,
   }
 });
 
@@ -45,30 +44,29 @@ const styles = theme => ({
 
 class TeacherPage extends Component {
   state = {
-    studentId:'',
+    studentId: '',
     title: '',
     bookId: '',
     user: this.props.user.id,
     count: this.props.studentReducer.length,
     isEnable: true,
   };
-  
+
   componentDidMount() {
-    this.fetchStudent();  
+    this.fetchStudent();
   };
 
   fetchStudent = () => {
-    //make call to server using sagas
     console.log('going to get students infos');
     this.props.dispatch({ type: 'FETCH_STUDENT' });
-  };
+  };// gets student info. date, title , initial
 
 
   handleClick = studentItem => () => {
     console.log('STUDENT detail click:', studentItem);
     this.props.history.push('/studentDetail')
     this.props.dispatch({ type: 'GET_ID', payload: studentItem })
-  };
+  };// on click got to student detail page. store studentItem info in reducer.
 
   // handleDelete = id => () => {
   //   console.log('STUDENT HANDLE DELETE', id);
@@ -88,17 +86,17 @@ class TeacherPage extends Component {
 
 
 
-render() { 
-  console.log('this.state:', this.state);
-  console.log('this.props.studentReducer', this.props.studentReducer);
-  
+  render() {
+    console.log('this.state:', this.state);
+    console.log('this.props.studentReducer', this.props.studentReducer);
+
     return (
       <div >
         <MuiThemeProvider theme={theme}>
           <div className="bodyTeacher">
-           
-            <b>Total students: {this.props.studentReducer.length}</b>     
-          </div> 
+
+            <b>Total students: {this.props.studentReducer.length}</b>
+          </div>
           <table>
             <thead>
               <tr>
@@ -111,15 +109,14 @@ render() {
             </thead>
             <tbody>
               {this.props.studentReducer.map((studentItem) => {
-                console.log('studentItem', studentItem);               
+                console.log('studentItem', studentItem);
                 return (
-
                   <tr key={studentItem.id}>
                     <td>
-                      {studentItem.username} 
+                      {studentItem.username}
                       <Typography variant="caption" gutterBottom>
-                      <Button variant="contained" color="primary" onClick={this.handleClick(studentItem)}
-                      style={{ maxWidth: '30px', maxHeight: '25px', minWidth: '70px', minHeight: '15px' }}>details</Button>
+                        <Button variant="contained" color="primary" onClick={this.handleClick(studentItem)}
+                          style={{ maxWidth: '30px', maxHeight: '25px', minWidth: '70px', minHeight: '15px' }}>details</Button>
                       </Typography>
                     </td>
                     <td>
@@ -133,14 +130,14 @@ render() {
                     </td>
                     <td>
                       {Number(studentItem.total_books_read) >= 30 ? "yes" : "no"}
-                   
+
                       {/* <DeleteIcon variant="contained" color="secondary"  onClick={this.handleDelete(studentItem.student_id)} /> */}
                     </td>
                   </tr>
-                 )
-                }
+                )
+              }
               )}
-              </tbody>
+            </tbody>
           </table>
         </MuiThemeProvider>
       </div>
@@ -156,10 +153,7 @@ TeacherPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-
-
 export default withRouter(connect(mapStateToProps)(withStyles(styles)(TeacherPage)));
 
 
-//checked={this.state.checked}
-//disabled={this.state.isEnable}// disable button
+

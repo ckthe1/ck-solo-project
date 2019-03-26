@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import '../App/App.css'
 import Button from '@material-ui/core/Button';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-// import { transitions, positions, Provider as AlertProvider } from 'react-alert'
-// import AlertTemplate from 'react-alert-template-basic'
-// import { useAlert } from 'react-alert'
 import { createMuiTheme } from '@material-ui/core/styles';
 import deepPurple from '@material-ui/core/colors/deepPurple';
 import cyan from '@material-ui/core/colors/cyan';
@@ -48,8 +45,6 @@ class StudentDetailPage extends Component {
         bookId: '',
         user: this.props.user.id,
         count: this.props.bookReducer.length,
-        isEnable: true,
-
     };
 
     componentDidMount() {
@@ -60,36 +55,35 @@ class StudentDetailPage extends Component {
         //make call to server using sagas
         console.log('studentDetailPage fetch');
         this.props.dispatch({ type: 'FETCH_STUDENT_INFO' });
-    }
+    }// get student infos. date , title, initial, id
 
     render() {
         console.log('studentDetailPage: studentDetailReducer:', this.props.studentDetailReducer);
         console.log('studentDetailPage: this.STATE:', this.state);
         console.log('studentInfoReducer:', this.props.studentInfoReducer);
-     
+
         return (
             <div >
                 <MuiThemeProvider theme={theme}>
                     <div className="bodyDetailPage">
                         <div className="studentPageBody" >
-                            <div>
-                                <b>Student Name: {this.props.studentDetailReducer.username} </b>
-                            </div>
-                        </div>                    
-                        <b>Total books read: {this.props.studentDetailReducer.total_books_read}</b>
+                            <b>Student Name: {this.props.studentDetailReducer.username} </b>
+                        </div>
+                        <div>
+                            <b>Total books read: {this.props.studentDetailReducer.total_books_read}</b>
+                        </div>
                     </div>
                     <table>
                         <thead>
                             <tr>
                                 <th>Date</th>
                                 <th>Book title</th>
-                                <th>Initial by a Parent</th>                              
+                                <th>Initial by a Parent</th>
                             </tr>
                         </thead>
                         <tbody>
                             {this.props.studentInfoReducer.filter(item => item.student_id === this.props.studentDetailReducer.student_id).map((bookItem) => {
                                 return (
-
                                     <tr key={bookItem.id}>
                                         <td>
                                             {new Date(bookItem.date_completed).getMonth() + 1}/
@@ -101,10 +95,10 @@ class StudentDetailPage extends Component {
                                         </td>
                                         <td>
                                             {bookItem.initial}
-                                        </td>                                   
+                                        </td>
                                     </tr>
                                 )
-                                }
+                            }
                             )}
                         </tbody>
                     </table>

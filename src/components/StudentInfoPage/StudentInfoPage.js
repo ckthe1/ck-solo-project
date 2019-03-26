@@ -52,7 +52,7 @@ class StudentInfoPage extends Component {
     bookId: '',
     user: this.props.user.id,
     count: this.props.bookReducer.length,
-    isEnable:true,
+    isEnable: true,
 
   };
 
@@ -73,7 +73,7 @@ class StudentInfoPage extends Component {
     event.preventDefault();
     if (this.state.title === '' && this.state.date_completed === '') {
       alert('BOOK TITLE, DATE AND INITIAL CANNOT BE EMPTY')
-    } else {   
+    } else {
       this.props.dispatch({ type: 'ADD_BOOK', payload: this.state });
       alert('GREAT SUCCESS')
     }
@@ -87,21 +87,20 @@ class StudentInfoPage extends Component {
       isEnable: false,
     })
     this.fetchBook();
-  }// end handleSubmit, add student to DB onSubmit
+  }// end handleSubmit, add student to DB onSubmit. 
 
   componentDidMount() {
     this.fetchBook();
   }
   fetchBook = () => {
-    //make call to server using sagas
     console.log('going to get, title, date, initial');
     this.props.dispatch({ type: 'FETCH_BOOK' });
-  }
+  }// fetch added book info. date, title, initial
 
-  handleDelete= id =>()=>{
+  handleDelete = id => () => {
     console.log('STUDENT INFO HANDLE DELETE', id);
     alert('Delete Successful')
-    this.props.dispatch({ type:'DELETE_BOOK', payload: id})
+    this.props.dispatch({ type: 'DELETE_BOOK', payload: id })
     this.setState({
       title: '',
       date_completed: '',
@@ -111,46 +110,43 @@ class StudentInfoPage extends Component {
       count: '',
       isEnable: true,
     })
-  }
+  }// delete student, date, book title, initial from database
 
 
   render() {
     console.log('bookReducer', this.props.bookReducer);
     console.log('this.STATE', this.state);
-    
+
     return (
       <div >
         <MuiThemeProvider theme={theme}>
-          <div className="body">         
-          <div className="studentPageBody" >
-           <div>
-            <b>Reading is Oh so Sweet</b>             
+          <div className="body">
+            <div className="studentPageBody" >
+              <div>
+                <b>Reading is Oh so Sweet</b>
+              </div>
             </div>
+            <form onSubmit={this.handleSubmit} className="box">
+              <div className="flex-container">
+                <h4>Select a Date:
+                <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} className="inputHeight" /></h4>
+                <h4>Enter Book Title:
+                <input type="text" value={this.state.title} onChange={this.handleChange('title')}
+                    placeholder="Book title" size="25" className="inputHeight" /></h4>
+                <div>
+                  <h4>Parent Initial Here:
+                <input type="text" value={this.state.initial} onChange={this.handleChange('initial')}
+                      placeholder="initials" size="10" className="inputHeight" /></h4>
+                </div>
+                <Button type="submit" variant="contained" color="primary"
+                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '100px' }} >Add Book</Button>
+              </div>
+            </form>
+            <b>Total books read: {this.props.bookReducer.length}</b>
           </div>
-          <form onSubmit={this.handleSubmit} className="box">
-            <div className="flex-container">
-            <h4>Select a Date:
-            <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} className="inputHeight" /></h4>
-            <h4>Enter Book Title:
-            <input type="text" value={this.state.title} onChange={this.handleChange('title')} 
-            placeholder="Book title" size="25" className="inputHeight" /></h4>      
-            <div>
-            <h4>Parent Initial Here:
-            <input type="text" value={this.state.initial} onChange={this.handleChange('initial')} 
-            placeholder="initials" size="10" className="inputHeight" /></h4>
-            </div>
-            
-              <Button type="submit" variant="contained" color="primary" 
-              style={{ maxWidth: '10px', maxHeight: '10px', minWidth:'120px',minHeight:'100px'}} >Add Book</Button>
-            </div>
-          </form>
-            <div >
-        </div>     
-          <b>Total books read: {this.props.bookReducer.length}</b>
-            </div>
           <table>
             <thead>
-              <tr>            
+              <tr>
                 <th>Date</th>
                 <th>Book title</th>
                 <th>Initial by a Parent</th>
@@ -160,7 +156,6 @@ class StudentInfoPage extends Component {
             <tbody>
               {this.props.bookReducer.map((bookItem) => {
                 return (
-
                   <tr key={bookItem.id}>
                     <td>
                       {new Date(bookItem.date_completed).getMonth() + 1}/
@@ -174,19 +169,18 @@ class StudentInfoPage extends Component {
                       {bookItem.initial}
                     </td>
                     <td>
-                      <Button variant="contained" color="secondary" 
-                      onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable} >Remove
+                      <Button variant="contained" color="secondary"
+                        onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable} >Remove
                       <DeleteIcon /></Button>
                     </td>
                   </tr>
-                  )
-                 }
+                )
+              }
               )}
             </tbody>
           </table>
         </MuiThemeProvider>
       </div>
-
     );
   }
 }
@@ -199,5 +193,5 @@ StudentInfoPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles) (connect(mapStateToProps)(StudentInfoPage));
+export default withStyles(styles)(connect(mapStateToProps)(StudentInfoPage));
 

@@ -94,10 +94,12 @@ input {
 }
 .studentPageBody{
     text-align: center;
-    /* background-image: url('/images/readHeader.jpg'); */
+   
+    /* vertical-align: text-bottom; */
 }
 b{
-    text-align:center;
+    /* text-align:center; */
+
     /* font-family: "comic", serif; */
     color:  #380149;
     text-shadow: 2px 2px 4px #f8b600fd;
@@ -195,4 +197,9 @@ tr:nth-child(5n+0) {
 
 .fa[disabled] {
   display: none !important;
+}
+
+.bodyDetailPage{
+
+ vertical-align: text-bottom;
 }
