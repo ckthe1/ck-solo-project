@@ -69,7 +69,7 @@ class StudentDetailPage extends Component {
         return (
             <div >
                 <MuiThemeProvider theme={theme}>
-                    <div className="body">
+                    <div className="bodyDetailPage">
                         <div className="studentPageBody" >
                             <div>
                                 <b>Student Name: {this.props.bookReducer.username} </b>

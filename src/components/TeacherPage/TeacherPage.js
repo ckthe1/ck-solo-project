@@ -101,8 +101,9 @@ render() {
       <div >
         <MuiThemeProvider theme={theme}>
           <div className="bodyTeacher">
-            </div>
-            <b>Total students: {this.props.studentReducer.length}</b>      
+           
+            <b>Total students: {this.props.studentReducer.length}</b>     
+          </div> 
           <table>
             <thead>
               <tr>

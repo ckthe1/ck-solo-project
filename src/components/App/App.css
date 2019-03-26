@@ -14,8 +14,33 @@ body {
     /* width: 1200px;
     height: 350px; */
     background-size:cover;
-    /* opacity: 0.5; */
+    padding-left: 20px;
 }
+.bodyTeacher{
+  background-image: url('/images/teacher_copy_2.png');
+  background-repeat: no-repeat;
+  /* background-size:cover; */
+  width: 1800px;
+  height: 285px;
+  background-image: center;
+  padding-left: 20px;
+}
+
+.bodyDetailPage{
+  background-image: url('/images/teacher_kids.png');
+  background-repeat: no-repeat;
+  /* background-size:cover; */
+  /* width: 1600px; */
+  height: 310px;
+  padding-left: 20px;
+}
+
+.userPageBody{
+
+
+
+}
+
 .image{
   height: 300px;
   width: 1200px;
