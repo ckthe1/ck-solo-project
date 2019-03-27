@@ -7,22 +7,23 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import deepPurple from '@material-ui/core/colors/deepPurple';
 import cyan from '@material-ui/core/colors/cyan';
 import red from '@material-ui/core/colors/red';
-import DeleteIcon from '@material-ui/icons/Delete';
+import ReplyIcon from '@material-ui/icons/Reply';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
 
 const theme = createMuiTheme({
     palette: {
-        primary: deepPurple,
+        primary: cyan,
         secondary: red,
         error: red,
         contrastThreshold: 3,
         tonalOffset: 0.2,
-
     },
     typography: {
         useNextVariants: true,
+        fontFamily: "fantasy",
+        fontSize: 12,
     }
 });
 
@@ -30,8 +31,8 @@ const styles = theme => ({
     root: {
         color: theme.palette.text.primary,
     },
-    icon: {
-        margin: theme.spacing.unit,
+    Icon: {
+        marginRight: theme.spacing.unit,
         fontSize: 32,
     },
 });
@@ -57,6 +58,13 @@ class StudentDetailPage extends Component {
         this.props.dispatch({ type: 'FETCH_STUDENT_INFO' });
     }// get student infos. date , title, initial, id
 
+    handleClick=()=>{
+        console.log('back button clicked');
+        
+        this.props.history.push('/about');
+
+    }
+
     render() {
         console.log('studentDetailPage: studentDetailReducer:', this.props.studentDetailReducer);
         console.log('studentDetailPage: this.STATE:', this.state);
@@ -67,12 +75,16 @@ class StudentDetailPage extends Component {
                 <MuiThemeProvider theme={theme}>
                     <div className="bodyDetailPage">
                         <div className="studentPageBody" >
-                            <b>Student Name: {this.props.studentDetailReducer.username} </b>
+                            <b>Student Name: {this.props.studentDetailReducer.username}</b>
                         </div>
                         <div>
                             <b>Total books read: {this.props.studentDetailReducer.total_books_read}</b>
                         </div>
                     </div>
+                    <p className="BackIcon">
+                        <Button  variant="contained" color="primary" onClick={this.handleClick}>back
+                        <ReplyIcon /></Button>
+                    </p>
                     <table>
                         <thead>
                             <tr>

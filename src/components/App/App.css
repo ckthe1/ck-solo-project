@@ -35,13 +35,6 @@ body {
   padding-left: 20px;
 }
 
-/* .userPageBody{
- background-image: url('/images/bckgroung-school.jpg');
-  height:1200px;
-  width: 1600px;
-
-} */
-
 .image{
   height: 300px;
   width: 1200px;
@@ -99,19 +92,21 @@ input {
     /* vertical-align: text-bottom; */
 }
 
-/* .userMainBody{
 
-
-} */
 
 b{
-    /* text-align:center; */
-
-    /* font-family: "comic", serif; */
     color:  #380149;
     text-shadow: 2px 2px 4px #f8b600fd;
     font-size: 50px;
     font-family: fantasy
+}
+
+h1{
+  text-align:center;    
+  color:  #380149;
+  text-shadow: 2px 2px 4px #f8b600fd;
+  font-size: 40px;
+  font-family: fantasy;
 }
 
 h2{
@@ -120,15 +115,20 @@ h2{
   text-shadow: 2px 2px 4px #f8b600fd;
   font-size: 30px;
   font-family: fantasy;
-
 }
-h1{
-  text-align:center;    
+h4{
+  text-align: center;   
   color:  #380149;
   text-shadow: 2px 2px 4px #f8b600fd;
-  font-size: 40px;
+  font-size: 25px;
   font-family: fantasy;
-
+}
+h5{
+  text-align: center;   
+  color:  #380149;
+  text-shadow: 2px 2px 4px #f8b600fd;
+  font-size: 20px;
+  font-family: fantasy;
 }
 ::placeholder { 
   color: rgb(15, 15, 119);
@@ -165,7 +165,7 @@ tr:nth-child(even) {
 }
 
 .flex-container {
-  display: inline-flex; 
+  display:flex; 
   color:  #380149;
   font-size:24px;
   font-family: fantasy;
@@ -184,17 +184,16 @@ input{
 }
 
 .box input[type="text"]:hover, .box input[type="password"]:hover, .box input[type="date"]:hover{
-
-width:  180px;
-border-color:#0bf332;
-}
-.box input[type="text"]:focus, .box input[type="password"]:focus, .box input[type="date"]:focus{
-
-width:  180px;
+width:  170px;
 border-color:#0bf332;
 }
 
-tr:nth-child(5n+0) {
+/* .box input[type="text"]:focus, .box input[type="password"]:focus, .box input[type="date"]:focus{
+width:  180px;
+border-color:#0bf332;
+} */
+
+tr:nth-child(10n+0) {
   background-color:rgb(173,255,0);
 
 }
@@ -206,4 +205,14 @@ tr:nth-child(5n+0) {
 .bodyDetailPage{
 
  vertical-align: text-bottom;
+}
+
+.DragSchoolIcon{
+  text-align: center;
+
+}
+
+.BackIcon{
+   text-align: center;
+   padding-left: 10px;
 }

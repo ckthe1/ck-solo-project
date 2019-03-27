@@ -10,6 +10,7 @@ const Nav = (props) => (
       <h2 className="nav-title">Low-Key Reading Log</h2>
     </Link>
     <div className="nav-right">
+    
       <Link className="nav-link" to="/home">
         {/* Show this link if they are logged in or not,
         but call this link 'Home' if they are logged in,

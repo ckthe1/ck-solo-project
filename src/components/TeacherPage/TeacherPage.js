@@ -10,6 +10,7 @@ import teal from '@material-ui/core/colors/teal';
 import cyan from '@material-ui/core/colors/cyan';
 import red from '@material-ui/core/colors/red';
 import DeleteIcon from '@material-ui/icons/Delete';
+import SchoolIcon from '@material-ui/icons/School';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -26,7 +27,7 @@ const theme = createMuiTheme({
     tonalOffset: 0.2,
   },
   typography: {
-    useNextVariants: false,
+    useNextVariants: true,
     fontFamily: "fantasy",
     fontSize: 12,
   }
@@ -36,8 +37,8 @@ const styles = theme => ({
   root: {
     color: theme.palette.text.primary,
   },
-  icon: {
-    margin: theme.spacing.unit,
+  Icon: {
+    marginLeft: theme.spacing.unit,
     fontSize: 32,
   },
 });
@@ -68,19 +69,19 @@ class TeacherPage extends Component {
     this.props.dispatch({ type: 'GET_ID', payload: studentItem })
   };// on click got to student detail page. store studentItem info in reducer.
 
-  // handleDelete = id => () => {
-  //   console.log('STUDENT HANDLE DELETE', id);
-  //   alert('Delete Successful')
-  //   this.props.dispatch({ type: 'DELETE_STUDENT', payload: id })
-  //   this.setState({
-  //     studentId: '',
-  //     title: '',     
-  //     initial: '',
-  //     bookId: '',
-  //     user: this.props.user.id,
-  //     count: '',
-  //     isEnable: true,
-  //   })
+  // handleEdit = id => () => {
+  //   console.log('STUDENT HANDLE EDIT', id);
+  //   // alert('Delete Successful')
+  //   // this.props.dispatch({ type: 'DELETE_STUDENT', payload: id })
+  //   // this.setState({
+  //   //   studentId: '',
+  //   //   title: '',     
+  //   //   initial: '',
+  //   //   bookId: '',
+  //   //   user: this.props.user.id,
+  //   //   count: '',
+  //   //   isEnable: true,
+  //   // })
   // }
 
 
@@ -97,13 +98,16 @@ class TeacherPage extends Component {
 
             <b>Total students: {this.props.studentReducer.length}</b>
           </div>
+          <p draggable className="DragSchoolIcon">
+          <SchoolIcon variant="contained" color="secondary" size=" large" />
+          </p>
           <table>
             <thead>
-              <tr>
+              <tr>       
                 <th>Students</th>
                 <th>Total books read</th>
+                <th>Reach 5 books</th>
                 <th>Reach 10 books</th>
-                <th>Reach 20 books</th>
                 <th>Reach 30 books</th>
               </tr>
             </thead>
@@ -123,15 +127,13 @@ class TeacherPage extends Component {
                       {studentItem.total_books_read}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 2 ? "yes" : "no"}
+                      {Number(studentItem.total_books_read) >= 5 ? "yes" : "no"}
                     </td>
                     <td>
                       {Number(studentItem.total_books_read) >= 20 ? "yes" : "no"}
                     </td>
                     <td>
                       {Number(studentItem.total_books_read) >= 30 ? "yes" : "no"}
-
-                      {/* <DeleteIcon variant="contained" color="secondary"  onClick={this.handleDelete(studentItem.student_id)} /> */}
                     </td>
                   </tr>
                 )

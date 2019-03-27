@@ -56,9 +56,6 @@ class StudentInfoPage extends Component {
 
   };
 
-  //  
-
-
 
   handleChange = (property) => (event) => {
     console.log(event.target.value)
@@ -71,7 +68,7 @@ class StudentInfoPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    if (this.state.title === '' && this.state.date_completed === '') {
+    if (this.state.title === '' && this.state.date_completed === '' && this.state.initial === '') {
       alert('BOOK TITLE, DATE AND INITIAL CANNOT BE EMPTY')
     } else {
       this.props.dispatch({ type: 'ADD_BOOK', payload: this.state });
@@ -122,9 +119,13 @@ render() {
         <MuiThemeProvider theme={theme}>
           <div className="body">
             <div className="studentPageBody" >
+
+           
               <div>
+                 
                 <b>Reading is Oh so Sweet</b>
               </div>
+                <h5>Please spend 10-15 minutes each night reading to your child</h5> 
             </div>
             <form onSubmit={this.handleSubmit} className="box">
               <div className="flex-container">
@@ -132,12 +133,14 @@ render() {
                 <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} className="inputHeight" /></h4>
                 <h4>Enter Book Title:
                 <input type="text" value={this.state.title} onChange={this.handleChange('title')}
-                    placeholder="Book title" size="25" className="inputHeight" /></h4>
+                    placeholder="Title of Book" size="25" className="inputHeight" /></h4>
                 <div>
                   <h4>Parent Initial Here:
                 <input type="text" value={this.state.initial} onChange={this.handleChange('initial')}
-                      placeholder="initials" size="10" className="inputHeight" /></h4>
+                      placeholder="Initials" size="10" className="inputHeight" /></h4>
                 </div>
+
+                {/* <input type="text" placeholder="Comments" /> */}
                 <Button type="submit" variant="contained" color="primary"
                   style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '100px' }} >Add Book</Button>
               </div>
@@ -148,9 +151,9 @@ render() {
             <thead>
               <tr>
                 <th>Date</th>
-                <th>Book title</th>
+                <th>Title of Book</th>
                 <th>Initial by a Parent</th>
-                <th>Delete</th>
+                <th>Remove</th>
               </tr>
             </thead>
             <tbody>
@@ -164,6 +167,7 @@ render() {
                     </td>
                     <td>
                       {bookItem.title}
+
                     </td>
                     <td>
                       {bookItem.initial}
