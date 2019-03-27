@@ -14,11 +14,7 @@ import red from '@material-ui/core/colors/red';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-// import AddButton from './AddButton';
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
+
 const theme = createMuiTheme({
   palette: {
     primary: deepPurple,
@@ -26,7 +22,6 @@ const theme = createMuiTheme({
     error: red,
     contrastThreshold: 3,
     tonalOffset: 0.2,
-
   },
   typography: {
     useNextVariants: true,
@@ -118,11 +113,8 @@ render() {
       <div >
         <MuiThemeProvider theme={theme}>
           <div className="body">
-            <div className="studentPageBody" >
-
-           
-              <div>
-                 
+            <div className="studentPageBody" >           
+              <div>                
                 <b>Reading is Oh so Sweet</b>
               </div>
                 <h5>Please spend 10-15 minutes each night reading to your child</h5> 
@@ -138,14 +130,12 @@ render() {
                   <h4>Parent Initial Here:
                 <input type="text" value={this.state.initial} onChange={this.handleChange('initial')}
                       placeholder="Initials" size="10" className="inputHeight" /></h4>
-                </div>
-
-                {/* <input type="text" placeholder="Comments" /> */}
+                </div>              
                 <Button type="submit" variant="contained" color="primary"
                   style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '100px' }} >Add Book</Button>
               </div>
             </form>
-            <b>Total books read: {this.props.bookReducer.length}</b>
+              <b>Total books read: {this.props.bookReducer.length}</b>
           </div>
           <table>
             <thead>
@@ -167,7 +157,6 @@ render() {
                     </td>
                     <td>
                       {bookItem.title}
-
                     </td>
                     <td>
                       {bookItem.initial}

@@ -87,12 +87,9 @@ input {
     text-shadow: 2px 2px 4px #f8b600fd;
 }
 .studentPageBody{
-    text-align: center;
-   
+    text-align: center;  
     /* vertical-align: text-bottom; */
 }
-
-
 
 b{
     color:  #380149;
@@ -148,6 +145,8 @@ table {
 td, th {
   border:1px solid #b176d8;
   text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 17px;
   padding: 8px;
   /* color: aquamarine */
 }
@@ -155,6 +154,7 @@ td, th {
 tr:nth-child(even) {
   background-color:rgba(0, 62, 197, 0.322);
 }
+
 .inputHeight{
   height: 25px;
   display:inline-block;

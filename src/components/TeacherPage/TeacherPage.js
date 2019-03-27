@@ -9,11 +9,11 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import teal from '@material-ui/core/colors/teal';
 import cyan from '@material-ui/core/colors/cyan';
 import red from '@material-ui/core/colors/red';
-import DeleteIcon from '@material-ui/icons/Delete';
-import SchoolIcon from '@material-ui/icons/School';
+// import DeleteIcon from '@material-ui/icons/Delete';
+// import SchoolIcon from '@material-ui/icons/School';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import 'typeface-roboto';
 import { withRouter } from 'react-router-dom';
 
@@ -69,23 +69,6 @@ class TeacherPage extends Component {
     this.props.dispatch({ type: 'GET_ID', payload: studentItem })
   };// on click got to student detail page. store studentItem info in reducer.
 
-  // handleEdit = id => () => {
-  //   console.log('STUDENT HANDLE EDIT', id);
-  //   // alert('Delete Successful')
-  //   // this.props.dispatch({ type: 'DELETE_STUDENT', payload: id })
-  //   // this.setState({
-  //   //   studentId: '',
-  //   //   title: '',     
-  //   //   initial: '',
-  //   //   bookId: '',
-  //   //   user: this.props.user.id,
-  //   //   count: '',
-  //   //   isEnable: true,
-  //   // })
-  // }
-
-
-
 
   render() {
     console.log('this.state:', this.state);
@@ -98,9 +81,9 @@ class TeacherPage extends Component {
 
             <b>Total students: {this.props.studentReducer.length}</b>
           </div>
-          <p draggable className="DragSchoolIcon">
+          {/* <p draggable className="DragSchoolIcon">
           <SchoolIcon variant="contained" color="secondary" size=" large" />
-          </p>
+          </p> */}
           <table>
             <thead>
               <tr>       
@@ -127,13 +110,13 @@ class TeacherPage extends Component {
                       {studentItem.total_books_read}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 5 ? "yes" : "no"}
+                      {Number(studentItem.total_books_read) >= 5 ? "Yes" : "No"}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 20 ? "yes" : "no"}
+                      {Number(studentItem.total_books_read) >= 20 ? "Yes" : "No"}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 30 ? "yes" : "no"}
+                      {Number(studentItem.total_books_read) >= 30 ? "Yes" : "No"}
                     </td>
                   </tr>
                 )

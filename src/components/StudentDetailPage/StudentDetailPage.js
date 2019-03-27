@@ -59,10 +59,8 @@ class StudentDetailPage extends Component {
     }// get student infos. date , title, initial, id
 
     handleClick=()=>{
-        console.log('back button clicked');
-        
+        console.log('back button clicked');        
         this.props.history.push('/about');
-
     }
 
     render() {
@@ -81,10 +79,10 @@ class StudentDetailPage extends Component {
                             <b>Total books read: {this.props.studentDetailReducer.total_books_read}</b>
                         </div>
                     </div>
-                    <p className="BackIcon">
-                        <Button  variant="contained" color="primary" onClick={this.handleClick}>back
-                        <ReplyIcon /></Button>
-                    </p>
+                        <p className="BackIcon">
+                            <Button  variant="contained" color="primary" onClick={this.handleClick}>back
+                            <ReplyIcon /></Button>
+                        </p>
                     <table>
                         <thead>
                             <tr>
