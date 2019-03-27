@@ -35,11 +35,12 @@ body {
   padding-left: 20px;
 }
 
-.userPageBody{
+/* .userPageBody{
+ background-image: url('/images/bckgroung-school.jpg');
+  height:1200px;
+  width: 1600px;
 
-
-
-}
+} */
 
 .image{
   height: 300px;
@@ -97,6 +98,12 @@ input {
    
     /* vertical-align: text-bottom; */
 }
+
+/* .userMainBody{
+
+
+} */
+
 b{
     /* text-align:center; */
 
@@ -108,28 +115,26 @@ b{
 }
 
 h2{
-   text-align:left;
-    
-    color:  #380149;
-    text-shadow: 2px 2px 4px #f8b600fd;
-    font-size: 30px;
-    font-family: fantasy;
+  text-align:left;   
+  color:  #380149;
+  text-shadow: 2px 2px 4px #f8b600fd;
+  font-size: 30px;
+  font-family: fantasy;
 
 }
 h1{
-   text-align:center;
-    
-    color:  #380149;
-    text-shadow: 2px 2px 4px #f8b600fd;
-    font-size: 40px;
-    font-family: fantasy;
+  text-align:center;    
+  color:  #380149;
+  text-shadow: 2px 2px 4px #f8b600fd;
+  font-size: 40px;
+  font-family: fantasy;
 
 }
 ::placeholder { 
   color: rgb(15, 15, 119);
 }
 .labelClass{
-   color:  #380149;
+  color:  #380149;
   text-shadow: 2px 2px 4px #f8b600fd;
   font-family: fantasy;
 }
@@ -188,7 +193,6 @@ border-color:#0bf332;
 width:  180px;
 border-color:#0bf332;
 }
-
 
 tr:nth-child(5n+0) {
   background-color:rgb(173,255,0);

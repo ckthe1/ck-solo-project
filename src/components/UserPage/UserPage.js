@@ -6,6 +6,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
 const UserPage = (props) => (
+<div className="userMainBody">
   <div className="userPageBody">
     <h1 id="welcome">
       Welcome, { props.user.username }!
@@ -13,6 +14,7 @@ const UserPage = (props) => (
     <h1>Use the navigation bar, please </h1>
     <LogOutButton className="log-in" />
   </div>
+</div>
 );
 
 // Instead of taking everything from state, we just want the user info.

@@ -113,7 +113,7 @@ class StudentInfoPage extends Component {
   }// delete student, date, book title, initial from database
 
 
-  render() {
+render() {
     console.log('bookReducer', this.props.bookReducer);
     console.log('this.STATE', this.state);
 
