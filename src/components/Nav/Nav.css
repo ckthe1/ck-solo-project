@@ -4,12 +4,14 @@
     display: inline-block;
     color: #f8b600fd;
     padding-left: 10px;
+    text-shadow: 2px 2px 4px #380149;
 }
 
 .nav {
   overflow: hidden;
   background-color: rgba(69, 69, 236, 0.755);
   font-family: fantasy
+
 }
 
 .nav-link {
@@ -22,6 +24,7 @@
   font-size: 15px;
   font-family: fantasy;
   border-radius:20px;
+  text-shadow: 2px 2px 4px #380149;
   /* height: 20px; */
   /* these last two make the logout button in
   the nav bar look like another link */

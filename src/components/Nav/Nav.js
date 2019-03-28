@@ -20,7 +20,7 @@ const Nav = (props) => (
       {props.user.id >= 2 && (
         <>
           <Link className="nav-link" to="/info">
-            Student Reading Log
+            My Reading Log
           </Link>
           <LogOutButton className="nav-link"/>
         </>

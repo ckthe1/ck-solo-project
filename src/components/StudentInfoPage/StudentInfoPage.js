@@ -122,7 +122,7 @@ render() {
             <form onSubmit={this.handleSubmit} className="box">
               <div className="flex-container">
                 <h4>Select a Date:
-                <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} className="inputHeight" /></h4>
+                <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} className="inputHeight" size="25"/></h4>
                 <h4>Enter Book Title:
                 <input type="text" value={this.state.title} onChange={this.handleChange('title')}
                     placeholder="Title of Book" size="25" className="inputHeight" /></h4>

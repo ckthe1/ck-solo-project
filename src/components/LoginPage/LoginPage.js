@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import Checkbox from '@material-ui/core/Checkbox';
+
 
 class LoginPage extends Component {
   state = {
@@ -26,15 +26,13 @@ class LoginPage extends Component {
   } // end login
 
   handleInputChangeFor = propertyName => (event) => {
-    console.log('event:',event.target.value);
-    
+    console.log('event:',event.target.value);   
     this.setState({
       [propertyName]: event.target.value,
-
     });
-  }
+  }// end handleInputChangeFor
 
-  render() {
+render() {
     console.log('checked:',this.state);
     
     return (
@@ -81,20 +79,17 @@ class LoginPage extends Component {
               value="Log In"
             />
           </div>
-        </form>
-      
+        </form>     
           <div>
-            <center>
-              
-            <button
+            <center>             
+              <button
               type="button"
               className="link-button"
               onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
-            >
+              >
               Register
-          </button>
+              </button>
             </center>
-
           </div>
       </div>
       

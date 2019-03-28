@@ -156,7 +156,7 @@ tr:nth-child(even) {
 }
 
 .inputHeight{
-  height: 25px;
+  height: 30px;
   display:inline-block;
   background-color: rgba(157, 157, 243, 0.755);
   color: rgb(15, 15, 119);
@@ -167,13 +167,14 @@ tr:nth-child(even) {
 .flex-container {
   display:flex; 
   color:  #380149;
-  font-size:24px;
+  font-size:25px;
   font-family: fantasy;
   text-shadow: 2px 2px 4px #f8b600fd;
 }
 input{
   height: 20px;
   font-family: fantasy;
+  font-size:14px;
   color:  #380149;
   text-shadow: 2px 2px 4px #f8b600fd;
 }
@@ -184,7 +185,7 @@ input{
 }
 
 .box input[type="text"]:hover, .box input[type="password"]:hover, .box input[type="date"]:hover{
-width:  170px;
+width:  130px;
 border-color:#0bf332;
 }
 
