@@ -1,4 +1,4 @@
-// import React from 'react';
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../App/App.css'
@@ -14,6 +14,9 @@ import red from '@material-ui/core/colors/red';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import PrintIcon from '@material-ui/icons/Print';
+import Add_boxIcon from '@material-ui/icons/Add';
+
 
 const theme = createMuiTheme({
   palette: {
@@ -25,6 +28,8 @@ const theme = createMuiTheme({
   },
   typography: {
     useNextVariants: true,
+    fontFamily: "fantasy",
+    fontSize: 12,
   }
 });
 
@@ -103,13 +108,17 @@ class StudentInfoPage extends Component {
       isEnable: true,
     })
   }// delete student, date, book title, initial from database
-
+  handlePrint=()=>{
+    console.log('print this');  
+    window.print();
+  }//end print
 
 render() {
     console.log('bookReducer', this.props.bookReducer);
     console.log('this.STATE', this.state);
 
     return (
+      
       <div >
         <MuiThemeProvider theme={theme}>
           <div className="body">
@@ -132,11 +141,14 @@ render() {
                       placeholder="Initials" size="10" className="inputHeight" /></h4>
                 </div>              
                 <Button type="submit" variant="contained" color="primary"
-                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '100px' }} >Add Book</Button>
+                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '100px' }} >Add Book<Add_boxIcon/></Button>
               </div>
             </form>
               <b>Total books read: {this.props.bookReducer.length}</b>
           </div>
+          <b className="BackIcon">
+            <Button className="BackIcon" variant="contained" color="primary" onClick={this.handlePrint} > Print<PrintIcon/></Button>
+          </b>
           <table>
             <thead>
               <tr>
@@ -146,6 +158,7 @@ render() {
                 <th>Remove</th>
               </tr>
             </thead>
+            
             <tbody>
               {this.props.bookReducer.map((bookItem) => {
                 return (
@@ -171,12 +184,31 @@ render() {
               }
               )}
             </tbody>
+           
           </table>
         </MuiThemeProvider>
       </div>
+      
     );
   }
 }
+
+
+// class Example extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <ReactToPrint
+//           trigger={() => <a href="#">Print this out!</a>}
+//           content={() => this.componentRef}
+//         />
+//         <StudentInfoPage ref={el => (this.componentRef = el)} />
+//       </div>
+//     );
+//   }
+// }
+
+
 
 const mapStateToProps = reduxState => {
   return reduxState

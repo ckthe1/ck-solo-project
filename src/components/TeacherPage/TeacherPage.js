@@ -13,6 +13,7 @@ import red from '@material-ui/core/colors/red';
 // import SchoolIcon from '@material-ui/icons/School';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import InfoIcon from '@material-ui/icons/Info';
 // import { Link } from 'react-router-dom';
 import 'typeface-roboto';
 import { withRouter } from 'react-router-dom';
@@ -78,7 +79,6 @@ class TeacherPage extends Component {
       <div >
         <MuiThemeProvider theme={theme}>
           <div className="bodyTeacher">
-
             <b>Total students: {this.props.studentReducer.length}</b>
           </div>
           {/* <p draggable className="DragSchoolIcon">
@@ -91,7 +91,7 @@ class TeacherPage extends Component {
                 <th>Total books read</th>
                 <th>Reach 5 books</th>
                 <th>Reach 10 books</th>
-                <th>Reach 30 books</th>
+                <th>Reach 20 books</th>
               </tr>
             </thead>
             <tbody>
@@ -103,7 +103,7 @@ class TeacherPage extends Component {
                       {studentItem.username}
                       <Typography variant="caption" gutterBottom>
                         <Button variant="contained" color="primary" onClick={this.handleClick(studentItem)}
-                          style={{ maxWidth: '30px', maxHeight: '25px', minWidth: '70px', minHeight: '15px' }}>details</Button>
+                          style={{ maxWidth: '30px', maxHeight: '25px', minWidth: '70px', minHeight: '15px' }}>details<InfoIcon /></Button>
                       </Typography>
                     </td>
                     <td>
@@ -113,10 +113,10 @@ class TeacherPage extends Component {
                       {Number(studentItem.total_books_read) >= 5 ? "Yes" : "No"}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 20 ? "Yes" : "No"}
+                      {Number(studentItem.total_books_read) >= 10 ? "Yes" : "No"}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 30 ? "Yes" : "No"}
+                      {Number(studentItem.total_books_read) >= 20 ? "Yes" : "No"}
                     </td>
                   </tr>
                 )

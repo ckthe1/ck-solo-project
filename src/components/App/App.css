@@ -1,18 +1,12 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
- 
-    /* background-image: url('/images/reading99.jpg'); */
-    /* background-repeat: no-repeat; */
     background-size:cover;
 
 }
 .body{
     background-image: url('/images/kid_photo.jpg');
     background-repeat: no-repeat;
-    /* image-rendering: auto; */
-    /* width: 1200px;
-    height: 350px; */
     background-size:cover;
     padding-left: 20px;
 }
@@ -29,8 +23,6 @@ body {
 .bodyDetailPage{
   background-image: url('/images/teacher_kids.png');
   background-repeat: no-repeat;
-  /* background-size:cover; */
-  /* width: 1600px; */
   height: 310px;
   padding-left: 20px;
 }
@@ -41,22 +33,22 @@ body {
 }
 
 .alert {
-    background-color: #ff4545;
-    margin: 50px;
+  background-color: #ff4545;
+  margin: 50px;
 }
 
 form {
-    /* background-color:rgb(69, 69, 236);  */
-    width: 90%;
-    height: 70px;
-    margin: 20px auto;
-    padding: 25px;
-    border-radius: 2px;
+  /* background-color:rgb(69, 69, 236);  */
+  width: 90%;
+  height: 70px;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 2px;
 }
 
 input {
-    margin: 5px;
-    margin-bottom: 10px;
+  margin: 5px;
+  margin-bottom: 10px;
 }
 
 .log-in, .log-out, .register {
@@ -67,6 +59,8 @@ input {
   min-width: 100px;
   outline:0;
   cursor: pointer;
+  font-family: fantasy;
+  text-shadow: 2px 2px 4px #f8b600fd;
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
@@ -75,27 +69,30 @@ input {
 
 /* This line makes the "Register" and "Login" buttons look like links */
 .link-button {
-    background:none;
-    color:#380149;
-    border:none;
-    padding:0;
-    font: inherit;
-    outline:0;
-    border-bottom:1px solid rgb(99, 3, 163); 
-    cursor: pointer;
-    font-family: fantasy;
-    text-shadow: 2px 2px 4px #f8b600fd;
+  background:none;
+  color:#380149;
+  border:none;
+  padding:0;
+  font: inherit;
+  outline:0;
+  border-bottom:1px solid rgb(99, 3, 163); 
+  cursor: pointer;
+  font-family: fantasy;
+  text-shadow: 2px 2px 4px #f8b600fd;
 }
 .studentPageBody{
-    text-align: center;  
-    /* vertical-align: text-bottom; */
+  text-align: center;  
+  /* vertical-align: text-bottom; */
 }
 
 b{
-    color:  #380149;
-    text-shadow: 2px 2px 4px #f8b600fd;
-    font-size: 50px;
-    font-family: fantasy
+  color:  #380149;
+  text-shadow: 2px 2px 4px #f8b600fd;
+  font-size: 50px;
+  font-family: fantasy;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-bottom: 3px;
 }
 
 h1{
@@ -204,16 +201,31 @@ tr:nth-child(10n+0) {
 }
 
 .bodyDetailPage{
-
  vertical-align: text-bottom;
 }
 
-.DragSchoolIcon{
+/* .DragSchoolIcon{
   text-align: center;
 
-}
+} */
 
 .BackIcon{
-   text-align: center;
-   padding-left: 10px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+  align-content: left;
+}
+.PrintIcon{
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+  align-content: center;
+}
+.logOutButton{
+  font-family: fantasy;
+  font-size:14px;
+  color:  #380149;  text-shadow: 2px 2px 4px #f8b600fd;
+
 }

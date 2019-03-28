@@ -12,6 +12,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const bookRouter = require('./routes/book.router'); // bookRouter (look below) is @ component book.router
 const teacherRouter = require('./routes/teacher.router');
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

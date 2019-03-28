@@ -10,7 +10,7 @@ import red from '@material-ui/core/colors/red';
 import ReplyIcon from '@material-ui/icons/Reply';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-
+import PrintIcon from '@material-ui/icons/Print';
 
 const theme = createMuiTheme({
     palette: {
@@ -31,7 +31,7 @@ const styles = theme => ({
     root: {
         color: theme.palette.text.primary,
     },
-    Icon: {
+    icon: {
         marginRight: theme.spacing.unit,
         fontSize: 32,
     },
@@ -79,10 +79,16 @@ class StudentDetailPage extends Component {
                             <b>Total books read: {this.props.studentDetailReducer.total_books_read}</b>
                         </div>
                     </div>
-                        <p className="BackIcon">
-                            <Button  variant="contained" color="primary" onClick={this.handleClick}>back
-                            <ReplyIcon /></Button>
-                        </p>
+                    <div >
+                       
+                        <b><Button  variant="contained" color="primary" onClick={this.handleClick}>
+                            back<ReplyIcon /></Button></b>
+                    
+                       
+                        <b><Button  variant="contained" color="primary" onClick={this.handlePrint} >
+                            Print <PrintIcon /></Button></b>
+                 
+                    </div>
                     <table>
                         <thead>
                             <tr>
