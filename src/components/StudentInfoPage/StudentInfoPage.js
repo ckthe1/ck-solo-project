@@ -176,7 +176,7 @@ render() {
                     </td>
                     <td>
                       <Button variant="contained" color="secondary"
-                        onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable} >Remove
+                        onClick={this.handleDelete(bookItem.book_id_id)} >Remove
                       <DeleteIcon /></Button>
                     </td>
                   </tr>

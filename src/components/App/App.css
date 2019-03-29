@@ -54,13 +54,13 @@ input {
 .log-in, .log-out, .register {
   background-color: rgba(69, 69, 236, 0.755);
   border-radius: 4px;
-  color: #f8f8f8;
+  color: #070300;
   min-height: 50px;
   min-width: 100px;
   outline:0;
   cursor: pointer;
   font-family: fantasy;
-  text-shadow: 2px 2px 4px #f8b600fd;
+  text-shadow: 2px 2px 4p#0019f8fd;
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
@@ -78,7 +78,7 @@ input {
   border-bottom:1px solid rgb(99, 3, 163); 
   cursor: pointer;
   font-family: fantasy;
-  text-shadow: 2px 2px 4px #f8b600fd;
+  text-shadow: 2px 2px 4px#0019f8fd;
 }
 .studentPageBody{
   text-align: center;  
@@ -87,7 +87,7 @@ input {
 
 b{
   color:  #380149;
-  text-shadow: 2px 2px 4px #f8b600fd;
+  text-shadow: 2px 2px 4px #0019f8fd;
   font-size: 50px;
   font-family: fantasy;
   padding-left: 10px;
@@ -98,7 +98,7 @@ b{
 h1{
   text-align:center;    
   color:  #380149;
-  text-shadow: 2px 2px 4px #f8b600fd;
+  text-shadow: 2px 2px 4px #0019f8fd;
   font-size: 40px;
   font-family: fantasy;
 }
@@ -106,21 +106,21 @@ h1{
 h2{
   text-align:left;   
   color:  #380149;
-  text-shadow: 2px 2px 4px #f8b600fd;
+  text-shadow: 2px 2px 4px #0019f8fd;
   font-size: 30px;
   font-family: fantasy;
 }
 h4{
   text-align: center;   
   color:  #380149;
-  text-shadow: 2px 2px 4px #f8b600fd;
+  text-shadow: 2px 2px 4px #0019f8fd;
   font-size: 25px;
   font-family: fantasy;
 }
 h5{
   text-align: center;   
   color:  #380149;
-  text-shadow: 2px 2px 4px #f8b600fd;
+  text-shadow: 2px 2px 4px #0019f8fd;
   font-size: 20px;
   font-family: fantasy;
 }
@@ -129,7 +129,7 @@ h5{
 }
 .labelClass{
   color:  #380149;
-  text-shadow: 2px 2px 4px #f8b600fd;
+  text-shadow: 2px 2px 4px#0019f8fd;
   font-family: fantasy;
 }
 table {
@@ -166,23 +166,23 @@ tr:nth-child(even) {
   color:  #380149;
   font-size:25px;
   font-family: fantasy;
-  text-shadow: 2px 2px 4px #f8b600fd;
+  text-shadow: 2px 2px 4px #092c35fd;
 }
 input{
   height: 20px;
   font-family: fantasy;
   font-size:14px;
   color:  #380149;
-  text-shadow: 2px 2px 4px #f8b600fd;
+  /* text-shadow: 2px 2px 4px #0b3a70fd; */
 }
 .box input[type="text"], .box input[type="password"], .box input[type="date"]{
-  border:2px solid #f8b600fd;
+  border:2px solid #3600f8fd;
   border-radius:24px;
   text-align: center;
 }
 
 .box input[type="text"]:hover, .box input[type="password"]:hover, .box input[type="date"]:hover{
-width:  130px;
+/* width:  130px; */
 border-color:#0bf332;
 }
 
@@ -192,7 +192,7 @@ border-color:#0bf332;
 } */
 
 tr:nth-child(10n+0) {
-  background-color:rgb(173,255,0);
+  background-color:rgb(246, 13, 254);
 
 }
 
