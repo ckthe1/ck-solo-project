@@ -17,7 +17,7 @@ import InfoIcon from '@material-ui/icons/Info';
 // import { Link } from 'react-router-dom';
 import 'typeface-roboto';
 import { withRouter } from 'react-router-dom';
-
+import PrintIcon from '@material-ui/icons/Print';
 
 const theme = createMuiTheme({
   palette: {
@@ -70,6 +70,10 @@ class TeacherPage extends Component {
     this.props.dispatch({ type: 'GET_ID', payload: studentItem })
   };// on click got to student detail page. store studentItem info in reducer.
 
+  handlePrint = () => {
+    console.log('print this');
+    window.print();
+  }//end print
 
   render() {
     console.log('this.state:', this.state);
@@ -81,9 +85,8 @@ class TeacherPage extends Component {
           <div className="bodyTeacher">
             <b>Total students: {this.props.studentReducer.length}</b>
           </div>
-          {/* <p draggable className="DragSchoolIcon">
-          <SchoolIcon variant="contained" color="secondary" size=" large" />
-          </p> */}
+          <b><Button variant="contained" color="primary" onClick={this.handlePrint} >
+            Print <PrintIcon /></Button></b>
           <table>
             <thead>
               <tr>       
@@ -93,6 +96,7 @@ class TeacherPage extends Component {
                 <th>Reach 10 books</th>
                 <th>Reach 20 books</th>
               </tr>
+
             </thead>
             <tbody>
               {this.props.studentReducer.map((studentItem) => {
@@ -103,7 +107,7 @@ class TeacherPage extends Component {
                       {studentItem.username}
                       <Typography variant="caption" gutterBottom>
                         <Button variant="contained" color="primary" onClick={this.handleClick(studentItem)}
-                          style={{ maxWidth: '30px', maxHeight: '25px', minWidth: '70px', minHeight: '15px' }}>details<InfoIcon /></Button>
+                          style={{ maxWidth: '30px', maxHeight: '25px', minWidth: '70px', minHeight: '15px' }}>details</Button>
                       </Typography>
                     </td>
                     <td>

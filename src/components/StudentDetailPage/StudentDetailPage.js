@@ -63,7 +63,13 @@ class StudentDetailPage extends Component {
         this.props.history.push('/about');
     }
 
-    render() {
+    handlePrint = () => {
+        console.log('print this');
+        window.print();
+    }//end print
+
+
+render() {
         console.log('studentDetailPage: studentDetailReducer:', this.props.studentDetailReducer);
         console.log('studentDetailPage: this.STATE:', this.state);
         console.log('studentInfoReducer:', this.props.studentInfoReducer);
