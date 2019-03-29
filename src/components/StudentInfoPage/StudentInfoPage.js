@@ -108,6 +108,7 @@ class StudentInfoPage extends Component {
       isEnable: true,
     })
   }// delete student, date, book title, initial from database
+
   handlePrint=()=>{
     console.log('print this');  
     window.print();
@@ -176,7 +177,7 @@ render() {
                     </td>
                     <td>
                       <Button variant="contained" color="secondary"
-                        onClick={this.handleDelete(bookItem.book_id_id)} >Remove
+                        onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable}>Remove
                       <DeleteIcon /></Button>
                     </td>
                   </tr>
@@ -192,21 +193,6 @@ render() {
     );
   }
 }
-
-
-// class Example extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <ReactToPrint
-//           trigger={() => <a href="#">Print this out!</a>}
-//           content={() => this.componentRef}
-//         />
-//         <StudentInfoPage ref={el => (this.componentRef = el)} />
-//       </div>
-//     );
-//   }
-// }
 
 
 
