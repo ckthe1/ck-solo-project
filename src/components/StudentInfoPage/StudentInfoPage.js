@@ -9,13 +9,13 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 // import { useAlert } from 'react-alert'
 import { createMuiTheme } from '@material-ui/core/styles';
 import deepPurple from '@material-ui/core/colors/deepPurple';
-import cyan from '@material-ui/core/colors/cyan';
+// import cyan from '@material-ui/core/colors/cyan';
 import red from '@material-ui/core/colors/red';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import PrintIcon from '@material-ui/icons/Print';
-import Add_boxIcon from '@material-ui/icons/Add';
+import AddBoxIcon from '@material-ui/icons/Add';
 
 
 const theme = createMuiTheme({
@@ -142,7 +142,7 @@ render() {
                       placeholder="Initials" size="10" className="inputHeight" /></h4>
                 </div>              
                 <Button type="submit" variant="contained" color="primary"
-                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '100px' }} >Add Book<Add_boxIcon/></Button>
+                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '100px' }} >Add Book<AddBoxIcon/></Button>
               </div>
             </form>
               <b>Total books read: {this.props.bookReducer.length}</b>
