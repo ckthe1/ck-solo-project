@@ -92,9 +92,9 @@ class TeacherPage extends Component {
               <tr>       
                 <th>Students</th>
                 <th>Total books read</th>
-                <th>Reach 5 books</th>
                 <th>Reach 10 books</th>
                 <th>Reach 20 books</th>
+                <th>Reach 30 books</th>
               </tr>
 
             </thead>
@@ -114,13 +114,13 @@ class TeacherPage extends Component {
                       {studentItem.total_books_read}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 5 ? "Yes" : "No"}
-                    </td>
-                    <td>
                       {Number(studentItem.total_books_read) >= 10 ? "Yes" : "No"}
                     </td>
                     <td>
                       {Number(studentItem.total_books_read) >= 20 ? "Yes" : "No"}
+                    </td>
+                    <td>
+                      {Number(studentItem.total_books_read) >= 30 ? "Yes" : "No"}
                     </td>
                   </tr>
                 )
