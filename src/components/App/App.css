@@ -82,7 +82,6 @@ input {
 }
 .studentPageBody{
   text-align: center;  
-  /* vertical-align: text-bottom; */
 }
 
 b{
@@ -186,14 +185,8 @@ input{
 border-color:#0bf332;
 }
 
-/* .box input[type="text"]:focus, .box input[type="password"]:focus, .box input[type="date"]:focus{
-width:  180px;
-border-color:#0bf332;
-} */
-
 tr:nth-child(10n+0) {
   background-color:rgb(246, 13, 254);
-
 }
 
 .fa[disabled] {
@@ -203,11 +196,6 @@ tr:nth-child(10n+0) {
 .bodyDetailPage{
  vertical-align: text-bottom;
 }
-
-/* .DragSchoolIcon{
-  text-align: center;
-
-} */
 
 .BackIcon{
   text-align: center;
@@ -227,5 +215,4 @@ tr:nth-child(10n+0) {
   font-family: fantasy;
   font-size:14px;
   color:  #380149;  text-shadow: 2px 2px 4px #f8b600fd;
-
 }

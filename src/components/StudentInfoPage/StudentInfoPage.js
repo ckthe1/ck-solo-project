@@ -114,6 +114,7 @@ class StudentInfoPage extends Component {
     window.print();
   }//end print
 
+//This is the student page layout
 render() {
     console.log('bookReducer', this.props.bookReducer);
     console.log('this.STATE', this.state);
@@ -206,3 +207,4 @@ StudentInfoPage.propTypes = {
 
 export default withStyles(styles)(connect(mapStateToProps)(StudentInfoPage));
 
+// disabled = { this.state.isEnable }

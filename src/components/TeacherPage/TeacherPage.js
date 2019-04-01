@@ -73,8 +73,9 @@ class TeacherPage extends Component {
   handlePrint = () => {
     console.log('print this');
     window.print();
-  }//end print
+  }//end print, print this page
 
+/// this is the teacher's page
   render() {
     console.log('this.state:', this.state);
     console.log('this.props.studentReducer', this.props.studentReducer);

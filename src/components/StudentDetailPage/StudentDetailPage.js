@@ -25,7 +25,7 @@ const theme = createMuiTheme({
         fontFamily: "fantasy",
         fontSize: 12,
     }
-});
+});// material UI colors
 
 const styles = theme => ({
     root: {
@@ -50,7 +50,7 @@ class StudentDetailPage extends Component {
 
     componentDidMount() {
         this.fetchBook();
-    }
+    }// on load, execute this function
 
     fetchBook = () => {
         //make call to server using sagas
@@ -61,14 +61,14 @@ class StudentDetailPage extends Component {
     handleClick=()=>{
         console.log('back button clicked');        
         this.props.history.push('/about');
-    }
+    }// going back to the about page.
 
     handlePrint = () => {
         console.log('print this');
         window.print();
-    }//end print
+    }//end print. Print the current page
 
-
+/// This is the detailed page of each student's info when you click on the "detail" button.
 render() {
         console.log('studentDetailPage: studentDetailReducer:', this.props.studentDetailReducer);
         console.log('studentDetailPage: this.STATE:', this.state);
@@ -85,15 +85,11 @@ render() {
                             <b>Total books read: {this.props.studentDetailReducer.total_books_read}</b>
                         </div>
                     </div>
-                    <div >
-                       
+                    <div >                      
                         <b><Button  variant="contained" color="primary" onClick={this.handleClick}>
-                            back<ReplyIcon /></Button></b>
-                    
-                       
+                            back<ReplyIcon /></Button></b>                      
                         <b><Button  variant="contained" color="primary" onClick={this.handlePrint} >
-                            Print <PrintIcon /></Button></b>
-                 
+                            Print <PrintIcon /></Button></b>                 
                     </div>
                     <table>
                         <thead>
