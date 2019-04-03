@@ -35,12 +35,14 @@
     "server": "nodemon --watch server server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "testServer": "jest server/test/*.test.js --forceExit",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
     "nodemon": "^1.17.2",
     "react-easy-print": "^0.6.0",
-    "react-to-print": "^2.0.0-alpha.7"
+    "react-to-print": "^2.0.0-alpha.7",
+    "supertest": "^4.0.2"
   },
   "browserslist": [
     ">0.2%",

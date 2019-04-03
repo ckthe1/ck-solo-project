@@ -1,4 +1,12 @@
 # Raf Reading log
+I have a six year old son that is requires by its school to read a  small book each night to his parent, and record it on a paper reading log. After a couple of weeks the reading log is unreadable and torn up,
+my application was build to solve that problem.
+The app is designed to improve grade school-age kids "Reading log" experience and add new level of readability and communication between students, parents and teachers.
+The teacher is can log in and view all students, and their past work in detail id desired, as well as print the information for record keeping.
+Student can register, log in and use the same process that is already established by the paper reading log for ease of use.
+
+
+
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
 ## Prerequisites
@@ -51,3 +59,8 @@ run `npm run build` in terminal. This will create a build folder that contains t
   * LogOutButton/LogOutButton
   * ProtectedRoute/ProtectedRoute
 
+License:
+This project is licensed under the MIT License - see the LICENSE.md file for details
+
+Author:
+Cheng-kou Tongkhuya
