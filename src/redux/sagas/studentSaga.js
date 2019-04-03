@@ -1,8 +1,4 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
-// import logger from 'redux-logger';
-// import createSagaMiddleware from 'redux-saga';
+
 import { takeLatest, put as dispatch } from 'redux-saga/effects';
 import axios from 'axios';
 
@@ -16,7 +12,6 @@ function* postBook(action) {
         console.log('this was an error with the post-BOOK ');
     }
 } 
-
 
 function* fetchBook() {
     console.log('fetchBook was hit');
