@@ -55,7 +55,6 @@ class StudentInfoPage extends Component {
     count: this.props.bookReducer.length,
     isEnable: true,
     addBook: false,
-
   };
 
 
@@ -72,8 +71,8 @@ class StudentInfoPage extends Component {
     event.preventDefault();
     if (this.state.title === '' && this.state.date_completed === '' && this.state.initial === '') {
       alert('BOOK TITLE, DATE AND INITIAL CANNOT BE EMPTY')
-    } else {
-      
+      return this.state
+    } else {    
       this.props.dispatch({ type: 'ADD_BOOK', payload: this.state });
       alert('GREAT SUCCESS')
     }
@@ -151,14 +150,16 @@ render() {
                 <input type="text" value={this.state.initial} onChange={this.handleChange('initial')}
                       placeholder="Initials" size="10" className="inputHeight" /></h4>                
               </div>  
-              <h4>Parent Comments:
+              <h4 className="comments">Parent Comments:
                 <input type="text" value={this.state.comments} onChange={this.handleChange('comments')}
                   placeholder="Comments" size="60" className="inputHeightComments" />
               </h4> 
+              <center>
                 <Button type="submit" variant="contained" color="primary"
-                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '100px' }} 
+                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '80px' }} 
                   disabled={this.state.addBook} >Add Book<AddBoxIcon/>
-                </Button>           
+                </Button>     
+              </center>
             <div className="flex-names">Total books read: {this.props.bookReducer.length}</div>
          
             <div className="BackIcon">

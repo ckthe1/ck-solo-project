@@ -50,13 +50,22 @@ border-color:#0bf332;
 
 .BackIcon{
   text-align: center;
-  padding-left: 10px;
+  padding-left: 5px;
   padding-right: 10px;
   padding-bottom: 3px;
   align-content: center;
   display:flex; 
 }
 
+.comments{
+  height: 120px;
+  text-align: left;
+  /* display:inline-block; */
+ 
+  color: rgb(15, 15, 119);
+  font-family: fantasy;
+  
+}
 .fa[disabled] {
   display: none !important;
 }
@@ -85,7 +94,8 @@ form {
   text-shadow: 2px 2px 4px #0019f8fd;
   font-size: 35px;
   font-family: fantasy;
-  padding-left: 10px;
+  padding-top: 10px;
+  padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 3px;
 }
