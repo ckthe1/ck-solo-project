@@ -28,12 +28,13 @@ router.post('/',(req,res)=>{
                 dataIds.push(result.rows[0].id)
                 console.log('dataIds:', dataIds);
                 const newBook = req.body;
-                const queryText = `INSERT INTO "relationship" ("date_id","book_id","initial", "student_id")
-                                    VALUES ($1,$2,$3,$4) RETURNING id`;
+                const queryText = `INSERT INTO "relationship" ("date_id","book_id","initial","comments", "student_id")
+                                    VALUES ($1,$2,$3,$4,$5) RETURNING id`;
                 const queryValues = [
-                    dataIds[dataIds.length-2],
+                    dataIds[dataIds.length - 2],
                     dataIds[dataIds.length - 1],
                     newBook.initial,
+                    newBook.comments,
                     newBook.user,
                 ];
                 pool.query(queryText, queryValues).then(() => {
@@ -50,7 +51,7 @@ router.post('/',(req,res)=>{
 router.get('/', (req, res) => {
     console.log('req.user.id', req.user.id);
     
-    const queryText = (`SELECT  "title", "date_completed","initial", "date"."id" AS "date_completed_id", "books"."id" AS "book_id_id" FROM "date"
+    const queryText = (`SELECT  "title", "date_completed","initial", "comments", "date"."id" AS "date_completed_id", "books"."id" AS "book_id_id" FROM "date"
                         JOIN "relationship" ON "date"."id" = "relationship"."date_id"
                         JOIN "user" ON "user"."id" = "relationship"."student_id"
                         JOIN "books" ON "books"."id" = "relationship"."book_id"

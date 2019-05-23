@@ -49,6 +49,7 @@ class StudentInfoPage extends Component {
     title: '',
     date_completed: '',
     initial: '',
+    comments: '',
     bookId: '',
     user: this.props.user.id,
     count: this.props.bookReducer.length,
@@ -80,6 +81,7 @@ class StudentInfoPage extends Component {
       title: '',
       date_completed: '',
       initial: '',
+      comments: '',
       bookId: '',
       user: this.props.user.id,
       count: '',
@@ -104,6 +106,7 @@ class StudentInfoPage extends Component {
       title: '',
       date_completed: '',
       initial: '',
+      comments:'',
       bookId: '',
       user: this.props.user.id,
       count: '',
@@ -143,21 +146,26 @@ render() {
                 <h4>Enter Book Title:
                 <input type="text" value={this.state.title} onChange={this.handleChange('title')}
                     placeholder="Title of Book" size="25" className="inputHeight" /></h4>
-                <div>
+                
                   <h4>Parent Initial Here:
                 <input type="text" value={this.state.initial} onChange={this.handleChange('initial')}
-                      placeholder="Initials" size="10" className="inputHeight" /></h4>
-                </div>              
+                      placeholder="Initials" size="10" className="inputHeight" /></h4>                
+              </div>  
+              <h4>Parent Comments:
+                <input type="text" value={this.state.comments} onChange={this.handleChange('comments')}
+                  placeholder="Comments" size="60" className="inputHeightComments" />
+              </h4> 
                 <Button type="submit" variant="contained" color="primary"
                   style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '100px' }} 
-                  disabled={this.state.addBook} >Add Book<AddBoxIcon/></Button>
-              </div>
-           
+                  disabled={this.state.addBook} >Add Book<AddBoxIcon/>
+                </Button>           
             <div className="flex-names">Total books read: {this.props.bookReducer.length}</div>
          
-          <div className="BackIcon">
-            <Button variant="contained" color="primary" onClick={this.handlePrint} > Print<PrintIcon/></Button>
-          </div>
+            <div className="BackIcon">
+              <Button variant="contained" color="primary" onClick={this.handlePrint} >
+                Print<PrintIcon/>
+              </Button>
+            </div>
          
           <table>
             <thead>
@@ -165,6 +173,7 @@ render() {
                 <th>Date</th>
                 <th>Title of Book</th>
                 <th>Initial by a Parent</th>
+                <th>Comments</th>
                 <th>Remove</th>
               </tr>
             </thead>           
@@ -182,6 +191,9 @@ render() {
                     </td>
                     <td>
                       {bookItem.initial}
+                    </td>
+                    <td>
+                      {bookItem.comments}
                     </td>
                     <td>
                       <Button variant="contained" color="secondary"

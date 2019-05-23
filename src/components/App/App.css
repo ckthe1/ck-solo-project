@@ -114,6 +114,15 @@ input {
   
 }
 
+.inputHeightComments{
+  height: 120px;
+  text-align: left;
+  /* display:inline-block; */
+  background-color: rgba(157, 157, 243, 0.755);
+  color: rgb(15, 15, 119);
+  font-family: fantasy;
+  
+}
 .logOutButton{
   font-family: fantasy;
   font-size:14px;
