@@ -76,7 +76,7 @@ class TeacherPage extends Component {
   }//end print, print this page
 
 /// this is the teacher's page
-  render() {
+render() {
     console.log('this.state:', this.state);
     console.log('this.props.studentReducer', this.props.studentReducer);
 
@@ -84,10 +84,11 @@ class TeacherPage extends Component {
       <div >
         <MuiThemeProvider theme={theme}>
           <div className="bodyTeacher">
-            <b>Total students: {this.props.studentReducer.length}</b>
+            <div className="flex-names">Total students: {this.props.studentReducer.length}</div>
           </div>
-          <b><Button variant="contained" color="primary" onClick={this.handlePrint} >
-            Print <PrintIcon /></Button></b>
+          <div className="BackIcon"><Button variant="contained" color="primary" onClick={this.handlePrint} >
+            Print <PrintIcon /></Button>
+          </div>
           <table>
             <thead>
               <tr>       

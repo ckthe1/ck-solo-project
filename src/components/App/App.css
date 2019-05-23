@@ -1,3 +1,9 @@
+.alert {
+  background-color: #ff4545;
+  margin: 50px;
+}
+
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
@@ -27,14 +33,32 @@ body {
   padding-left: 20px;
 }
 
-.image{
-  height: 300px;
-  width: 1200px;
+.box input[type="text"], .box input[type="password"], .box input[type="date"]{
+  border:2px solid #3600f8fd;
+  border-radius:24px;
+  text-align: center;
 }
 
-.alert {
-  background-color: #ff4545;
-  margin: 50px;
+.box input[type="text"]:hover, .box input[type="password"]:hover, .box input[type="date"]:hover{
+/* width:  130px; */
+border-color:#0bf332;
+}
+
+.bodyDetailPage{
+ vertical-align: text-bottom;
+}
+
+.BackIcon{
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+  align-content: center;
+  display:flex; 
+}
+
+.fa[disabled] {
+  display: none !important;
 }
 
 form {
@@ -46,9 +70,54 @@ form {
   border-radius: 2px;
 }
 
+.flex-container {
+  display:flex; 
+  color:  #380149;
+  font-size:25px;
+  font-family: fantasy;
+  text-shadow: 2px 2px 4px #092c35fd;
+}
+
+.flex-names{
+  display:flex;
+  color:  #380149;
+  text-align: center;
+  text-shadow: 2px 2px 4px #0019f8fd;
+  font-size: 35px;
+  font-family: fantasy;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+}
+
+.image{
+  height: 300px;
+  width: 1200px;
+}
+
 input {
   margin: 5px;
   margin-bottom: 10px;
+    height: 20px;
+  font-family: fantasy;
+  font-size:14px;
+  color:  #380149;
+}
+
+
+.inputHeight{
+  height: 30px;
+  display:inline-block;
+  background-color: rgba(157, 157, 243, 0.755);
+  color: rgb(15, 15, 119);
+  font-family: fantasy;
+  
+}
+
+.logOutButton{
+  font-family: fantasy;
+  font-size:14px;
+  color:  #380149;  text-shadow: 2px 2px 4px #f8b600fd;
 }
 
 .log-in, .log-out, .register {
@@ -75,24 +144,20 @@ input {
   padding:0;
   font: inherit;
   outline:0;
-  border-bottom:1px solid rgb(99, 3, 163); 
+  /* border-bottom:1px solid rgb(99, 3, 163);  */
   cursor: pointer;
   font-family: fantasy;
   text-shadow: 2px 2px 4px#0019f8fd;
 }
-.studentPageBody{
+/* .studentPageBody{
   text-align: center;  
+} */
+.labelClass{
+  color:  #380149;
+  text-shadow: 2px 2px 4px#0019f8fd;
+  font-family: fantasy;
 }
 
-b{
-  color:  #380149;
-  text-shadow: 2px 2px 4px #0019f8fd;
-  font-size: 50px;
-  font-family: fantasy;
-  padding-left: 10px;
-  padding-right: 5px;
-  padding-bottom: 3px;
-}
 
 h1{
   text-align:center;    
@@ -126,16 +191,23 @@ h5{
 ::placeholder { 
   color: rgb(15, 15, 119);
 }
-.labelClass{
-  color:  #380149;
-  text-shadow: 2px 2px 4px#0019f8fd;
-  font-family: fantasy;
+
+
+.PrintIcon{
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 0px; 
+   align-content: center;
+ 
 }
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  background-color: #dddddd57
+  background-color: #dddddd57;
+
 }
 
 td, th {
@@ -151,68 +223,6 @@ tr:nth-child(even) {
   background-color:rgba(0, 62, 197, 0.322);
 }
 
-.inputHeight{
-  height: 30px;
-  display:inline-block;
-  background-color: rgba(157, 157, 243, 0.755);
-  color: rgb(15, 15, 119);
-  font-family: fantasy;
-  
-}
-
-.flex-container {
-  display:flex; 
-  color:  #380149;
-  font-size:25px;
-  font-family: fantasy;
-  text-shadow: 2px 2px 4px #092c35fd;
-}
-input{
-  height: 20px;
-  font-family: fantasy;
-  font-size:14px;
-  color:  #380149;
-  /* text-shadow: 2px 2px 4px #0b3a70fd; */
-}
-.box input[type="text"], .box input[type="password"], .box input[type="date"]{
-  border:2px solid #3600f8fd;
-  border-radius:24px;
-  text-align: center;
-}
-
-.box input[type="text"]:hover, .box input[type="password"]:hover, .box input[type="date"]:hover{
-/* width:  130px; */
-border-color:#0bf332;
-}
-
 tr:nth-child(10n+0) {
   background-color:rgb(246, 13, 254);
-}
-
-.fa[disabled] {
-  display: none !important;
-}
-
-.bodyDetailPage{
- vertical-align: text-bottom;
-}
-
-.BackIcon{
-  text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 3px;
-  align-content: left;
-}
-.PrintIcon{
-  text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 3px;
-  align-content: center;
-}
-.logOutButton{
-  font-family: fantasy;
-  font-size:14px;
-  color:  #380149;  text-shadow: 2px 2px 4px #f8b600fd;
 }

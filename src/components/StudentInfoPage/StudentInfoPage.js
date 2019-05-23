@@ -53,6 +53,7 @@ class StudentInfoPage extends Component {
     user: this.props.user.id,
     count: this.props.bookReducer.length,
     isEnable: true,
+    addBook: false,
 
   };
 
@@ -71,6 +72,7 @@ class StudentInfoPage extends Component {
     if (this.state.title === '' && this.state.date_completed === '' && this.state.initial === '') {
       alert('BOOK TITLE, DATE AND INITIAL CANNOT BE EMPTY')
     } else {
+      
       this.props.dispatch({ type: 'ADD_BOOK', payload: this.state });
       alert('GREAT SUCCESS')
     }
@@ -112,6 +114,11 @@ class StudentInfoPage extends Component {
   handlePrint=()=>{
     console.log('print this');  
     window.print();
+   
+   
+
+    //  window.open('text.txt').print();
+   
   }//end print
 
 //This is the student page layout
@@ -119,15 +126,14 @@ render() {
     console.log('bookReducer', this.props.bookReducer);
     console.log('this.STATE', this.state);
 
-    return (
-      
+    return (     
       <div >
         <MuiThemeProvider theme={theme}>
           <div className="body">
             <div className="studentPageBody" >           
-              <div>                
-                <b>Reading is Oh so Sweet</b>
-              </div>
+              <p className="flex-names">                
+                Reading is Oh so Sweet
+              </p>
                 <h5>Please spend 10-15 minutes each night reading to your child</h5> 
             </div>
             <form onSubmit={this.handleSubmit} className="box">
@@ -143,14 +149,16 @@ render() {
                       placeholder="Initials" size="10" className="inputHeight" /></h4>
                 </div>              
                 <Button type="submit" variant="contained" color="primary"
-                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '100px' }} >Add Book<AddBoxIcon/></Button>
+                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '100px' }} 
+                  disabled={this.state.addBook} >Add Book<AddBoxIcon/></Button>
               </div>
-            </form>
-              <b>Total books read: {this.props.bookReducer.length}</b>
+           
+            <div className="flex-names">Total books read: {this.props.bookReducer.length}</div>
+         
+          <div className="BackIcon">
+            <Button variant="contained" color="primary" onClick={this.handlePrint} > Print<PrintIcon/></Button>
           </div>
-          <b className="BackIcon">
-            <Button className="BackIcon" variant="contained" color="primary" onClick={this.handlePrint} > Print<PrintIcon/></Button>
-          </b>
+         
           <table>
             <thead>
               <tr>
@@ -159,8 +167,7 @@ render() {
                 <th>Initial by a Parent</th>
                 <th>Remove</th>
               </tr>
-            </thead>
-            
+            </thead>           
             <tbody>
               {this.props.bookReducer.map((bookItem) => {
                 return (
@@ -185,12 +192,12 @@ render() {
                 )
               }
               )}
-            </tbody>
-           
+            </tbody>           
           </table>
+            </form>
+          </div>
         </MuiThemeProvider>
-      </div>
-      
+      </div>      
     );
   }
 }

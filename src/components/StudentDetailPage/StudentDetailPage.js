@@ -79,13 +79,17 @@ render() {
                 <MuiThemeProvider theme={theme}>
                     <div className="bodyDetailPage">
                         <div className="studentPageBody" >
-                            <b>Student Name: {this.props.studentDetailReducer.username}</b>
+                            <div className="flex-names">
+                            Student Name: {this.props.studentDetailReducer.username}
+                            </div>
                         </div>
                         <div>
-                            <b>Total books read: {this.props.studentDetailReducer.total_books_read}</b>
+                            <div className="flex-names">
+                            Total books read: {this.props.studentDetailReducer.total_books_read}
+                            </div>
                         </div>
                     </div>
-                    <div >                      
+                    <div className="BackIcon">                      
                         <b><Button  variant="contained" color="primary" onClick={this.handleClick}>
                             back<ReplyIcon /></Button></b>                      
                         <b><Button  variant="contained" color="primary" onClick={this.handlePrint} >
