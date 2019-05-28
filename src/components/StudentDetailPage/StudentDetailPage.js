@@ -11,6 +11,7 @@ import ReplyIcon from '@material-ui/icons/Reply';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import PrintIcon from '@material-ui/icons/Print';
+import { spawn } from 'child_process';
 
 const theme = createMuiTheme({
     palette: {
@@ -43,6 +44,7 @@ class StudentDetailPage extends Component {
         title: '',
         date_completed: '',
         initial: '',
+        comments:'',
         bookId: '',
         user: this.props.user.id,
         count: this.props.bookReducer.length,
@@ -89,17 +91,18 @@ render() {
                             </div>
                         </div>
                     </div>
-                    <div className="BackIcon">                      
-                        <b><Button  variant="contained" color="primary" onClick={this.handleClick}>
-                            back<ReplyIcon /></Button></b>                      
-                        <b><Button  variant="contained" color="primary" onClick={this.handlePrint} >
-                            Print <PrintIcon /></Button></b>                 
+                    <div className="flex-names">                      
+                        <div className="BackIcon"><Button  variant="contained" color="primary" onClick={this.handleClick}>
+                            back<ReplyIcon /></Button></div>                      
+                        <div className="BackIcon"><Button  variant="contained" color="primary" onClick={this.handlePrint} >
+                            Print <PrintIcon /></Button></div>                 
                     </div>
                     <table>
                         <thead>
                             <tr>
                                 <th>Date</th>
                                 <th>Book title</th>
+                                <th>Comments</th>
                                 <th>Initial by a Parent</th>
                             </tr>
                         </thead>
@@ -114,6 +117,9 @@ render() {
                                         </td>
                                         <td>
                                             {bookItem.title}
+                                        </td>
+                                        <td>
+                                            {bookItem.comments}
                                         </td>
                                         <td>
                                             {bookItem.initial}

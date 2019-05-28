@@ -55,7 +55,9 @@ router.get('/', (req, res) => {
                         JOIN "relationship" ON "date"."id" = "relationship"."date_id"
                         JOIN "user" ON "user"."id" = "relationship"."student_id"
                         JOIN "books" ON "books"."id" = "relationship"."book_id"
-                        WHERE "user"."id" = $1;`               
+                        WHERE "user"."id" = $1
+                        ORDER BY "date"."id" DESC;`
+                                       
                 )
         pool.query(queryText,[req.user.id]).then((result) => {
             res.send(result.rows)
