@@ -76,18 +76,35 @@ render() {
         console.log('studentDetailPage: this.STATE:', this.state);
         console.log('studentInfoReducer:', this.props.studentInfoReducer);
 
+    // if ( this.props.studentDetailReducer.total_books_read >= 5) {
+    //     <span className='reachBook'>{this.props.studentDetailReducer.total_books_read}</span>
+    // } else if (this.props.studentDetailReducer.total_books_read >= 8) {
+    //     <span className='reachBook20'>{this.props.studentDetailReducer.total_books_read}</span>
+    // } else if ( this.props.studentDetailReducer.total_books_read >= 10) {
+    //     <span className='reachBook30'>{this.props.studentDetailReducer.total_books_read}</span>
+    // } else {
+    //     <span>{this.props.studentDetailReducer.total_books_read}</span>
+    // }
+
         return (
             <div >
                 <MuiThemeProvider theme={theme}>
                     <div className="bodyDetailPage">
                         <div className="studentPageBody" >
                             <div className="flex-names">
+                                
                             Student Name: {this.props.studentDetailReducer.username}
                             </div>
                         </div>
                         <div>
                             <div className="flex-names">
-                            Total books read: {this.props.studentDetailReducer.total_books_read}
+                            Total books read: 
+                                
+                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook'>{this.props.studentDetailReducer.total_books_read}</span>
+                                    : Number(this.props.studentDetailReducer.total_books_read) === 5 ? <span className='reachBook20'>{this.props.studentDetailReducer.total_books_read}</span>
+                                    : Number(this.props.studentDetailReducer.total_books_read) === 11 ? <span className='reachBook30'>{this.props.studentDetailReducer.total_books_read}</span>
+                                    : <span >{this.props.studentDetailReducer.total_books_read}</span>}
+
                             </div>
                         </div>
                     </div>
@@ -115,14 +132,26 @@ render() {
                                             {new Date(bookItem.date_completed).getDate()}/
                                             {new Date(bookItem.date_completed).getFullYear()}
                                         </td>
-                                        <td>
-                                            {bookItem.title}
+                                        <td >
+                              
+                                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook'>{bookItem.title}</span> 
+                                                : Number(this.props.studentDetailReducer.total_books_read) ===5 ? <span className='reachBook20'>{bookItem.title}</span> 
+                                                : Number(this.props.studentDetailReducer.total_books_read) ===11 ? <span className='reachBook30'>{bookItem.title}</span>
+                                                : <span >{bookItem.title}</span> }
+                                            
                                         </td>
                                         <td>
-                                            {bookItem.comments}
+                                            
+                                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook'>{bookItem.comments}</span>
+                                                : Number(this.props.studentDetailReducer.total_books_read) === 5 ? <span className='reachBook20'>{bookItem.comments}</span>
+                                                : Number(this.props.studentDetailReducer.total_books_read) === 11 ? <span className='reachBook30'>{bookItem.comments}</span>
+                                                : <span >{bookItem.comments}</span>}
                                         </td>
                                         <td>
-                                            {bookItem.initial}
+                                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook'>{bookItem.initial}</span>
+                                                : Number(this.props.studentDetailReducer.total_books_read) === 5 ? <span className='reachBook20'>{bookItem.initial}</span>
+                                                : Number(this.props.studentDetailReducer.total_books_read) === 11 ? <span className='reachBook30'>{bookItem.initial}</span>
+                                                : <span >{bookItem.initial}</span>}
                                         </td>
                                     </tr>
                                 )

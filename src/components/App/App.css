@@ -222,7 +222,15 @@ h5{
 }
 
 .reachBook{
-  color: red;
+  color: blue;
+
+}
+.reachBook30{
+  color: gold;
+
+}
+.reachBook20{
+  color: red
 
 }
 table {
@@ -246,6 +254,6 @@ tr:nth-child(even) {
   background-color:rgba(0, 62, 197, 0.322);
 }
 
-tr:nth-child(10n+0) {
+/* tr:nth-child(11n-9) {
   background-color:rgb(246, 13, 254);
-}
+} */
