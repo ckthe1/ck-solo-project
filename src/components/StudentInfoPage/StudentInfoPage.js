@@ -160,7 +160,14 @@ render() {
                   disabled={this.state.addBook} >Add Book<AddBoxIcon/>
                 </Button>     
               </center>
-            <div className="flex-names">Total books read: {this.props.bookReducer.length}</div>
+              
+              {/* total book changes color to blue, red, gold when it reaches 10,20,30 */}
+            <div className="flex-names">Total books read: 
+                {Number(this.props.bookReducer.length) === 3 ? <span className='reachBook10'>{this.props.bookReducer.length}</span>
+                  : Number(this.props.bookReducer.length) === 5 ? <span className='reachBook20'>{this.props.bookReducer.length}</span>
+                  : Number(this.props.bookReducer.length) === 11 ? <span className='reachBook30'>{this.props.bookReducer.length}</span>
+                  : <span >{this.props.bookReducer.length}</span>}
+            </div>
          
             <div className="BackIcon">
               <Button variant="contained" color="primary" onClick={this.handlePrint} >

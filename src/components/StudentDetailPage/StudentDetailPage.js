@@ -86,20 +86,23 @@ render() {
                             </div>
                         </div>
                         <div>
+                            {/* number of total books change color to blue, red, gold when it reaches 10,20,30 */}
                             <div className="flex-names">
-                            Total books read:       
-                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook'>{this.props.studentDetailReducer.total_books_read}</span>
-                                    : Number(this.props.studentDetailReducer.total_books_read) === 5 ? <span className='reachBook20'>{this.props.studentDetailReducer.total_books_read}</span>
-                                    : Number(this.props.studentDetailReducer.total_books_read) === 11 ? <span className='reachBook30'>{this.props.studentDetailReducer.total_books_read}</span>
-                                    : <span >{this.props.studentDetailReducer.total_books_read}</span>}
+                                Total books read:       
+                                {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook10'>{this.props.studentDetailReducer.total_books_read}</span>
+                                        : Number(this.props.studentDetailReducer.total_books_read) === 5 ? <span className='reachBook20'>{this.props.studentDetailReducer.total_books_read}</span>
+                                        : Number(this.props.studentDetailReducer.total_books_read) === 11 ? <span className='reachBook30'>{this.props.studentDetailReducer.total_books_read}</span>
+                                        : <span >{this.props.studentDetailReducer.total_books_read}</span>}
                             </div>
                         </div>
                     </div>
                     <div className="flex-names">                      
                         <div className="BackIcon"><Button  variant="contained" color="primary" onClick={this.handleClick}>
-                            back<ReplyIcon /></Button></div>                      
+                            back<ReplyIcon /></Button>
+                        </div>                      
                         <div className="BackIcon"><Button  variant="contained" color="primary" onClick={this.handlePrint} >
-                            Print <PrintIcon /></Button></div>                 
+                            Print <PrintIcon /></Button>
+                        </div>                 
                     </div>
                     <table>
                         <thead>
@@ -113,6 +116,7 @@ render() {
                         <tbody>
                             {this.props.studentInfoReducer.filter(item => item.student_id === this.props.studentDetailReducer.student_id).map((bookItem) => {
                                 return (
+                                    
                                     <tr key={bookItem.id}>
                                         <td>
                                             {new Date(bookItem.date_completed).getMonth() + 1}/
@@ -120,19 +124,22 @@ render() {
                                             {new Date(bookItem.date_completed).getFullYear()}
                                         </td>
                                         <td > 
-                                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook'>{bookItem.title}</span> 
+                                            {/* book title changes color to blue, red, gold when it reaches 10,20,30 */}
+                                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook10'>{bookItem.title}</span> 
                                                 : Number(this.props.studentDetailReducer.total_books_read) ===5 ? <span className='reachBook20'>{bookItem.title}</span> 
                                                 : Number(this.props.studentDetailReducer.total_books_read) ===11 ? <span className='reachBook30'>{bookItem.title}</span>
                                                 : <span >{bookItem.title}</span> }     
                                         </td>
-                                        <td>            
-                                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook'>{bookItem.comments}</span>
+                                        <td>   
+                                            {/* comments changes color to blue, red, gold when it reaches 10,20,30 */}         
+                                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook10'>{bookItem.comments}</span>
                                                 : Number(this.props.studentDetailReducer.total_books_read) === 5 ? <span className='reachBook20'>{bookItem.comments}</span>
                                                 : Number(this.props.studentDetailReducer.total_books_read) === 11 ? <span className='reachBook30'>{bookItem.comments}</span>
                                                 : <span >{bookItem.comments}</span>}
                                         </td>
                                         <td>
-                                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook'>{bookItem.initial}</span>
+                                            {/* initials changes color to blue, red, gold when it reaches 10,20,30 */}
+                                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook10'>{bookItem.initial}</span>
                                                 : Number(this.props.studentDetailReducer.total_books_read) === 5 ? <span className='reachBook20'>{bookItem.initial}</span>
                                                 : Number(this.props.studentDetailReducer.total_books_read) === 11 ? <span className='reachBook30'>{bookItem.initial}</span>
                                                 : <span >{bookItem.initial}</span>}
