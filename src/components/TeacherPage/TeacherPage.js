@@ -98,7 +98,6 @@ render() {
                 <th>Reach 20 books</th>
                 <th>Reach 30 books</th>
               </tr>
-
             </thead>
             <tbody>
               {this.props.studentReducer.map((studentItem) => {
