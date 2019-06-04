@@ -76,7 +76,7 @@ class TeacherPage extends Component {
   }//end print, print this page
 
 /// this is the teacher's page
-  render() {
+render() {
     console.log('this.state:', this.state);
     console.log('this.props.studentReducer', this.props.studentReducer);
 
@@ -84,10 +84,11 @@ class TeacherPage extends Component {
       <div >
         <MuiThemeProvider theme={theme}>
           <div className="bodyTeacher">
-            <b>Total students: {this.props.studentReducer.length}</b>
+            <div className="flex-names">Total students: {this.props.studentReducer.length}</div>
           </div>
-          <b><Button variant="contained" color="primary" onClick={this.handlePrint} >
-            Print <PrintIcon /></Button></b>
+          <div className="BackIcon"><Button variant="contained" color="primary" onClick={this.handlePrint} >
+            Print <PrintIcon /></Button>
+          </div>
           <table>
             <thead>
               <tr>       
@@ -97,7 +98,6 @@ class TeacherPage extends Component {
                 <th>Reach 20 books</th>
                 <th>Reach 30 books</th>
               </tr>
-
             </thead>
             <tbody>
               {this.props.studentReducer.map((studentItem) => {
@@ -115,13 +115,13 @@ class TeacherPage extends Component {
                       {studentItem.total_books_read}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 10 ? "Yes" : "No"}
+                      {Number(studentItem.total_books_read) >= 3 ? <span className='reachBook10' >Yes</span> : "No"}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 20 ? "Yes" : "No"}
+                      {Number(studentItem.total_books_read) >= 5 ? <span className='reachBook20' >Yes</span> : "No"}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 30 ? "Yes" : "No"}
+                      {Number(studentItem.total_books_read) >= 11 ? <span className='reachBook30' >Yes</span>  : "No"}
                     </td>
                   </tr>
                 )

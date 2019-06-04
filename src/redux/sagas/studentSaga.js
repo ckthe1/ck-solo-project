@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 function* postBook(action) {
-    console.log('action.payload:', action.payload);   
+    console.log('postBook-action.payload:', action.payload);   
     try {
         yield axios.post('/book', action.payload);
         yield dispatch({ type: 'FETCH_BOOK' });

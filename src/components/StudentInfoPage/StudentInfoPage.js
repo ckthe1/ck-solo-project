@@ -49,11 +49,12 @@ class StudentInfoPage extends Component {
     title: '',
     date_completed: '',
     initial: '',
+    comments: '',
     bookId: '',
     user: this.props.user.id,
     count: this.props.bookReducer.length,
     isEnable: true,
-
+    addBook: false,
   };
 
 
@@ -70,7 +71,8 @@ class StudentInfoPage extends Component {
     event.preventDefault();
     if (this.state.title === '' && this.state.date_completed === '' && this.state.initial === '') {
       alert('BOOK TITLE, DATE AND INITIAL CANNOT BE EMPTY')
-    } else {
+      return this.state
+    } else {    
       this.props.dispatch({ type: 'ADD_BOOK', payload: this.state });
       alert('GREAT SUCCESS')
     }
@@ -78,6 +80,7 @@ class StudentInfoPage extends Component {
       title: '',
       date_completed: '',
       initial: '',
+      comments: '',
       bookId: '',
       user: this.props.user.id,
       count: '',
@@ -102,6 +105,7 @@ class StudentInfoPage extends Component {
       title: '',
       date_completed: '',
       initial: '',
+      comments:'',
       bookId: '',
       user: this.props.user.id,
       count: '',
@@ -112,6 +116,11 @@ class StudentInfoPage extends Component {
   handlePrint=()=>{
     console.log('print this');  
     window.print();
+   
+   
+
+    //  window.open('text.txt').print();
+   
   }//end print
 
 //This is the student page layout
@@ -119,15 +128,14 @@ render() {
     console.log('bookReducer', this.props.bookReducer);
     console.log('this.STATE', this.state);
 
-    return (
-      
+    return (     
       <div >
         <MuiThemeProvider theme={theme}>
           <div className="body">
             <div className="studentPageBody" >           
-              <div>                
-                <b>Reading is Oh so Sweet</b>
-              </div>
+              <p className="flex-names">                
+                Reading is Oh so Sweet
+              </p>
                 <h5>Please spend 10-15 minutes each night reading to your child</h5> 
             </div>
             <form onSubmit={this.handleSubmit} className="box">
@@ -137,30 +145,46 @@ render() {
                 <h4>Enter Book Title:
                 <input type="text" value={this.state.title} onChange={this.handleChange('title')}
                     placeholder="Title of Book" size="25" className="inputHeight" /></h4>
-                <div>
+                
                   <h4>Parent Initial Here:
                 <input type="text" value={this.state.initial} onChange={this.handleChange('initial')}
-                      placeholder="Initials" size="10" className="inputHeight" /></h4>
-                </div>              
+                      placeholder="Initials" size="10" className="inputHeight" /></h4>                
+              </div>  
+              <h4 className="comments">Parent Comments:
+                <input type="text" value={this.state.comments} onChange={this.handleChange('comments')}
+                  placeholder="Comments" size="60" className="inputHeightComments" />
+              </h4> 
+              <center>
                 <Button type="submit" variant="contained" color="primary"
-                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '100px' }} >Add Book<AddBoxIcon/></Button>
-              </div>
-            </form>
-              <b>Total books read: {this.props.bookReducer.length}</b>
-          </div>
-          <b className="BackIcon">
-            <Button className="BackIcon" variant="contained" color="primary" onClick={this.handlePrint} > Print<PrintIcon/></Button>
-          </b>
+                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '80px' }} 
+                  disabled={this.state.addBook} >Add Book<AddBoxIcon/>
+                </Button>     
+              </center>
+              
+              {/* total book changes color to blue, red, gold when it reaches 10,20,30 */}
+            <div className="flex-names">Total books read: 
+                {Number(this.props.bookReducer.length) === 3 ? <span className='reachBook10'>{this.props.bookReducer.length}</span>
+                  : Number(this.props.bookReducer.length) === 5 ? <span className='reachBook20'>{this.props.bookReducer.length}</span>
+                  : Number(this.props.bookReducer.length) === 11 ? <span className='reachBook30'>{this.props.bookReducer.length}</span>
+                  : <span >{this.props.bookReducer.length}</span>}
+            </div>
+         
+            <div className="BackIcon">
+              <Button variant="contained" color="primary" onClick={this.handlePrint} >
+                Print<PrintIcon/>
+              </Button>
+            </div>
+         
           <table>
             <thead>
               <tr>
                 <th>Date</th>
                 <th>Title of Book</th>
                 <th>Initial by a Parent</th>
+                <th>Comments</th>
                 <th>Remove</th>
               </tr>
-            </thead>
-            
+            </thead>           
             <tbody>
               {this.props.bookReducer.map((bookItem) => {
                 return (
@@ -177,6 +201,9 @@ render() {
                       {bookItem.initial}
                     </td>
                     <td>
+                      {bookItem.comments}
+                    </td>
+                    <td>
                       <Button variant="contained" color="secondary"
                         onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable}>Remove
                       <DeleteIcon /></Button>
@@ -185,12 +212,12 @@ render() {
                 )
               }
               )}
-            </tbody>
-           
+            </tbody>           
           </table>
+            </form>
+          </div>
         </MuiThemeProvider>
-      </div>
-      
+      </div>      
     );
   }
 }

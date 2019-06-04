@@ -13,6 +13,7 @@ class LoginPage extends Component {
     event.preventDefault();
 
     if (this.state.username && this.state.password) {
+      this.props.history.push('/home')
       this.props.dispatch({
         type: 'LOGIN',
         payload: {
@@ -71,26 +72,23 @@ render() {
               />
             </label>
           </div>
-          <div>
+          <div className="loginRegister">
             <input
               className="log-in"
               type="submit"
               name="submit"
               value="Log In"
             />
-          </div>
-        </form>     
-          <div>
-            <center>             
+                   
               <button
               type="button"
               className="link-button"
               onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
               >
               Register
-              </button>
-            </center>
+              </button>       
           </div>
+        </form> 
       </div>
       
     );
