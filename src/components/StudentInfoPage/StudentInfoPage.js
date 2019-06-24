@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import '../App/App.css'
 import Button from '@material-ui/core/Button';
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-// import { transitions, positions, Provider as AlertProvider } from 'react-alert'
-// import AlertTemplate from 'react-alert-template-basic'
-// import { useAlert } from 'react-alert'
 import { createMuiTheme } from '@material-ui/core/styles';
 import deepPurple from '@material-ui/core/colors/deepPurple';
 // import cyan from '@material-ui/core/colors/cyan';
@@ -117,10 +114,6 @@ class StudentInfoPage extends Component {
     console.log('print this');  
     window.print();
    
-   
-
-    //  window.open('text.txt').print();
-   
   }//end print
 
 //This is the student page layout
@@ -144,23 +137,23 @@ render() {
                 <input type="date" value={this.state.date} onChange={this.handleChange('date_completed')} className="inputHeight" size="25"/></h4>
                 <h4>Enter Book Title:
                 <input type="text" value={this.state.title} onChange={this.handleChange('title')}
-                    placeholder="Title of Book" size="25" className="inputHeight" /></h4>
-                
+                    placeholder="Title of Book" size="25" className="inputHeight" /></h4>           
                   <h4>Parent Initial Here:
                 <input type="text" value={this.state.initial} onChange={this.handleChange('initial')}
                       placeholder="Initials" size="10" className="inputHeight" /></h4>                
               </div>  
-              <h4 className="comments">Parent Comments:
+              <div className="flex-comments">
+              <h4 >Parent Comments:
                 <input type="text" value={this.state.comments} onChange={this.handleChange('comments')}
-                  placeholder="Comments" size="60" className="inputHeightComments" />
-              </h4> 
-              <center>
+                  placeholder="Comments" size="45" className="inputHeightComments" />
+              
+              
                 <Button type="submit" variant="contained" color="primary"
-                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '120px', minHeight: '80px' }} 
+                  style={{ maxWidth: '10px', maxHeight: '10px', minWidth: '100px', minHeight: '60px' }} 
                   disabled={this.state.addBook} >Add Book<AddBoxIcon/>
                 </Button>     
-              </center>
-              
+                </h4> 
+              </div>
               {/* total book changes color to blue, red, gold when it reaches 10,20,30 */}
             <div className="flex-names">Total books read: 
                 {Number(this.props.bookReducer.length) === 3 ? <span className='reachBook10'>{this.props.bookReducer.length}</span>

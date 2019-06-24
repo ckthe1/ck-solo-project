@@ -86,7 +86,12 @@ form {
   font-family: fantasy;
   text-shadow: 2px 2px 4px #092c35fd;
 }
-
+.flex-comments{
+  display:inline-flex;
+  padding: 10px;
+ 
+  
+}
 .flex-names{
   display:flex;
   color:  #380149;
@@ -106,9 +111,9 @@ form {
 }
 
 input {
-  margin: 5px;
+  margin: 10px;
   margin-bottom: 10px;
-    height: 20px;
+  height: 20px;
   font-family: fantasy;
   font-size:14px;
   color:  #380149;
@@ -125,7 +130,7 @@ input {
 }
 
 .inputHeightComments{
-  height: 120px;
+  height: 100px;
   text-align: left;
   /* display:inline-block; */
   background-color: rgba(157, 157, 243, 0.755);
@@ -217,7 +222,7 @@ h5{
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 0px; 
-   align-content: center;
+  align-content: center;
  
 }
 
