@@ -75,7 +75,7 @@ class TeacherPage extends Component {
     window.print();
   }//end print, print this page
 
-/// this is the teacher's page
+/// this is the teacher's page, teacher can see all students 
 render() {
     console.log('this.state:', this.state);
     console.log('this.props.studentReducer', this.props.studentReducer);

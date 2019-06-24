@@ -143,7 +143,9 @@ render() {
                       placeholder="Initials" size="10" className="inputHeight" /></h4>                
               </div>  
               <div className="flex-comments">
-              <h4 >Parent Comments:
+              <h4 > 
+                {/* Parent can leave comments to teacher in the comment box*/}
+                Parent Comments:
                 <input type="text" value={this.state.comments} onChange={this.handleChange('comments')}
                   placeholder="Comments" size="45" className="inputHeightComments" />
               
@@ -154,11 +156,13 @@ render() {
                 </Button>     
                 </h4> 
               </div>
-              {/* total book changes color to blue, red, gold when it reaches 10,20,30 */}
+              {/* total book changes color to blue, red, gold when it reaches 10,20,30 for visual indicator,
+              student that reaches those goal gets a gift from the teacher as an incentive to read more. 
+              But right now for testing the fonts changes colors at 3, 5, 10 */}
             <div className="flex-names">Total books read: 
                 {Number(this.props.bookReducer.length) === 3 ? <span className='reachBook10'>{this.props.bookReducer.length}</span>
                   : Number(this.props.bookReducer.length) === 5 ? <span className='reachBook20'>{this.props.bookReducer.length}</span>
-                  : Number(this.props.bookReducer.length) === 11 ? <span className='reachBook30'>{this.props.bookReducer.length}</span>
+                  : Number(this.props.bookReducer.length) === 10 ? <span className='reachBook30'>{this.props.bookReducer.length}</span>
                   : <span >{this.props.bookReducer.length}</span>}
             </div>
          
@@ -197,6 +201,8 @@ render() {
                       {bookItem.comments}
                     </td>
                     <td>
+                      {/* Delete button is disable until a new book has been added to reduce risk mistakes, however we 
+                      assume that the previous books are correctly entered  */}
                       <Button variant="contained" color="secondary"
                         onClick={this.handleDelete(bookItem.book_id_id)} disabled={this.state.isEnable}>Remove
                       <DeleteIcon /></Button>
