@@ -156,13 +156,13 @@ render() {
                 </Button>     
                 </h4> 
               </div>
-              {/* total book changes color to blue, red, gold when it reaches 10,20,30 for visual indicator,
+              {/* total book changes color to neon green, red, gold when it reaches 10,20,30 for visual indicator,
               student that reaches those goal gets a gift from the teacher as an incentive to read more. 
-              But right now for testing the fonts changes colors at 3, 5, 10 */}
+              */}
             <div className="flex-names">Total books read: 
-                {Number(this.props.bookReducer.length) === 3 ? <span className='reachBook10'>{this.props.bookReducer.length}</span>
-                  : Number(this.props.bookReducer.length) === 5 ? <span className='reachBook20'>{this.props.bookReducer.length}</span>
-                  : Number(this.props.bookReducer.length) === 10 ? <span className='reachBook30'>{this.props.bookReducer.length}</span>
+                {Number(this.props.bookReducer.length) === 10 ? <span className='reachBook10'>{this.props.bookReducer.length}</span>
+                  : Number(this.props.bookReducer.length) === 20 ? <span className='reachBook20'>{this.props.bookReducer.length}</span>
+                  : Number(this.props.bookReducer.length) === 30 ? <span className='reachBook30'>{this.props.bookReducer.length}</span>
                   : <span > {this.props.bookReducer.length} </span>}
             </div>
          

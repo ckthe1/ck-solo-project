@@ -115,13 +115,13 @@ render() {
                       {studentItem.total_books_read}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 3 ? <span className='reachBook10' >Yes</span> : "No"}
+                      {Number(studentItem.total_books_read) >= 10 ? <span className='reachBook10' >Yes</span> : "No"}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 5 ? <span className='reachBook20' >Yes</span> : "No"}
+                      {Number(studentItem.total_books_read) >= 20 ? <span className='reachBook20' >Yes</span> : "No"}
                     </td>
                     <td>
-                      {Number(studentItem.total_books_read) >= 11 ? <span className='reachBook30' >Yes</span>  : "No"}
+                      {Number(studentItem.total_books_read) >= 30 ? <span className='reachBook30' >Yes</span>  : "No"}
                     </td>
                   </tr>
                 )

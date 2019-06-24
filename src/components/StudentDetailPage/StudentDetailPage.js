@@ -86,12 +86,12 @@ render() {
                             </div>
                         </div>
                         <div>
-                            {/* number of total books change color to blue, red, gold when it reaches 10,20,30 */}
+                            {/* number of total books change color to neon green, red, gold when it reaches 10,20,30 */}
                             <div className="flex-names">
                                 Total books read:       
-                                {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook10'>{this.props.studentDetailReducer.total_books_read}</span>
-                                        : Number(this.props.studentDetailReducer.total_books_read) === 5 ? <span className='reachBook20'>{this.props.studentDetailReducer.total_books_read}</span>
-                                        : Number(this.props.studentDetailReducer.total_books_read) === 11 ? <span className='reachBook30'>{this.props.studentDetailReducer.total_books_read}</span>
+                                {Number(this.props.studentDetailReducer.total_books_read) === 10 ? <span className='reachBook10'>{this.props.studentDetailReducer.total_books_read}</span>
+                                        : Number(this.props.studentDetailReducer.total_books_read) === 20 ? <span className='reachBook20'>{this.props.studentDetailReducer.total_books_read}</span>
+                                        : Number(this.props.studentDetailReducer.total_books_read) === 30 ? <span className='reachBook30'>{this.props.studentDetailReducer.total_books_read}</span>
                                         : <span >{this.props.studentDetailReducer.total_books_read}</span>}
                             </div>
                         </div>
