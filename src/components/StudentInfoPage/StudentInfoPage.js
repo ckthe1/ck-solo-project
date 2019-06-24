@@ -163,7 +163,7 @@ render() {
                 {Number(this.props.bookReducer.length) === 3 ? <span className='reachBook10'>{this.props.bookReducer.length}</span>
                   : Number(this.props.bookReducer.length) === 5 ? <span className='reachBook20'>{this.props.bookReducer.length}</span>
                   : Number(this.props.bookReducer.length) === 10 ? <span className='reachBook30'>{this.props.bookReducer.length}</span>
-                  : <span >{this.props.bookReducer.length}</span>}
+                  : <span > {this.props.bookReducer.length} </span>}
             </div>
          
             <div className="BackIcon">

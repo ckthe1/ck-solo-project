@@ -102,7 +102,7 @@ form {
   padding-top: 10px;
   padding-left: 5px;
   padding-right: 5px;
-  padding-bottom: 3px;
+  padding-bottom: 10px;
 }
 
 .image{
@@ -228,15 +228,15 @@ h5{
 
 .reachBook10{
   color: blue;
-
+  padding-left: 10px;
 }
 .reachBook30{
   color: gold;
-
+  padding-left: 10px;
 }
 .reachBook20{
-  color: red
-
+  color: red;
+  padding-left: 10px;
 }
 table {
   font-family: arial, sans-serif;
