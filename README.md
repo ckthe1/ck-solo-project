@@ -1,5 +1,5 @@
 # Raf Reading log
-I have a six year old son that is requires by its school to read a  small book each night to his parent, and record it on a paper reading log. After a couple of weeks the reading log is unreadable and torn up,
+I have a six year old son that the school requires him to read a small book each night to his parent. He has to record it on a paper reading log. After a couple of weeks the reading log is unreadable and torn up,
 my application was build to solve that problem.
 The app is designed to improve grade school-age kids "Reading log" experience and add new level of readability and communication between students, parents and teachers.
 The teacher is can log in and view all students, and their past work in detail id desired, as well as print the information for record keeping.
