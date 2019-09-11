@@ -27,6 +27,7 @@ router.post('/',(req,res)=>{
                 console.log('responseBook', result.rows[0].id);
                 dataIds.push(result.rows[0].id)
                 console.log('dataIds:', dataIds);
+                
                 const newBook = req.body;
                 const queryText = `INSERT INTO "relationship" ("date_id","book_id","initial","comments", "student_id")
                                     VALUES ($1,$2,$3,$4,$5) RETURNING id`;

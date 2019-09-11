@@ -90,9 +90,9 @@ render() {
                             <div className="flex-names">
                                 Total books read:       
                                 {Number(this.props.studentDetailReducer.total_books_read) === 10 ? <span className='reachBook10'>{this.props.studentDetailReducer.total_books_read}</span>
-                                        : Number(this.props.studentDetailReducer.total_books_read) === 20 ? <span className='reachBook20'>{this.props.studentDetailReducer.total_books_read}</span>
-                                        : Number(this.props.studentDetailReducer.total_books_read) === 30 ? <span className='reachBook30'>{this.props.studentDetailReducer.total_books_read}</span>
-                                        : <span >{this.props.studentDetailReducer.total_books_read}</span>}
+                                : Number(this.props.studentDetailReducer.total_books_read) === 20 ? <span className='reachBook20'>{this.props.studentDetailReducer.total_books_read}</span>
+                                : Number(this.props.studentDetailReducer.total_books_read) === 30 ? <span className='reachBook30'>{this.props.studentDetailReducer.total_books_read}</span>
+                                : <span >{this.props.studentDetailReducer.total_books_read}</span>}
                             </div>
                         </div>
                     </div>
@@ -124,24 +124,24 @@ render() {
                                             {new Date(bookItem.date_completed).getFullYear()}
                                         </td>
                                         <td > 
-                                            {/* book title changes color to blue, red, gold when it reaches 10,20,30 */}
-                                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook10'>{bookItem.title}</span> 
-                                                : Number(this.props.studentDetailReducer.total_books_read) ===5 ? <span className='reachBook20'>{bookItem.title}</span> 
-                                                : Number(this.props.studentDetailReducer.total_books_read) ===11 ? <span className='reachBook30'>{bookItem.title}</span>
+                                            {/* book title changes color to neon green, red, gold when it reaches 10,20,30 */}
+                                            {Number(this.props.studentDetailReducer.total_books_read) === 10 ? <span className='reachBook10'>{bookItem.title}</span> 
+                                                : Number(this.props.studentDetailReducer.total_books_read) === 20 ? <span className='reachBook20'>{bookItem.title}</span> 
+                                                : Number(this.props.studentDetailReducer.total_books_read) === 30 ? <span className='reachBook30'>{bookItem.title}</span>
                                                 : <span >{bookItem.title}</span> }     
                                         </td>
                                         <td>   
-                                            {/* comments changes color to blue, red, gold when it reaches 10,20,30 */}         
-                                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook10'>{bookItem.comments}</span>
-                                                : Number(this.props.studentDetailReducer.total_books_read) === 5 ? <span className='reachBook20'>{bookItem.comments}</span>
-                                                : Number(this.props.studentDetailReducer.total_books_read) === 11 ? <span className='reachBook30'>{bookItem.comments}</span>
+                                            {/* comments changes color to neon green, red, gold when it reaches 10,20,30 */}         
+                                            {Number(this.props.studentDetailReducer.total_books_read) === 10 ? <span className='reachBook10'>{bookItem.comments}</span>
+                                                : Number(this.props.studentDetailReducer.total_books_read) === 20 ? <span className='reachBook20'>{bookItem.comments}</span>
+                                                : Number(this.props.studentDetailReducer.total_books_read) === 30 ? <span className='reachBook30'>{bookItem.comments}</span>
                                                 : <span >{bookItem.comments}</span>}
                                         </td>
                                         <td>
-                                            {/* initials changes color to blue, red, gold when it reaches 10,20,30 */}
-                                            {Number(this.props.studentDetailReducer.total_books_read) === 3 ? <span className='reachBook10'>{bookItem.initial}</span>
-                                                : Number(this.props.studentDetailReducer.total_books_read) === 5 ? <span className='reachBook20'>{bookItem.initial}</span>
-                                                : Number(this.props.studentDetailReducer.total_books_read) === 11 ? <span className='reachBook30'>{bookItem.initial}</span>
+                                            {/* initials changes color to neon green, red, gold when it reaches 10,20,30 */}
+                                            {Number(this.props.studentDetailReducer.total_books_read) === 10 ? <span className='reachBook10'>{bookItem.initial}</span>
+                                                : Number(this.props.studentDetailReducer.total_books_read) === 20 ? <span className='reachBook20'>{bookItem.initial}</span>
+                                                : Number(this.props.studentDetailReducer.total_books_read) === 30 ? <span className='reachBook30'>{bookItem.initial}</span>
                                                 : <span >{bookItem.initial}</span>}
                                         </td>
                                     </tr>
