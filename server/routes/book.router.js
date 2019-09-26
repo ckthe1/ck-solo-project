@@ -57,7 +57,7 @@ router.get('/', (req, res) => {
                         JOIN "user" ON "user"."id" = "relationship"."student_id"
                         JOIN "books" ON "books"."id" = "relationship"."book_id"
                         WHERE "user"."id" = $1
-                        ORDER BY "date"."id" DESC;`
+                        ORDER BY "date"."id" ASC;`
                                        
                 )
         pool.query(queryText,[req.user.id]).then((result) => {
