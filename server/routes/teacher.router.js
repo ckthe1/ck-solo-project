@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
                         LEFT OUTER JOIN "books" ON "books"."id" = "relationship"."book_id"
                         WHERE "clearance_level" = 0
                         GROUP BY "student_id", "username","clearance_level";`
+                        
     )
     pool.query(queryText ).then((result) => {
         res.send(result.rows)
